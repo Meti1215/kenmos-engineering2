@@ -90,8 +90,8 @@ export default function ContactPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 md:pb-24 px-4 sm:px-6 lg:px-8 bg-[#111112] text-white">
-        <div className="relative max-w-7xl mx-auto text-center flex flex-col items-center gap-4">
+      <section className="relative pt-32 pb-16 md:pb-24 bg-[#111112] text-white">
+        <div className="relative content-container text-center flex flex-col items-center gap-4">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 text-[#D71920] text-xs font-bold uppercase tracking-wider">
             <MessageSquare className="w-4 h-4" />
             Get In Touch
@@ -106,7 +106,7 @@ export default function ContactPage() {
       </section>
 
       {/* Main Contact Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <section className="py-20 content-container">
         <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-start">
           
           {/* Column 1: Contact Details & Map */}

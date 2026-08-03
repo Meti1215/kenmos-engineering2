@@ -55,8 +55,9 @@ export default function IndustriesPage() {
             <motion.div
               key={ind.id}
               variants={cardVariants}
-              className="group relative h-[360px] md:h-[400px] overflow-hidden flex flex-col justify-end p-6 md:p-8 cursor-pointer shadow-md"
+              className="group relative h-[360px] md:h-[400px] overflow-hidden flex flex-col justify-end cursor-pointer rounded-[1.25rem] border border-[#E9E4DC] shadow-[0_18px_44px_rgba(17,17,17,0.08)] transition-all duration-300 hover:-translate-y-2 hover:border-[#D71920]/35 hover:shadow-[0_28px_70px_rgba(17,17,17,0.16)]"
             >
+              <div className="absolute left-0 top-0 z-30 h-[3px] w-0 bg-[#D71920] transition-all duration-300 group-hover:w-full" />
               {/* Background Image with Hover Zoom */}
               <div className="absolute inset-0 z-0 bg-gray-950">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -68,33 +69,34 @@ export default function IndustriesPage() {
               </div>
 
               {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent z-[1] transition-opacity duration-300 group-hover:opacity-95"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/48 to-transparent z-[1] transition-opacity duration-300 group-hover:opacity-[0.97]"></div>
+
+              <div className="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-[0.75rem] bg-[#D71920]/90 text-white shadow-[0_8px_20px_rgba(215,25,32,0.35)] opacity-0 transition-all duration-300 group-hover:opacity-100">
+                <ArrowRight className="h-5 w-5" />
+              </div>
 
               {/* Content Box */}
-              <div className="relative z-10 text-white flex flex-col gap-2">
+              <div className="relative z-10 text-white flex flex-col gap-2.5 p-6 md:p-8">
                 <h3 className="text-xl md:text-2xl font-black font-heading tracking-tight group-hover:text-[#D71920] transition-colors leading-tight">
                   {ind.title}
                 </h3>
-                <p className="text-xs md:text-sm text-gray-300 leading-relaxed font-light">
+                <p className="text-xs md:text-sm text-gray-200/95 leading-relaxed font-light">
                   {ind.description}
                 </p>
               </div>
 
               {/* Red Line Accent on card bottom */}
-              <div className="absolute bottom-0 left-0 w-0 h-1 bg-[#D71920] transition-all duration-300 group-hover:w-full z-20"></div>
+              <div className="absolute bottom-0 left-0 w-0 h-1 bg-[#D71920] transition-all duration-500 group-hover:w-full z-20"></div>
             </motion.div>
           ))}
         </motion.div>
 
         {/* CTA */}
         <div className="mt-20 text-center">
-          <a
-            href="/contact"
-            className="inline-flex items-center gap-3 bg-[#D71920] hover:bg-[#be1218] text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-8 py-4 transition-colors"
-          >
+          <motion.a whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} href="/contact" className="group inline-flex items-center gap-3 rounded-full bg-[#D71920] px-8 py-4 text-xs font-bold uppercase tracking-[0.24em] text-white shadow-[0_14px_30px_rgba(215,25,32,0.22)] transition-all duration-300 hover:bg-[#be1218]">
             DISCUSS YOUR PROJECT
-            <ArrowRight className="w-4 h-4" />
-          </a>
+            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </motion.a>
         </div>
       </section>
 

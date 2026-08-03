@@ -69,21 +69,19 @@ export default function ProcessPage() {
             <motion.div
               key={step.step}
               variants={stepVariants}
-              className="relative z-10 flex flex-col items-center lg:items-start text-center lg:text-left group"
+              className="group relative z-10 flex h-full flex-col overflow-hidden rounded-[1.25rem] border border-[#E9E4DC] bg-white p-8 shadow-[0_16px_44px_rgba(17,17,17,0.06)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#D71920]/25 hover:shadow-[0_24px_60px_rgba(17,17,17,0.12)] items-center lg:items-start text-center lg:text-left"
             >
+              <div className="absolute left-0 top-0 h-[3px] w-0 bg-[#D71920] transition-all duration-300 group-hover:w-full" />
               {/* Step Circle Counter */}
-              <div className="w-24 h-24 rounded-none bg-white border border-gray-100 shadow-sm flex items-center justify-center relative mb-6 group-hover:border-[#D71920] group-hover:shadow-md transition-all duration-300">
+              <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-[1.25rem] border border-[#E9E4DC] bg-white shadow-[0_8px_24px_rgba(17,17,17,0.06)] transition-all duration-300 group-hover:border-[#D71920]/40 group-hover:shadow-[0_12px_32px_rgba(215,25,32,0.18)]">
                 <span className="text-3xl font-black font-heading text-gray-300 group-hover:text-[#D71920] transition-colors">
                   {step.step}
                 </span>
-                
-                {/* Micro-dot Indicator */}
-                <div className="absolute -bottom-1.5 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-white border-2 border-gray-300 rounded-full group-hover:border-[#D71920] group-hover:bg-[#D71920] transition-colors duration-300"></div>
               </div>
 
               {/* Title & Description */}
-              <div className="max-w-[280px]">
-                <h3 className="text-lg font-bold text-black mb-3">
+              <div className="flex flex-col flex-grow max-w-[280px]">
+                <h3 className="text-lg font-bold leading-tight tracking-tight text-black mb-3 transition-colors duration-300 group-hover:text-[#D71920]">
                   {step.title}
                 </h3>
                 <p className="text-sm text-gray-500 leading-relaxed font-light">

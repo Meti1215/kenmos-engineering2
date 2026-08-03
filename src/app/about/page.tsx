@@ -13,7 +13,7 @@ export default function AboutPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 md:pb-24 px-4 sm:px-6 lg:px-8 bg-[#111112] text-white overflow-hidden">
+      <section className="relative pt-32 pb-16 md:pb-24 bg-[#111112] text-white overflow-hidden">
         <div className="absolute inset-0 opacity-15">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -22,7 +22,7 @@ export default function AboutPage() {
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="relative max-w-7xl mx-auto text-center">
+        <div className="relative content-container text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -44,8 +44,8 @@ export default function AboutPage() {
       </section>
 
       {/* Company Details */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+      <section className="py-20">
+        <div className="content-container grid md:grid-cols-2 gap-12 items-start max-w-5xl">
           <div className="flex flex-col gap-6 text-gray-600 leading-relaxed font-light text-sm md:text-base">
             <h2 className="text-2xl font-black font-heading text-black uppercase tracking-tight border-b-2 border-[#D71920] pb-2 w-fit">
               Our Story
@@ -95,8 +95,8 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership Section */}
-      <section className="py-16 bg-gray-50 border-t border-gray-100 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto text-center">
+      <section className="py-16 bg-gray-50 border-t border-gray-100">
+        <div className="content-container text-center max-w-5xl">
           <h2 className="text-2xl md:text-3xl font-black font-heading text-black uppercase tracking-tight mb-12">
             Leadership & Experts
           </h2>
