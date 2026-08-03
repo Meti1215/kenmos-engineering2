@@ -40,25 +40,25 @@ const StatsBar = () => {
   ]
 
   return (
-    <div ref={ref} className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 md:-mt-24 lg:-mt-28">
+    <div ref={ref} className="relative z-20 max-w-[1080px] mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="bg-white border border-gray-200 shadow-2xl py-8 md:py-12 lg:py-14 px-6 md:px-10 lg:px-12"
+        className="bg-white border border-gray-200 shadow-[0_20px_55px_-24px_rgba(0,0,0,0.45)] rounded-[4px] py-3 md:py-4 lg:py-4 px-2 md:px-3 lg:px-4"
       >
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 lg:gap-6 divide-y md:divide-y-0 md:divide-x divide-gray-200">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-3 lg:gap-4 divide-y md:divide-y-0 md:divide-x divide-gray-200">
           {stats.map((stat, i) => (
             <div 
               key={stat.title} 
-              className={`flex flex-col items-center text-center p-3 md:p-4 lg:p-5 ${
-                i >= 2 ? 'pt-6 md:pt-4 lg:pt-5' : ''
+              className={`flex flex-col items-center text-center p-1 md:p-1.5 lg:p-2 ${
+                i >= 2 ? 'pt-3 md:pt-2 lg:pt-2' : ''
               }`}
             >
-              <div className="w-14 h-14 flex items-center justify-center bg-red-50 text-[#D71920] mb-4">
-                <stat.icon className="w-7 h-7" strokeWidth={1.5} />
+              <div className="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center bg-red-50 text-[#D71920] mb-2">
+                <stat.icon className="w-4.5 h-4.5 md:w-5 md:h-5" strokeWidth={1.5} />
               </div>
-              <div className="text-3xl md:text-4xl lg:text-5xl font-black font-heading text-black leading-none flex items-center justify-center">
+              <div className="text-2xl md:text-3xl lg:text-[2.35rem] font-black font-heading text-black leading-none flex items-center justify-center">
                 {inView ? (
                   <CountUp start={0} end={stat.value} duration={2.5} />
                 ) : (
@@ -66,7 +66,7 @@ const StatsBar = () => {
                 )}
                 <span className="text-[#D71920]">{stat.suffix}</span>
               </div>
-              <div className="text-[10px] md:text-xs lg:text-sm font-bold uppercase tracking-wider text-gray-600 mt-2">
+              <div className="text-[8px] md:text-[9px] lg:text-[10px] font-bold uppercase tracking-wider text-gray-600 mt-1 leading-tight">
                 {stat.title}
               </div>
             </div>

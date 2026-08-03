@@ -5,7 +5,6 @@ import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
-import StatsBar from '@/components/StatsBar'
 import About from '@/components/About'
 import Services from '@/components/ServicesCondensed'
 import Industries from '@/components/Industries'
@@ -24,9 +23,6 @@ export default function Home() {
       
       {/* Hero Section */}
       <Hero />
-      
-      {/* Floating Stats Card bridging Hero & About */}
-      <StatsBar />
       
       {/* About Kenmos Section */}
       <About />

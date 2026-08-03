@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { brand } from '@/lib/brand'
+import StatsBar from '@/components/StatsBar'
 
 const Hero = () => {
   return (
@@ -32,13 +33,13 @@ const Hero = () => {
       {/* Dark overlay matching the design reference */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30 z-[1]"></div>
 
-      <div className="relative z-10 w-full px-6 sm:px-8 lg:px-12 xl:px-16 max-w-7xl mx-auto flex flex-col justify-center py-16 md:py-24 lg:py-32">
-        <div className="max-w-2xl lg:max-w-3xl">
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 xl:px-10 max-w-[1400px] mx-auto flex flex-col items-start justify-center pt-14 pb-28 md:pt-16 md:pb-32 lg:pt-20 lg:pb-40">
+        <div className="w-full max-w-[38rem] lg:max-w-[42rem] text-left">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.15, ease: 'easeOut' }}
-            className="flex flex-col gap-5 md:gap-7 lg:gap-8"
+            className="flex flex-col gap-2 md:gap-3 lg:gap-4"
           >
             {/* Tagline tag */}
             <div className="flex items-center gap-3">
@@ -49,7 +50,7 @@ const Hero = () => {
             </div>
 
             {/* High Impact Heading */}
-            <h1 className="text-[2.75rem] sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black font-heading leading-[1.1] tracking-tight uppercase">
+            <h1 className="text-[2.05rem] sm:text-[2.4rem] md:text-[3.9rem] lg:text-[4.8rem] xl:text-[5.3rem] font-black font-heading leading-[0.96] tracking-tight uppercase">
               <span className="block text-white">ENGINEERING</span>
               <span className="block text-[#D71920] my-0.5 md:my-1">STRONGER</span>
               <span className="block text-white">FOUNDATIONS</span>
@@ -61,7 +62,7 @@ const Hero = () => {
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-4 sm:gap-5 mt-2">
+            <div className="flex flex-wrap items-center gap-4 sm:gap-5 mt-0.5">
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
@@ -92,6 +93,10 @@ const Hero = () => {
             </div>
           </motion.div>
         </div>
+      </div>
+
+      <div className="absolute inset-x-0 bottom-2 sm:bottom-3 lg:bottom-4 z-20 px-3 sm:px-4 lg:px-5">
+        <StatsBar />
       </div>
       
       {/* Scroll indicator overlay */}
