@@ -22,7 +22,7 @@ const Hero = () => {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/hero_building.png"
+            src="/images/hero-new.jpg"
             alt="Kenmos Engineering structural design"
             className="w-full h-full object-cover"
           />

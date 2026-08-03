@@ -36,6 +36,7 @@ const PROJECT_TYPES: ProjectType[] = ['Residential', 'Commercial', 'Industrial',
 const Navigation = () => {
   const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
+  const [isHeroVisible, setIsHeroVisible] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false)
   const [form, setForm] = useState<QuoteFormValues>(emptyForm)
@@ -63,13 +64,18 @@ const Navigation = () => {
 
   useEffect(() => {
     const handleScroll = () => {
+      const isHomePage = pathname === '/'
+      const heroElement = document.getElementById('home')
+      const heroBottomVisible = heroElement ? heroElement.getBoundingClientRect().bottom > 0 : false
+
       setScrolled(window.scrollY > 20)
+      setIsHeroVisible(isHomePage && heroBottomVisible)
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
     handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [pathname])
 
   const openQuoteModal = () => {
     setMobileMenuOpen(false)
@@ -147,7 +153,7 @@ const Navigation = () => {
     if (errors[key]) setErrors((prev) => ({ ...prev, [key]: undefined }))
   }
 
-  const Logo = () => (
+  const Logo = ({ light = false }: { light?: boolean }) => (
     <div className="flex items-center gap-3 flex-shrink-0">
       <svg className="w-10 h-10 md:w-12 md:h-12 flex-shrink-0" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="15" y="10" width="16" height="80" fill="#D71920" />
@@ -156,10 +162,10 @@ const Navigation = () => {
         <line x1="31" y1="52" x2="48" y2="52" stroke="#FFFFFF" strokeWidth="4" />
       </svg>
       <div className="flex flex-col select-none">
-        <span className="text-xl md:text-2xl font-black font-heading tracking-tight leading-[0.95] text-black">
+        <span className={cn('text-xl md:text-2xl font-black font-heading tracking-tight leading-[0.95]', light ? 'text-white' : 'text-black')}>
           KEN<span className="text-[#D71920]">MOS</span>
         </span>
-        <span className="text-[9px] md:text-[10px] font-bold tracking-[0.35em] text-gray-500 uppercase leading-none mt-1">
+        <span className={cn('text-[9px] md:text-[10px] font-bold tracking-[0.35em] uppercase leading-none mt-1', light ? 'text-white/75' : 'text-gray-500')}>
           Engineering
         </span>
       </div>
@@ -173,8 +179,11 @@ const Navigation = () => {
     <>
       <header
         className={cn(
-          'fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 bg-white border-b border-gray-200',
-          scrolled ? 'shadow-lg' : ''
+          'fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300',
+          isHeroVisible
+            ? 'bg-transparent border-transparent shadow-none backdrop-blur-none'
+            : 'bg-white border-b border-gray-200',
+          scrolled && !isHeroVisible ? 'shadow-lg' : ''
         )}
       >
         {/* Inner container: max-width 1400px, 100% width, 0 auto.
@@ -194,7 +203,7 @@ const Navigation = () => {
           >
             {/* COLUMN 1 — Logo (far left, ~48px from left edge via container px-12) */}
             <Link href="/" prefetch={true} className="cursor-pointer flex-shrink-0">
-              <Logo />
+              <Logo light={isHeroVisible} />
             </Link>
 
             {/* COLUMN 2 — Navigation (center column, flex justify-center to pin nav group in exact middle)
@@ -206,8 +215,9 @@ const Navigation = () => {
                   href={item.href}
                   prefetch={true}
                   className={cn(
-                    'relative whitespace-nowrap text-[13px] xl:text-[14px] font-semibold uppercase tracking-wider transition-colors py-2 text-gray-700 hover:text-[#D71920] inline-flex items-center',
-                    isActive(item.href) && 'text-[#D71920] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#D71920]'
+                    'relative whitespace-nowrap text-[13px] xl:text-[14px] font-semibold uppercase tracking-wider transition-colors py-2 inline-flex items-center',
+                    isHeroVisible ? 'text-white hover:text-white' : 'text-gray-700 hover:text-[#D71920]',
+                    isActive(item.href) && (isHeroVisible ? 'after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#D71920]' : 'text-[#D71920] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#D71920]')
                   )}
                 >
                   {item.name}
@@ -234,12 +244,12 @@ const Navigation = () => {
             )}
           >
             <Link href="/" prefetch={true} className="cursor-pointer flex-shrink-0">
-              <Logo />
+              <Logo light={isHeroVisible} />
             </Link>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-[#D71920] p-1 focus:outline-none"
+              className={cn('p-1 focus:outline-none', isHeroVisible ? 'text-white' : 'text-[#D71920]')}
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
