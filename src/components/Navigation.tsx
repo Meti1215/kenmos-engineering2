@@ -104,6 +104,12 @@ const Navigation = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isQuoteModalOpen])
 
+  useEffect(() => {
+    const onRequestQuote = () => openQuoteModal()
+    window.addEventListener('kenmos:openQuoteModal', onRequestQuote)
+    return () => window.removeEventListener('kenmos:openQuoteModal', onRequestQuote)
+  }, [])
+
   const validate = (): Partial<Record<keyof QuoteFormValues, string>> => {
     const next: Partial<Record<keyof QuoteFormValues, string>> = {}
     if (!form.fullName.trim()) next.fullName = 'Please enter your full name.'
