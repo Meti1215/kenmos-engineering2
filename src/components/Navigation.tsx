@@ -176,7 +176,7 @@ const Navigation = () => {
   return (
     <>
       <header className={cn('fixed top-0 left-0 right-0 z-50 w-full transition-all duration-350', isHeroVisible ? 'bg-transparent border-b border-white/40 backdrop-blur-none shadow-none' : 'bg-white border-b border-gray-100 shadow-sm backdrop-blur-md')}>
-        <div className="mx-auto grid grid-cols-2 lg:grid-cols-3 h-[84px] w-full items-center px-6 lg:px-12">
+        <div className="mx-auto grid h-[84px] w-full max-w-[1720px] grid-cols-2 items-center px-5 sm:px-6 lg:grid-cols-3 lg:px-8">
           <div className="flex items-center justify-start">
             <Link href="/" prefetch={true} className="flex flex-shrink-0 items-center">
               <Logo light={isHeroVisible} />
@@ -219,7 +219,7 @@ const Navigation = () => {
       <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} className="lg:hidden border-t border-gray-200 bg-white/97 px-4 pb-4 pt-2 shadow-[0_20px_45px_rgba(17,17,17,0.12)] backdrop-blur-xl">
-              <div className="mx-auto flex max-w-5xl flex-col gap-1 border border-gray-100 bg-white p-2 rounded-lg">
+              <div className="mx-auto flex max-w-[1720px] flex-col gap-1 border border-gray-100 bg-white p-2 rounded-lg">
                 {navItems.map((item) => (
                   <Link key={item.name} href={item.href} prefetch={true} onClick={() => setMobileMenuOpen(false)} className={cn('relative px-4 py-3 text-sm font-medium uppercase tracking-[0.18em] transition-colors rounded', isActive(item.href) ? 'text-[#D71920] bg-red-50/70' : 'text-gray-700 hover:bg-gray-50 hover:text-[#D71920]')}>
                     {item.name}
