@@ -13,7 +13,7 @@ export default function AboutPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 md:pb-24 bg-[#111112] text-white overflow-hidden">
+      <section className="relative pt-24 pb-10 md:pb-16 bg-[#111112] text-white overflow-hidden">
         <div className="absolute inset-0 opacity-15">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -37,14 +37,14 @@ export default function AboutPage() {
               Established 2009
             </h1>
             <p className="text-sm md:text-lg text-gray-300 max-w-3xl leading-relaxed mt-2 font-light">
-              Providing safe, innovative, and cost-effective structural designs for complex steel and concrete construction projects in Ethiopia.
+              Structural design and construction supervision delivered with technical precision, safety discipline, and long-term performance in mind.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Company Details */}
-      <section className="py-20">
+      <section className="py-14">
         <div className="content-container grid md:grid-cols-2 gap-12 items-start max-w-5xl">
           <div className="flex flex-col gap-6 text-gray-600 leading-relaxed font-light text-sm md:text-base">
             <h2 className="text-2xl font-black font-heading text-black uppercase tracking-tight border-b-2 border-[#D71920] pb-2 w-fit">
@@ -67,7 +67,7 @@ export default function AboutPage() {
               </div>
               <div>
                 <h4 className="font-bold text-black text-sm">Value Engineering</h4>
-                <p className="text-xs text-gray-500 font-light mt-1">We optimize material sizes and concrete coordinates to save project costs without compromising structural safety.</p>
+                <p className="text-xs text-gray-500 font-light mt-1">We refine material sizing and detailing to reduce project cost while preserving structural safety.</p>
               </div>
             </div>
 
@@ -76,8 +76,8 @@ export default function AboutPage() {
                 <HardHat className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="font-bold text-black text-sm">Steel Structure Experts</h4>
-                <p className="text-xs text-gray-500 font-light mt-1">Over a decade of detailing connection nodes for heavy industrial steel arches and trusses.</p>
+                <h4 className="font-bold text-black text-sm">Steel Structure Expertise</h4>
+                <p className="text-xs text-gray-500 font-light mt-1">Connection detailing and fabrication oversight for industrial steel arches, trusses, and plate girders.</p>
               </div>
             </div>
 
@@ -87,7 +87,7 @@ export default function AboutPage() {
               </div>
               <div>
                 <h4 className="font-bold text-black text-sm">Code Compliance</h4>
-                <p className="text-xs text-gray-500 font-light mt-1">Designs fully aligned with Ethiopian building codes and international standards (ASCE, ACI, Eurocodes).</p>
+                <p className="text-xs text-gray-500 font-light mt-1">All designs delivered to ASCE, ACI, Eurocode, and Ethiopian building code standards.</p>
               </div>
             </div>
           </div>
@@ -95,12 +95,12 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership Section */}
-      <section className="py-16 bg-gray-50 border-t border-gray-100">
+      <section className="py-12 bg-gray-50 border-t border-gray-100">
         <div className="content-container text-center max-w-5xl">
-          <h2 className="text-2xl md:text-3xl font-black font-heading text-black uppercase tracking-tight mb-12">
+          <h2 className="text-2xl md:text-3xl font-black font-heading text-black uppercase tracking-tight mb-8">
             Leadership & Experts
           </h2>
-          <div className="grid sm:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-3 gap-6">
             {teamMembers.map((member) => (
               <div key={member.name} className="bg-white border border-gray-100 p-6 flex flex-col items-center text-center">
                 <div className="w-16 h-16 rounded-full bg-red-50 text-[#D71920] flex items-center justify-center mb-4">

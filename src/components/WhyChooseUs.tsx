@@ -20,12 +20,12 @@ const WhyChooseUs = () => {
   return (
     <section className="section-padding bg-white/80">
       <div className="content-container">
-        <div className="mx-auto mb-14 max-w-3xl text-center md:mb-20">
+        <div className="mx-auto mb-10 max-w-3xl text-center md:mb-14">
           <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#D71920] md:text-xs">Why Choose Us</span>
           <h2 className="mt-3 text-3xl font-black leading-tight text-black md:text-4xl lg:text-5xl">Structural Integrity Meets Cost Optimization</h2>
         </div>
 
-        <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 md:gap-8">
+        <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 md:gap-6">
           {points.map((point) => (
             <motion.div key={point.title} variants={cardVariants} className="group relative flex h-full flex-col gap-5 overflow-hidden rounded-[1.25rem] border border-[#E9E4DC] bg-white p-8 shadow-[0_16px_44px_rgba(17,17,17,0.06)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#D71920]/25 hover:shadow-[0_24px_60px_rgba(17,17,17,0.12)]">
               <div className="absolute left-0 top-0 h-[3px] w-0 bg-[#D71920] transition-all duration-300 group-hover:w-full" />

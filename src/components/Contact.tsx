@@ -42,13 +42,13 @@ const Contact = () => {
   return (
     <section id="contact" className="section-padding bg-white/70">
       <div className="content-container">
-        <div className="mx-auto mb-14 max-w-3xl text-center md:mb-20">
+        <div className="mx-auto mb-10 max-w-3xl text-center md:mb-14">
           <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#D71920] md:text-xs">Get In Touch</span>
           <h2 className="mt-3 text-3xl font-black leading-tight text-black md:text-4xl lg:text-5xl">Discuss Your Next Project</h2>
           <p className="mx-auto mt-4 max-w-xl text-sm font-light leading-relaxed text-gray-500">Contact our Addis Ababa headquarters for structural analysis, steel detailing, value engineering, or site supervision inquiries.</p>
         </div>
 
-        <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-12">
+        <div className="grid items-start gap-6 lg:grid-cols-2 lg:gap-8">
           <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }} className="space-y-6">
             <div className="grid gap-4 sm:grid-cols-2">
               {contactInfo.map((info) => (

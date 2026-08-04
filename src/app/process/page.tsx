@@ -27,7 +27,7 @@ export default function ProcessPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 md:pb-24 px-4 sm:px-6 lg:px-8 bg-[#111112] text-white">
+      <section className="relative pt-24 pb-10 md:pb-16 px-4 sm:px-6 lg:px-8 bg-[#111112] text-white">
         <div className="relative max-w-7xl mx-auto text-center flex flex-col items-center gap-4">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 text-[#D71920] text-xs font-bold uppercase tracking-wider">
             <Workflow className="w-4 h-4" />
@@ -43,9 +43,9 @@ export default function ProcessPage() {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-white">
+      <section className="py-14 md:py-18 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-white">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20 md:mb-28">
+        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
           <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] text-[#D71920]">
             Step-by-Step Delivery
           </span>
@@ -60,7 +60,7 @@ export default function ProcessPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 relative"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 relative"
         >
           {/* Connecting Line (Desktop) */}
           <div className="hidden lg:block absolute top-12 left-[10%] right-[10%] h-[1px] bg-gray-200 z-0"></div>

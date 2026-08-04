@@ -24,7 +24,7 @@ const Testimonials = () => {
       </div>
 
       <div className="relative content-container">
-        <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12 text-center md:mb-16">
+        <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-8 text-center md:mb-10">
           <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#D71920] md:text-xs">Testimonials</p>
           <h2 className="text-3xl font-black leading-tight text-black md:text-4xl lg:text-5xl">What Our Clients Think</h2>
           <p className="mx-auto mt-4 max-w-2xl text-sm font-light leading-relaxed text-gray-500">Real feedback from project directors, architects, and developers who work with Kenmos Engineering.</p>

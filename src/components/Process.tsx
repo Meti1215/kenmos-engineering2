@@ -11,12 +11,12 @@ const Process = () => {
   return (
     <section id="process" className="section-padding border-y border-gray-200/70 bg-[linear-gradient(180deg,#f7f3eb_0%,#f5efe8_100%)]">
       <div className="content-container">
-        <div className="mx-auto mb-16 max-w-3xl text-center md:mb-24">
+        <div className="mx-auto mb-10 max-w-3xl text-center md:mb-14">
           <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#D71920] md:text-xs">Our Work Process</span>
           <h2 className="mt-3 text-3xl font-black leading-tight text-black md:text-4xl lg:text-5xl">How We Deliver Structural Excellence</h2>
         </div>
 
-        <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="relative grid gap-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+        <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="relative grid gap-5 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           <div className="absolute left-[10%] right-[10%] top-16 hidden h-[1px] bg-gradient-to-r from-transparent via-[#D71920]/30 to-transparent lg:block"></div>
 
           {processSteps.map((step) => (

@@ -28,8 +28,8 @@ export const brand = {
   shortName: 'Kenmos Engineering',
   founderName: 'Kenmos Tesfaye',
   founderTitle: 'Founder & General Manager',
-  tagline: 'Structural Excellence. Lasting Impact.',
-  signatureLine: 'Delivering innovative, safe, and cost-optimized structural engineering solutions.',
+  tagline: 'Precision in Structure. Confidence in Delivery.',
+  signatureLine: 'Disciplined structural engineering services delivered with technical precision and long-term performance in mind.',
   logoPath: brandMedia.logo,
   phone: '+251 911 526 566',
   phoneHref: 'tel:+251911526566',
@@ -37,16 +37,16 @@ export const brand = {
   hours: 'Mon-Fri: 8:00 AM - 6:00 PM, Sat: 8:00 AM - 12:00 PM',
   email: 'contact@kenmosengineering.com',
   heroRotatingTexts: [
-    'Ethiopian structural engineering firm established in 2009',
-    'Specializes in structural design and complex steel structures',
-    'Over 800 successful projects handled with cost optimization',
-    'Ensuring structural safety, precision, and building durability',
+    'Structural engineering practice founded in 2009.',
+    'Specialized in reinforced concrete and structural steel design.',
+    'Technical oversight on more than 800 completed projects.',
+    'Delivered to ASCE, ACI, Eurocode, and Ethiopian code standards.',
   ],
   heroStats: [
-    { value: '15+', label: 'Years of Experience', count: 15 },
-    { value: '800+', label: 'Projects Completed', count: 800 },
-    { value: '20+', label: 'Expert Engineers', count: 20 },
-    { value: '1B+', label: 'Birr Project Value Handled', count: 1 },
+    { value: '15+', label: 'Years of Practice', count: 15 },
+    { value: '800+', label: 'Projects Delivered', count: 800 },
+    { value: '20+', label: 'Qualified Engineers', count: 20 },
+    { value: '1B+', label: 'Birr Project Value', count: 1 },
   ],
 } as const
 
@@ -54,9 +54,9 @@ export const aboutContent = {
   subtitle: 'ABOUT KENMOS',
   title: 'Building the Future with Precision & Integrity',
   paragraphs: [
-    'Kenmos Structural Engineering was established in January 2009, with the aim to provide the best design and affiliated services.',
-    'Cost and Value optimization has been one of the pillars of our design philosophy.',
-    'Our founder and lead engineer brings over 20 years of experience in the design and supervision of structural works, working on more than 800 projects ranging from 800,000.00 Birr to well over a billion birr.',
+    'Kenmos Structural Engineering was established in 2009. We deliver structural design and construction supervision for concrete and steel projects throughout Ethiopia and East Africa.',
+    'Every design is validated against ASCE, ACI, and Eurocode standards using finite-element analysis. We enforce strict disciplines for structural safety, material efficiency, and long-term durability.',
+    'Our founder and lead engineer has directed more than 800 projects over 20 years. We deliver technically sound solutions with disciplined cost control and clear client communication.',
   ]
 }
 
@@ -64,37 +64,37 @@ export const services = [
   {
     id: 'structural-design',
     title: 'Structural Design',
-    description: 'Innovative, safe and cost-effective structural designs for all types of buildings.',
+    description: 'We engineer reinforced concrete and steel-framed structures for buildings of every scale and complexity.',
     icon: 'Building2',
   },
   {
     id: 'supervision',
     title: 'Construction Supervision',
-    description: 'Ensuring quality, safety and compliance at every stage of construction.',
+    description: 'We conduct site inspections and quality audits to ensure design intent is faithfully executed on site.',
     icon: 'ShieldCheck',
   },
   {
     id: 'project-management',
     title: 'Project Management',
-    description: 'End-to-end project management delivering on time and within budget.',
+    description: 'We coordinate design teams, milestones, and budgets to deliver projects on schedule and within scope.',
     icon: 'Briefcase',
   },
   {
     id: 'assessment-retrofitting',
-    title: 'Structural Assessment & Retrofitting',
-    description: 'Evaluating and strengthening existing structures for safety and durability.',
+    title: 'Assessment & Retrofitting',
+    description: 'We evaluate existing structures and deliver certified retrofitting plans for structural safety and longevity.',
     icon: 'Activity',
   },
   {
     id: 'tender-boq',
     title: 'Tender & BOQ Preparation',
-    description: 'Accurate estimation and documentation for successful project delivery.',
+    description: 'We produce accurate bills of quantities and tender documentation for transparent procurement.',
     icon: 'FileText',
   },
   {
     id: 'consultancy',
-    title: 'Consultancy',
-    description: 'Expert advice and technical solutions tailored to your project needs.',
+    title: 'Engineering Consultancy',
+    description: 'We provide technical reviews, peer audits, and advisory support for developers and investors.',
     icon: 'Users',
   },
 ] as const
@@ -103,37 +103,37 @@ export const industries = [
   {
     id: 'commercial',
     title: 'Commercial Developments',
-    description: 'Structural designs for high-rise towers, malls, offices, and mixed-use commercial properties.',
+    description: 'Structural design for high-rise offices, mixed-use buildings, banks, and retail centers.',
     image: brandMedia.industries.commercial,
   },
   {
     id: 'industrial',
     title: 'Industrial & Steel Structures',
-    description: 'Heavy industrial structures, warehouses, factory sheds, and specialized steel construction designs.',
+    description: 'Heavy steel warehouses, factories, arch-truss sheds, and large-span industrial roofing.',
     image: brandMedia.industries.industrial,
   },
   {
     id: 'residential',
     title: 'Residential Complexes',
-    description: 'Multi-family residential apartments, luxury villas, and real estate housing developments.',
+    description: 'Multi-family apartments, luxury villas, and scaled residential developments.',
     image: brandMedia.industries.residential,
   },
   {
     id: 'institutional',
     title: 'Institutional Projects',
-    description: 'Structural design for government buildings, universities, stadiums, and public spaces.',
+    description: 'Government buildings, university campuses, schools, and public assembly structures.',
     image: brandMedia.industries.institutional,
   },
   {
     id: 'hospitality',
     title: 'Hospitality Projects',
-    description: 'Luxury hotel designs, resort structures, and recreational facilities combining luxury with safety.',
+    description: 'Hotels, resorts, and leisure complexes engineered for safety and long service life.',
     image: brandMedia.industries.hospitality,
   },
   {
     id: 'infrastructure',
-    title: 'Infrastructure & Specialized Works',
-    description: 'Bridges, retaining structures, sports complexes, and specialized steel/concrete structures.',
+    title: 'Infrastructure Works',
+    description: 'Bridges, retaining structures, stadiums, and specialized concrete and steel structures.',
     image: brandMedia.industries.infrastructure,
   },
 ] as const
@@ -233,65 +233,65 @@ export const processSteps = [
     step: '01',
     title: 'Discovery & Consultation',
     description:
-      'We meet with clients and architects to define project requirements, budget, constraints, and timeline.',
+      'We meet clients and architects to define project scope, budget, constraints, and delivery timeline.',
   },
   {
     step: '02',
     title: 'Structural Analysis & Design',
     description:
-      'We use advanced engineering software to analyze and design safe structural systems.',
+      'We apply finite-element analysis and code-compliant modelling to produce robust structural systems.',
   },
   {
     step: '03',
     title: 'Value Engineering',
     description:
-      'We optimize materials and costs while maintaining safety and quality.',
+      'We refine materials and detailing to optimize cost without compromising structural performance.',
   },
   {
     step: '04',
     title: 'Construction Supervision',
     description:
-      'Our engineers monitor construction quality and ensure compliance with the design.',
+      'Our engineers inspect site works at each phase to verify compliance with design intent.',
   },
 ] as const 
 export const teamMembers = [
   {
     name: 'Kenmos Tesfaye',
     role: 'Founder & General Manager',
-    bio: 'Leads the structural consultancy team with over 20 years of experience in structural design and supervision.',
+    bio: 'Leads the practice with 20 years of structural design and construction supervision across 800+ projects.',
     image: '/images/team_kenmos.png',
   },
   {
     name: 'Senior Structural Engineer',
     role: 'Structural Engineer',
-    bio: 'Experienced in structural analysis, design, and engineering solutions.',
+    bio: 'Oversees structural analysis, design development, and engineering quality assurance.',
     image: '/images/team_engineer.png',
   },
   {
     name: 'CAD Technician Team',
     role: 'CAD Technicians',
-    bio: 'Specialized in technical drawings and structural documentation.',
+    bio: 'Produces detailed structural drawings and documentation aligned with project specifications.',
     image: '/images/team_cad.png',
   },
 ] as const 
 export const testimonials = [
   {
     quote:
-      'Kenmos Engineering delivered excellent structural solutions with high quality and professionalism.',
+      'Kenmos Engineering delivered structurally sound designs with clear documentation and consistent communication.',
     name: 'Project Client',
     role: 'Building Developer',
     rating: 5,
   },
   {
     quote:
-      'Their engineering team provided reliable designs and effective project support.',
+      'Their team provided dependable engineering support throughout design and construction phases.',
     name: 'Architect Partner',
     role: 'Design Consultant',
     rating: 5,
   },
   {
     quote:
-      'Kenmos demonstrated strong technical knowledge and commitment to safety.',
+      'Strong technical discipline. Clear reporting. Reliable supervision on site at every phase.',
     name: 'Construction Partner',
     role: 'Contractor',
     rating: 5,

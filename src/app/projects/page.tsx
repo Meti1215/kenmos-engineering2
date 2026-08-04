@@ -13,7 +13,7 @@ export default function ProjectsPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 md:pb-24 bg-[#111112] text-white">
+      <section className="relative pt-24 pb-10 md:pb-16 bg-[#111112] text-white">
         <div className="relative content-container text-center flex flex-col items-center gap-4">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 text-[#D71920] text-xs font-bold uppercase tracking-wider">
             <Building2 className="w-4 h-4" />
@@ -29,8 +29,8 @@ export default function ProjectsPage() {
       </section>
 
       {/* Projects Grid */}
-      <section className="py-20 content-container">
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+      <section className="py-14 content-container">
+        <div className="grid md:grid-cols-2 gap-5 md:gap-6">
           {projects.map((p, idx) => (
             <motion.div
               key={p.id}
@@ -75,7 +75,7 @@ export default function ProjectsPage() {
                 </div>
 
                 {/* Card Footer Action */}
-                <div className="flex items-center justify-between border-t border-gray-100/80 px-8 py-5">
+                <div className="flex items-center justify-between border-t border-gray-100/80 px-6 py-4">
                   <a
                     href="/contact"
                     className="group/btn inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#D71920] transition-all duration-300 hover:text-red-700"

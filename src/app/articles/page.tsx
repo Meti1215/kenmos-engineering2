@@ -140,7 +140,7 @@ const Articles = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 md:pb-24 px-4 sm:px-6 lg:px-8 bg-[#111112] text-white">
+      <section className="relative pt-24 pb-10 md:pb-16 px-4 sm:px-6 lg:px-8 bg-[#111112] text-white">
         <div className="relative max-w-7xl mx-auto text-center flex flex-col items-center gap-4">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 text-[#D71920] text-xs font-bold uppercase tracking-wider">
             <Newspaper className="w-4 h-4" />
@@ -157,7 +157,7 @@ const Articles = () => {
 
       {/* Featured Article */}
       {activeCategory === 'All News' && featuredArticle && (
-        <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <section className="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
           <div
             className="relative border border-gray-100 bg-white cursor-pointer group shadow-sm hover:shadow-lg transition-shadow duration-300"
             onClick={() => openArticle(featuredArticle.id)}
@@ -222,7 +222,7 @@ const Articles = () => {
       )}
 
       {/* Articles Grid & Sidebar */}
-      <section className="pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <section className="pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-4 gap-8">
           
           {/* Sidebar categories */}

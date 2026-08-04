@@ -90,7 +90,7 @@ export default function ContactPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 md:pb-24 bg-[#111112] text-white">
+      <section className="relative pt-24 pb-10 md:pb-16 bg-[#111112] text-white">
         <div className="relative content-container text-center flex flex-col items-center gap-4">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 text-[#D71920] text-xs font-bold uppercase tracking-wider">
             <MessageSquare className="w-4 h-4" />
@@ -106,8 +106,8 @@ export default function ContactPage() {
       </section>
 
       {/* Main Contact Section */}
-      <section className="py-20 content-container">
-        <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-start">
+      <section className="py-14 content-container">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-10 items-start">
           
           {/* Column 1: Contact Details & Map */}
           <motion.div

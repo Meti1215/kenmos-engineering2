@@ -34,7 +34,7 @@ const Hero = () => {
             </h1>
 
             <p className="max-w-xl text-xs font-light leading-relaxed text-gray-200 sm:text-sm md:text-base lg:text-[clamp(1rem,2.2vh,1.15rem)]">
-              Kenmos Engineering delivers innovative, sustainable and cost-optimized structural engineering solutions that shape the future.
+              Kenmos Engineering delivers precise structural solutions shaped by technical expertise, responsible design, and long-term value.
             </p>
 
             <div className="mt-0.5 flex flex-wrap items-center gap-3.5 sm:gap-4">

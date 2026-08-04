@@ -12,13 +12,13 @@ const Team = () => {
   return (
     <section id="careers" className="section-padding border-y border-gray-200/70 bg-[linear-gradient(180deg,#f7f3eb_0%,#f5efe8_100%)]">
       <div className="content-container">
-        <div className="mx-auto mb-14 max-w-3xl text-center md:mb-20">
+        <div className="mx-auto mb-10 max-w-3xl text-center md:mb-14">
           <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#D71920] md:text-xs">Our Experts</span>
           <h2 className="mt-3 text-3xl font-black leading-tight text-black md:text-4xl lg:text-5xl">Meet the Structural Engineering Team</h2>
           <p className="mx-auto mt-4 max-w-xl text-sm font-light leading-relaxed text-gray-500">Dedicated professionals applying advanced analysis, code compliance, and structural optimization to shape secure foundations.</p>
         </div>
 
-        <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="grid gap-6 md:grid-cols-3 md:gap-8">
+        <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="grid gap-5 md:grid-cols-3 md:gap-6">
           {teamMembers.map((member) => (
             <motion.div key={member.name} variants={cardVariants} className="group relative flex h-full flex-col overflow-hidden rounded-[1.25rem] border border-[#E9E4DC] bg-white shadow-[0_16px_44px_rgba(17,17,17,0.06)] transition-all duration-300 hover:-translate-y-2 hover:border-[#D71920]/25 hover:shadow-[0_26px_65px_rgba(17,17,17,0.13)]">
               <div className="absolute left-0 top-0 z-20 h-[3px] w-0 bg-[#D71920] transition-all duration-300 group-hover:w-full" />

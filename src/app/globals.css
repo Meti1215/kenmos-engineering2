@@ -209,7 +209,7 @@
     @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase bg-[#D71920]/10 text-[#D71920];
   }
 
-  .section-padding { @apply py-20 md:py-28 lg:py-32; }
+  .section-padding { @apply py-16 md:py-20 lg:py-24; }
   .container-padding { @apply px-5 sm:px-6 lg:px-8; }
   .content-container {
     @apply w-full mx-auto px-5 sm:px-6 lg:px-8;
