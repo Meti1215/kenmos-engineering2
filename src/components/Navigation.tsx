@@ -205,9 +205,9 @@ const Navigation = () => {
           </nav>
 
           <div className="flex items-center justify-end">
-            <button type="button" onClick={openQuoteModal} className="hidden lg:inline-flex h-[42px] w-[150px] flex-shrink-0 items-center justify-center gap-1.5 rounded-[7px] bg-[#D71920] px-4 text-[10px] lg:text-[12px] font-bold uppercase tracking-[0.16em] lg:tracking-[0.18em] text-white transition-all duration-300 hover:bg-[#be1218] hover:scale-[1.02] active:scale-[0.98]">
+            <button type="button" onClick={openQuoteModal} className="hidden lg:inline-flex h-[42px] min-w-[172px] w-auto flex-shrink-0 items-center justify-center gap-1.5 whitespace-nowrap text-center rounded-[7px] bg-[#D71920] px-4 text-[10px] lg:text-[12px] font-bold uppercase tracking-[0.16em] lg:tracking-[0.18em] text-white transition-all duration-300 hover:bg-[#be1218] hover:scale-[1.02] active:scale-[0.98]">
               GET A QUOTE
-              <ArrowRight className="h-3.5 w-3.5 lg:h-4 lg:w-4" />
+              <ArrowRight className="h-3.5 w-3.5 lg:h-4 lg:w-4 shrink-0" />
             </button>
             <button type="button" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className={cn('lg:hidden inline-flex items-center justify-center rounded-md p-2 focus:outline-none transition-colors duration-350', isHeroVisible ? 'text-white' : 'text-gray-800')} aria-label="Toggle Navigation Menu">
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

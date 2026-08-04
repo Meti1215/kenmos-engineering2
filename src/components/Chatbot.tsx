@@ -1,11 +1,11 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   X, Building2, ShieldCheck, FolderKanban, Factory, Workflow,
   Users, Phone, FileText, ChevronLeft, ChevronRight, Clock,
-  MapPin, Mail, HardHat, Award, ArrowRight, Landmark,
+  MapPin, Mail, HardHat, Award, ArrowRight, Landmark, Send,
   type LucideProps,
 } from 'lucide-react'
 import { brand } from '@/lib/brand'
@@ -178,11 +178,11 @@ function findSub(parentId: MainCategory['id'], subId: string): SubItem | undefin
 }
 
 const btnBase =
-  'group relative inline-flex items-center justify-between gap-2 w-full text-left rounded-[18px] border border-[#E9E4DC] bg-white px-4 py-3 text-[11px] md:text-xs font-semibold text-gray-800 shadow-[0_2px_6px_rgba(17,17,17,0.04)] transition-all duration-250 hover:shadow-[0_10px_24px_-8px_rgba(215,25,32,0.18)] hover:-translate-y-[3px] hover:border-[#D71920]/30 active:translate-y-0'
+  'group relative inline-flex items-center justify-between gap-1.5 w-full text-left rounded-[12px] border border-[#E9E4DC] bg-white px-2.5 py-2 text-[10px] md:text-[11px] font-semibold text-gray-800 shadow-[0_1px_4px_rgba(17,17,17,0.04)] transition-all duration-250 hover:shadow-[0_8px_18px_-8px_rgba(215,25,32,0.18)] hover:-translate-y-[2px] hover:border-[#D71920]/30 active:translate-y-0'
 
 const iconBadge = (size: 'sm' | 'md' | 'lg' = 'md') =>
-  `shrink-0 inline-flex items-center justify-center rounded-[12px] bg-[#D71920]/10 text-[#D71920] ${
-    size === 'lg' ? 'h-11 w-11 md:h-12 md:w-12' : size === 'sm' ? 'h-8 w-8 md:h-9 md:w-9' : 'h-9 w-9 md:h-10 md:w-10'
+  `shrink-0 inline-flex items-center justify-center rounded-[10px] bg-[#D71920]/10 text-[#D71920] ${
+    size === 'lg' ? 'h-9 w-9 md:h-10 md:w-10' : size === 'sm' ? 'h-6 w-6 md:h-7 md:w-7' : 'h-8 w-8 md:h-9 md:w-9'
   }`
 
 const Card: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
@@ -298,22 +298,22 @@ const WelcomeScreen: React.FC<{ onSelect: (id: MainCategory['id']) => void }> = 
     initial="hidden"
     animate="show"
     exit="exit"
-    className="flex flex-col gap-3"
+    className="flex flex-col gap-2"
   >
-    <motion.div variants={fadeUp} className="flex flex-col items-center text-center gap-2 px-1 pt-1">
-      <RobotWithIndicator size={82} />
+    <motion.div variants={fadeUp} className="flex flex-col items-center text-center gap-1.5 px-1 pt-0.5">
+      <RobotWithIndicator size={70} />
       <div>
         <Chip>Guided Assistant</Chip>
       </div>
-      <h3 className="font-heading text-[17px] md:text-[18px] font-black tracking-tight text-gray-950 leading-tight">
+      <h3 className="font-heading text-[15px] md:text-[16px] font-black tracking-tight text-gray-950 leading-tight">
         Hi, we're <span className="text-[#D71920]">Kenmos</span> Engineering
       </h3>
-      <p className="text-[11px] md:text-[12px] leading-relaxed text-gray-600 max-w-[250px]">
+      <p className="text-[10.5px] md:text-[11.5px] leading-relaxed text-gray-600 max-w-[250px]">
         Explore our expertise, services and project portfolio — or skip straight to requesting a quote. Tap any topic below.
       </p>
     </motion.div>
 
-    <motion.div variants={fadeUp} className="grid grid-cols-2 gap-2.5">
+    <motion.div variants={fadeUp} className="grid grid-cols-2 gap-2">
       {MAIN_CATEGORIES.map((cat) => {
         const Icon = cat.Icon
         return (
@@ -324,13 +324,13 @@ const WelcomeScreen: React.FC<{ onSelect: (id: MainCategory['id']) => void }> = 
             variants={fadeUp}
             className={btnBase}
           >
-            <span className="flex items-center gap-2 min-w-0">
+            <span className="flex items-center gap-1.5 min-w-0 flex-1">
               <span className={iconBadge('sm')}>
-                <Icon className="w-4 h-4 md:w-[18px] md:h-[18px]" strokeWidth={2} />
+                <Icon className="w-3.5 h-3.5 md:w-4 md:h-4" strokeWidth={2} />
               </span>
-              <span className="truncate">{cat.label}</span>
+              <span className="min-w-0">{cat.label}</span>
             </span>
-            <ChevronRight className="h-3.5 w-3.5 text-gray-300 group-hover:text-[#D71920] group-hover:translate-x-0.5 transition-colors duration-200 shrink-0" />
+            <ChevronRight className="h-3 w-3 text-gray-300 group-hover:text-[#D71920] group-hover:translate-x-0.5 transition-colors duration-200 shrink-0" />
           </motion.button>
         )
       })}
@@ -521,9 +521,56 @@ const SubScreen: React.FC<{
   )
 }
 
+type ChatMessage = {
+  id: string
+  role: 'user' | 'assistant'
+  text: string
+  timestamp: number
+}
+
+const autoReply = (raw: string): string => {
+  const q = raw.trim().toLowerCase()
+  if (!q) return "I'm here to help. Try asking about our services, projects, industries, process, careers, or request a free structural review — or use the topic buttons above."
+  if (/quote|quotation|price|cost|fe{2}|review|blueprint|drawing|plan|proposal/i.test(q)) {
+    return 'You can request a free structural review using the "Free Quote" button below, or share details via our Quote Request Form. Our lead engineer reviews submissions within one business day. What building type or scope do you have in mind?'
+  }
+  if (/service|what do you do|capabilit|deliver|offer|structural|supervision|project manag|assess|retrofit|boq|tender|consult/i.test(q)) {
+    return 'Kenmos Engineering delivers six integrated disciplines: structural design, construction supervision, project management, assessment & retrofitting, tender & BOQ preparation, and engineering consultancy. Tap "Our Services" above for full details.'
+  }
+  if (/project|portfolio|building|tower|hotel|mall|office|high.?rise|institutional/i.test(q)) {
+    return 'We have delivered 800+ projects — commercial towers, hospitality, institutional buildings, industrial steel structures, and residential complexes. Tap "Projects" above to explore the portfolio.'
+  }
+  if (/industry|sector|market|clientele|commercial|industrial|residential|hospitality|infrastructur|government|education/i.test(q)) {
+    return 'We serve six sectors: Commercial Real Estate, Industrial & Manufacturing, Residential Development, Institutional & Government, Hospitality & Tourism, and Infrastructure. See "Industries" above.'
+  }
+  if (/process|how do you work|workflow|steps|phases|discovery|design|value|construction/i.test(q)) {
+    return 'Our phase-gated 4-step process: (1) Discovery & Consultation, (2) Analysis & Design, (3) Value Engineering, (4) Construction Supervision. Tap "Our Process" for the breakdown.'
+  }
+  if (/careers?|job|hiring|hire|work for|cv|resume|portfoli/i.test(q)) {
+    return 'We periodically hire structural engineers, CAD detailers, and site engineers. Email your CV and portfolio to contact@kenmosengineering.com with subject "Career Application — [Role]".'
+  }
+  if (/contact|email|phone|address|location|reach|office|headquart|hour|business hour/i.test(q)) {
+    return `Our HQ: ${brand.location} · ${brand.phone} · ${brand.email} · Hours: ${brand.hours}. Tap "Contact Us" for quick-links to call/email.`
+  }
+  if (/about|who|kenmos|founder|tesfaye|experience|history|established|track.?record|year/i.test(q)) {
+    return 'Established 2009 and led by founder Kenmos Tesfaye — 20 years of technical leadership across 800+ projects. See "About Us" for founder, design philosophy, and track record.'
+  }
+  if (/hello|hi|hey|greetings?|good (morning|afternoon|evening)|how are you/i.test(q)) {
+    return "Hi there 👋 I'm the Kenmos Engineering assistant. Ask me about services, projects, sectors, process, careers, contact details, or request a free structural quote — or tap any topic above."
+  }
+  if (/thank|thanks|appreciat|cheers|bye|goodbye|see you/i.test(q)) {
+    return "You're welcome! Feel free to reopen this chat anytime or request a free structural review with the button below. Happy planning!"
+  }
+  return "Good question. I can tell you about our services, 800+ project portfolio, sectors served, our 4-step process, careers, contact details, or help you request a free structural review. Use the topic buttons above for guided navigation, or ask a more specific question."
+}
+
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [view, setView] = useState<View>({ kind: 'welcome' })
+  const [messages, setMessages] = useState<ChatMessage[]>([])
+  const [draft, setDraft] = useState('')
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const inputRef = useRef<HTMLInputElement>(null)
 
   const handleOpenChat = () => {
     setIsOpen(true)
@@ -569,108 +616,193 @@ const Chatbot = () => {
     }),
   }
 
-  return (
-    <div className="fixed bottom-[150px] md:bottom-6 right-4 md:right-6 lg:right-6 z-50 flex flex-col items-end">
-      <div className="relative">
-        <motion.div
-          className="absolute z-20 flex items-end"
-          style={{
-            gap: `${dotGap}px`,
-            top: -((dotDiameter * 2) + 2),
-            left: -6,
-          }}
-          initial={false}
-          animate={isOpen ? 'idle' : 'typing'}
-        >
-          {[0, 1, 2].map((i) => (
-            <motion.span
-              key={i}
-              custom={i}
-              variants={typingDotVariants}
-              className="block rounded-full bg-[#D71920]"
-              style={{
-                width: dotDiameter,
-                height: dotDiameter,
-                boxShadow: '0 1px 3px rgba(215,25,32,0.3)',
-              }}
-            />
-          ))}
-        </motion.div>
+  const sendMessage = () => {
+    const trimmed = draft.trim()
+    if (!trimmed) return
+    const userMsg: ChatMessage = {
+      id: `u-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+      role: 'user',
+      text: trimmed,
+      timestamp: Date.now(),
+    }
+    setMessages((prev) => [...prev, userMsg])
+    setDraft('')
+    const replyText = autoReply(trimmed)
+    const replyMsg: ChatMessage = {
+      id: `a-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+      role: 'assistant',
+      text: replyText,
+      timestamp: Date.now() + 1,
+    }
+    setTimeout(() => {
+      setMessages((prev) => [...prev, replyMsg])
+    }, 280)
+  }
 
-        <motion.button
-          onClick={handleOpenChat}
-          initial={{ scale: 0.6, y: 20, opacity: 0 }}
-          animate={{
-            scale: 1,
-            y: 0,
-            opacity: 1,
-            boxShadow: '0 4px 12px -2px rgba(215,25,32,0.18), 0 0 0 0 rgba(215,25,32,0)',
-          }}
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTo({
+        top: scrollRef.current.scrollHeight,
+        behavior: 'smooth',
+      })
+    }
+  }, [messages])
+
+  useEffect(() => {
+    if (isOpen) {
+      const t = setTimeout(() => inputRef.current?.focus(), 320)
+      return () => clearTimeout(t)
+    }
+  }, [isOpen])
+
+  const onInputKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault()
+      sendMessage()
+    }
+  }
+
+  return (
+    <div className="fixed bottom-[150px] md:bottom-6 right-5 md:right-6 lg:right-6 z-50 flex flex-col items-end">
+      <motion.div
+        className="relative"
+        animate={{ y: [0, -5, 0, 5, 0] }}
+        transition={{
+          y: {
+            repeat: Infinity,
+            duration: 4,
+            ease: 'easeInOut',
+            delay: 0.6,
+          },
+        }}
+      >
+        <motion.div
+          className="absolute inset-0 rounded-full bg-[#D71920] pointer-events-none"
+          animate={{ scale: [1, 1.28, 1], opacity: [0.38, 0, 0.38] }}
           transition={{
-            initial: { duration: 0 },
-            scale: { type: 'spring', stiffness: 260, damping: 16, mass: 0.8 },
-            opacity: { delay: 0.05, duration: 0.45, ease: 'easeOut' },
+            repeat: Infinity,
+            duration: 2.8,
+            ease: 'easeOut',
+            delay: 0.8,
           }}
-          whileHover={{
-            scale: 1.05,
-            y: -2,
-            boxShadow: '0 8px 24px -4px rgba(215,25,32,0.45)',
-            transition: {
-              scale: { duration: 0.2, ease: 'easeInOut' },
-              y: { duration: 0.2, ease: 'easeInOut' },
-              boxShadow: { duration: 0.2, ease: 'easeInOut' },
-            },
-          }}
-          whileTap={{ scale: 0.95 }}
-          className="w-12 h-12 bg-[#D71920] text-white flex items-center justify-center shadow-lg rounded-full relative focus:outline-none"
-          aria-label="Open Kenmos guided assistant"
-        >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 relative z-10 text-white">
-            <path d="M3 11h-1a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h1M21 11h1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1h-1" />
-            <rect x="3" y="6" width="18" height="13" rx="4" />
-            <path d="M12 6V3" />
-            <circle cx="12" cy="2" r="1.5" fill="currentColor" stroke="none" />
-            <circle cx="8.5" cy="12" r="1.5" fill="currentColor" stroke="none" />
-            <circle cx="15.5" cy="12" r="1.5" fill="currentColor" stroke="none" />
-            <path d="M9 15.5c1.5 1 4.5 1 6 0" strokeWidth="1.8" />
-          </svg>
-        </motion.button>
-      </div>
+          aria-hidden="true"
+        />
+
+        <div className="relative">
+          <motion.div
+            className="absolute z-20 flex items-end"
+            style={{
+              gap: `${dotGap}px`,
+              top: -((dotDiameter * 2) + 2),
+              left: -6,
+            }}
+            initial={false}
+            animate={isOpen ? 'idle' : 'typing'}
+          >
+            {[0, 1, 2].map((i) => (
+              <motion.span
+                key={i}
+                custom={i}
+                variants={typingDotVariants}
+                className="block rounded-full bg-[#D71920]"
+                style={{
+                  width: dotDiameter,
+                  height: dotDiameter,
+                  boxShadow: '0 1px 3px rgba(215,25,32,0.3)',
+                }}
+              />
+            ))}
+          </motion.div>
+
+          <motion.button
+            onClick={handleOpenChat}
+            initial={{ scale: 0.6, y: 20, opacity: 0 }}
+            animate={{
+              scale: 1,
+              y: 0,
+              opacity: 1,
+              boxShadow:
+                '0 8px 24px -4px rgba(17,17,17,0.18), 0 0 30px 4px rgba(215,25,32,0.25)',
+            }}
+            transition={{
+              initial: { duration: 0 },
+              scale: { type: 'spring', stiffness: 260, damping: 16, mass: 0.8 },
+              opacity: { delay: 0.05, duration: 0.45, ease: 'easeOut' },
+            }}
+            whileHover={{
+              scale: 1.13,
+              y: -3,
+              boxShadow:
+                '0 14px 36px -6px rgba(17,17,17,0.28), 0 0 44px 8px rgba(215,25,32,0.38)',
+              transition: {
+                scale: { duration: 0.2, ease: 'easeInOut' },
+                y: { duration: 0.2, ease: 'easeInOut' },
+                boxShadow: { duration: 0.2, ease: 'easeInOut' },
+              },
+            }}
+            whileTap={{ scale: 0.88 }}
+            className="w-[54px] h-[54px] bg-[#D71920] text-white flex items-center justify-center rounded-full relative focus:outline-none"
+            aria-label="Open Kenmos guided assistant"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-[27px] h-[27px] relative z-10 text-white">
+              <path d="M3 11h-1a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h1M21 11h1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1h-1" />
+              <rect x="3" y="6" width="18" height="13" rx="4" />
+              <path d="M12 6V3" />
+              <circle cx="12" cy="2" r="1.5" fill="currentColor" stroke="none" />
+              <circle cx="8.5" cy="12" r="1.5" fill="currentColor" stroke="none" />
+              <circle cx="15.5" cy="12" r="1.5" fill="currentColor" stroke="none" />
+              <path d="M9 15.5c1.5 1 4.5 1 6 0" strokeWidth="1.8" />
+            </svg>
+          </motion.button>
+        </div>
+      </motion.div>
 
       {/* Chat Window Panel */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 15, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 15, scale: 0.96 }}
-            transition={{ type: 'spring', stiffness: 260, damping: 22, mass: 0.75 }}
-            className="chatbot-window absolute bottom-[60px] right-0 w-[calc(100vw-2.5rem)] sm:w-[320px] md:w-[350px] max-h-[78vh] sm:h-[540px] md:h-[580px] bg-[#FAFAF7] border border-[#E9E4DC] shadow-[0_16px_50px_-10px_rgba(17,17,17,0.18),0_6px_18px_-10px_rgba(17,17,17,0.08)] flex flex-col z-50 rounded-[20px] overflow-hidden"
+            initial={{ opacity: 0, y: 22, scale: 0.78 }}
+            animate={{ opacity: 1, y: 0, scale: [0.78, 1.06, 1.0] }}
+            exit={{ opacity: 0, y: 16, scale: 0.82 }}
+            transition={{
+              type: 'spring',
+              stiffness: 360,
+              damping: 18,
+              mass: 0.62,
+              duration: 0.42,
+              opacity: { duration: 0.22, ease: 'easeOut' },
+              scale: {
+                type: 'spring',
+                stiffness: 420,
+                damping: 14,
+                mass: 0.55,
+                duration: 0.45,
+              },
+              y: { duration: 0.32, ease: [0.22, 1, 0.36, 1] },
+            }}
+            style={{ transformOrigin: 'bottom right' }}
+            className="chatbot-window absolute bottom-[82px] right-[2px] sm:right-0 w-[calc(100vw-2rem)] sm:w-[320px] md:w-[360px] max-h-[76vh] sm:h-[540px] md:h-[580px] bg-[#FAFAF7] border border-[#E9E4DC] shadow-[0_22px_60px_-12px_rgba(17,17,17,0.22),0_8px_24px_-12px_rgba(17,17,17,0.12)] flex flex-col z-[60] rounded-[22px] overflow-hidden relative will-change-transform"
           >
-            {/* Header with thin red top accent */}
-            <div className="bg-[#0f0f10] text-white px-4 py-2.5 flex justify-between items-center border-b border-gray-800 relative">
-              <span aria-hidden className="absolute left-0 right-0 top-0 h-[3px] bg-gradient-to-r from-[#D71920] via-[#D71920]/80 to-[#D71920]" />
-              <div className="flex items-center gap-2">
-                <div className="relative">
-                  <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
-                </div>
-                <div>
-                  <h4 className="text-[11px] md:text-xs font-semibold leading-tight font-heading tracking-wide">Kenmos Guided Assistant</h4>
-                  <p className="text-[8px] text-gray-400 uppercase tracking-[0.22em] leading-none mt-0.5">Structural Information</p>
-                </div>
-              </div>
-              <button
-                type="button"
-                onClick={() => setIsOpen(false)}
-                className="text-gray-400 hover:text-white p-1 rounded-lg transition-colors"
-                aria-label="Close assistant"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
+            {/* Minimal floating close button — top-right of the card (pops in after window) */}
+            <motion.button
+              type="button"
+              onClick={() => setIsOpen(false)}
+              initial={{ opacity: 0, scale: 0.4, rotate: -45 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ type: 'spring', stiffness: 420, damping: 16, mass: 0.5, delay: 0.18 }}
+              whileHover={{ scale: 1.08, rotate: 90 }}
+              whileTap={{ scale: 0.9 }}
+              className="absolute top-3 right-3 z-20 inline-flex items-center justify-center h-8 w-8 rounded-full border border-[#E9E4DC] bg-white/90 text-gray-500 shadow-[0_2px_8px_-2px_rgba(17,17,17,0.1)] hover:text-[#D71920] hover:border-[#D71920]/30 hover:bg-white backdrop-blur-sm transition-colors duration-200"
+              aria-label="Close assistant"
+            >
+              <X className="w-3.5 h-3.5" />
+            </motion.button>
 
-            {/* Content area with animated navigation screens */}
-            <div className="flex-1 overflow-y-auto px-3.5 py-3.5">
+            {/* Content area: guided screens + scrollable chat thread */}
+            <div
+              ref={scrollRef}
+              className="flex-1 overflow-y-auto px-3.5 pt-5 pb-3.5 flex flex-col gap-3 scroll-smooth"
+            >
               <AnimatePresence mode="wait">
                 {view.kind === 'welcome' && <WelcomeScreen key="w" onSelect={goCategory} />}
                 {view.kind === 'category' && (
@@ -680,24 +812,55 @@ const Chatbot = () => {
                   <SubScreen key={`s-${view.parentId}-${view.subId}`} parentId={view.parentId} subId={view.subId} onBack={goBack} onHome={goWelcome} />
                 )}
               </AnimatePresence>
+
+              {messages.length > 0 && (
+                <div className="flex flex-col gap-2 pt-1">
+                  {messages.map((m) => (
+                    <motion.div
+                      key={m.id}
+                      initial={{ opacity: 0, y: 6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.22, ease: 'easeOut' }}
+                      className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                    >
+                      <div
+                        className={
+                          m.role === 'user'
+                            ? 'max-w-[80%] rounded-[14px] rounded-br-[4px] bg-[#D71920] text-white px-3 py-2 text-[11.5px] leading-relaxed shadow-[0_2px_6px_-2px_rgba(215,25,32,0.4)] whitespace-pre-wrap break-words'
+                            : 'max-w-[82%] rounded-[14px] rounded-bl-[4px] bg-white border border-[#E9E4DC] text-gray-800 px-3 py-2 text-[11.5px] leading-relaxed shadow-[0_2px_5px_-3px_rgba(17,17,17,0.08)] whitespace-pre-wrap break-words'
+                        }
+                      >
+                        {m.text}
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              )}
             </div>
 
-            {/* Footer bar with brand + quick quote pill */}
-            <div className="border-t border-[#E9E4DC] bg-white/60 px-3.5 py-2 flex items-center justify-between">
-              <div className="flex items-center gap-1.5">
-                <HardHat className="w-3.5 h-3.5 text-[#D71920]" />
-                <span className="text-[9.5px] font-semibold uppercase tracking-[0.18em] text-gray-500">
-                  {brand.shortName} · Est. 2009
-                </span>
+            {/* Message input row — always visible, not covered by any other element */}
+            <div className="border-t border-[#E9E4DC] bg-white px-3 py-2.5 flex items-center gap-2 shrink-0">
+              <div className="relative flex-1">
+                <input
+                  ref={inputRef}
+                  type="text"
+                  value={draft}
+                  onChange={(e) => setDraft(e.target.value)}
+                  onKeyDown={onInputKey}
+                  placeholder="Type your message..."
+                  className="w-full rounded-full border border-gray-200 bg-gray-50 focus:bg-white focus:border-[#D71920]/40 focus:ring-2 focus:ring-[#D71920]/15 text-[12px] text-gray-900 placeholder:text-gray-400 px-4 py-2 pr-11 outline-none transition-all duration-200"
+                  aria-label="Type your message"
+                />
+                <button
+                  type="button"
+                  onClick={sendMessage}
+                  disabled={!draft.trim()}
+                  className="absolute right-1.5 top-1/2 -translate-y-1/2 inline-flex items-center justify-center rounded-full bg-[#D71920] text-white disabled:bg-gray-300 disabled:cursor-not-allowed w-8 h-8 shadow-[0_3px_8px_-2px_rgba(215,25,32,0.45)] hover:bg-[#be1218] active:scale-95 transition-all duration-175"
+                  aria-label="Send message"
+                >
+                  <Send className="w-3.5 h-3.5" strokeWidth={2.2} />
+                </button>
               </div>
-              <button
-                type="button"
-                onClick={() => pushQuote()}
-                className="inline-flex items-center gap-1 rounded-full bg-[#D71920]/10 hover:bg-[#D71920]/20 text-[#D71920] px-2.5 py-1.5 text-[9.5px] font-bold uppercase tracking-[0.18em] transition-colors"
-              >
-                <FileText className="w-3 h-3" />
-                Free Quote
-              </button>
             </div>
           </motion.div>
         )}
