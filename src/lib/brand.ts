@@ -259,19 +259,19 @@ export const teamMembers = [
     name: 'Kenmos Tesfaye',
     role: 'Founder & General Manager',
     bio: 'Leads the practice with 20 years of structural design and construction supervision across 800+ projects.',
-    image: '/images/team_kenmos.png',
+    location: 'Addis Ababa Office',
   },
   {
     name: 'Senior Structural Engineer',
-    role: 'Structural Engineer',
+    role: 'Senior Structural Engineer',
     bio: 'Oversees structural analysis, design development, and engineering quality assurance.',
-    image: '/images/team_engineer.png',
+    location: 'Addis Ababa Office',
   },
   {
     name: 'CAD Technician Team',
     role: 'CAD Technicians',
     bio: 'Produces detailed structural drawings and documentation aligned with project specifications.',
-    image: '/images/team_cad.png',
+    location: 'Addis Ababa Office',
   },
 ] as const 
 export const testimonials = [

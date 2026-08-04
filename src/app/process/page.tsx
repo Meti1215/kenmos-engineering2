@@ -45,11 +45,11 @@ export default function ProcessPage() {
       {/* Timeline Section */}
       <section className="py-14 md:py-18 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-white">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
+        <div className="text-center w-full max-w-6xl mx-auto px-2 mb-10 md:mb-14">
           <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] text-[#D71920]">
             Step-by-Step Delivery
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black font-heading text-black mt-2 leading-tight">
+          <h2 className="mt-2 whitespace-nowrap text-[0.82rem] md:text-[1.1rem] font-black font-heading leading-none tracking-[-0.03em] text-black sm:text-[1.5rem] sm:tracking-[-0.025em] md:text-[1.85rem] lg:text-[2.25rem] xl:text-[2.65rem] 2xl:text-[2.95rem]">
             How We Deliver Structural Excellence
           </h2>
         </div>

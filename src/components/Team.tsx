@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { HardHat, Mail } from 'lucide-react'
+import { HardHat, MapPin } from 'lucide-react'
 import { teamMembers } from '@/lib/brand'
 
 const Team = () => {
@@ -12,9 +12,9 @@ const Team = () => {
   return (
     <section id="careers" className="section-padding border-y border-gray-200/70 bg-[linear-gradient(180deg,#f7f3eb_0%,#f5efe8_100%)]">
       <div className="content-container">
-        <div className="mx-auto mb-10 max-w-3xl text-center md:mb-14">
+        <div className="mx-auto mb-10 w-full max-w-6xl px-2 text-center md:mb-14">
           <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#D71920] md:text-xs">Our Experts</span>
-          <h2 className="mt-3 text-3xl font-black leading-tight text-black md:text-4xl lg:text-5xl">Meet the Structural Engineering Team</h2>
+          <h2 className="mt-3 whitespace-nowrap text-[0.78rem] font-black leading-none tracking-[-0.03em] text-black sm:text-[1.4rem] sm:tracking-[-0.025em] md:text-[1.8rem] lg:text-[2.2rem] xl:text-[2.6rem] 2xl:text-[2.9rem]">Meet the Structural Engineering Team</h2>
           <p className="mx-auto mt-4 max-w-xl text-sm font-light leading-relaxed text-gray-500">Dedicated professionals applying advanced analysis, code compliance, and structural optimization to shape secure foundations.</p>
         </div>
 
@@ -22,26 +22,31 @@ const Team = () => {
           {teamMembers.map((member) => (
             <motion.div key={member.name} variants={cardVariants} className="group relative flex h-full flex-col overflow-hidden rounded-[1.25rem] border border-[#E9E4DC] bg-white shadow-[0_16px_44px_rgba(17,17,17,0.06)] transition-all duration-300 hover:-translate-y-2 hover:border-[#D71920]/25 hover:shadow-[0_26px_65px_rgba(17,17,17,0.13)]">
               <div className="absolute left-0 top-0 z-20 h-[3px] w-0 bg-[#D71920] transition-all duration-300 group-hover:w-full" />
-              <div className="relative aspect-[4/5] overflow-hidden bg-gray-50">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={member.image} alt={member.name} className="h-full w-full object-cover transition-transform duration-600 ease-out group-hover:scale-106" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <div className="absolute right-4 top-4 rounded-[0.85rem] bg-[#D71920] p-2.5 text-white shadow-[0_10px_24px_rgba(215,25,32,0.28)] transition-transform duration-300 group-hover:scale-110">
-                  <HardHat className="h-4 w-4" />
-                </div>
-              </div>
 
-              <div className="flex flex-grow flex-col justify-between gap-5 p-6 md:p-8">
-                <div>
-                  <h3 className="text-lg font-bold leading-tight tracking-tight text-black transition-colors duration-300 group-hover:text-[#D71920] md:text-xl">{member.name}</h3>
-                  <p className="mt-1.5 text-xs font-bold uppercase tracking-[0.2em] text-[#D71920]">{member.role}</p>
-                  <p className="mt-4 text-sm font-light leading-relaxed text-gray-500">{member.bio}</p>
-                </div>
-                <div className="flex items-center gap-3 border-t border-gray-100/80 pt-4 text-gray-400">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-[0.6rem] bg-gray-50 transition-all duration-300 group-hover:bg-[#D71920]/10">
-                    <Mail className="h-4 w-4 transition-colors duration-300 group-hover:text-[#D71920]" />
+              <div className="flex flex-grow flex-col justify-between gap-6 p-7 md:p-8">
+                <div className="flex flex-col gap-5">
+                  <div className="flex items-start justify-between">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-[1rem] bg-[#D71920]/10 transition-all duration-300 group-hover:bg-[#D71920]/15 group-hover:scale-105">
+                      <HardHat className="h-7 w-7 text-[#D71920]" strokeWidth={1.8} />
+                    </div>
+                    <div className="h-14 w-[1px] bg-gradient-to-b from-transparent via-[#E9E4DC] to-transparent" />
                   </div>
-                  <span className="text-xs font-medium">Addis Ababa Office</span>
+
+                  <div className="flex flex-col gap-1.5">
+                    <h3 className="text-lg font-bold leading-tight tracking-tight text-black transition-colors duration-300 group-hover:text-[#D71920] md:text-xl">{member.name}</h3>
+                    <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#D71920]">{member.role}</p>
+                  </div>
+
+                  <div className="h-[1px] w-12 bg-gradient-to-r from-[#D71920]/40 to-transparent" />
+
+                  <p className="text-sm font-light leading-relaxed text-gray-600">{member.bio}</p>
+                </div>
+
+                <div className="flex items-center gap-3 border-t border-gray-100/80 pt-5 text-gray-400">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-[0.7rem] bg-gray-50 transition-all duration-300 group-hover:bg-[#D71920]/10">
+                    <MapPin className="h-4 w-4 transition-colors duration-300 group-hover:text-[#D71920]" strokeWidth={1.8} />
+                  </div>
+                  <span className="text-xs font-semibold tracking-wide text-gray-500 transition-colors duration-300 group-hover:text-gray-700">{member.location}</span>
                 </div>
               </div>
             </motion.div>

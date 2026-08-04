@@ -21,9 +21,9 @@ const Services = () => {
   return (
     <section id="services" className="section-padding border-y border-[#ECECEC] bg-[#FAFAFA]">
       <div className="content-container">
-        <div className="mx-auto mb-12 max-w-3xl text-center md:mb-16">
+        <div className="mx-auto mb-12 w-full max-w-6xl px-2 text-center md:mb-16">
           <span className="text-[12px] font-semibold uppercase tracking-[0.34em] text-[#D71920]">Our Services</span>
-          <h2 className="mt-3 text-[2rem] font-semibold leading-[1.12] tracking-[-0.02em] text-black sm:text-[2.4rem] lg:text-[2.8rem]">
+          <h2 className="mt-3 whitespace-nowrap text-[0.78rem] font-semibold leading-none tracking-[-0.03em] text-black sm:text-[1.45rem] sm:tracking-[-0.025em] md:text-[1.85rem] lg:text-[2.25rem] xl:text-[2.65rem] 2xl:text-[2.95rem]">
             Comprehensive Structural Engineering Solutions
           </h2>
         </div>
