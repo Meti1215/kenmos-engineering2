@@ -41,19 +41,21 @@ export default function GalleryPage() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {images.map((img, idx) => (
-            <div key={idx} className="group relative aspect-[4/3] bg-gray-900 border border-gray-100 overflow-hidden shadow-sm hover:shadow-md">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={img.src}
-                alt={img.title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
-                <div className="flex items-center gap-2 text-[#D71920] text-xs font-bold uppercase">
-                  <Camera className="w-4 h-4" />
+            <div key={idx} className="group flex flex-col overflow-hidden bg-white border border-gray-200 shadow-sm rounded-lg hover:shadow-lg transition-all duration-300">
+              <div className="relative h-36 w-full overflow-hidden bg-gray-50 flex items-center justify-center border-b border-gray-100 p-3">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={img.src}
+                  alt={img.title}
+                  className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+              </div>
+              <div className="flex flex-1 flex-col p-4 bg-white">
+                <div className="flex items-center gap-1.5 text-[#D71920]/80 text-[9px] font-bold uppercase tracking-wider">
+                  <Camera className="w-3.5 h-3.5" />
                   <span>Structural Detailing</span>
                 </div>
-                <h3 className="text-lg font-bold text-white mt-2 uppercase tracking-tight leading-tight">
+                <h3 className="text-xs font-black font-heading tracking-tight leading-tight text-[#111112] mt-2 uppercase line-clamp-1">
                   {img.title}
                 </h3>
               </div>

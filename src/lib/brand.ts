@@ -226,6 +226,166 @@ export const projects = [
   description:
     'Lead Consultant: Mesfin Architects\nStructural: Kenmos Engineering',
   image: '/images/project_athlet_birhane_adere.jpg',
+}, 
+{
+  id: 'four-points-sheraton',
+  title: 'Four Points by Sheraton Hotel (31 Story)',
+  category: 'Hospitality',
+  description:
+    'Lead Consultant: Jdaw Consult\nStructural: Kenmos Engineering',
+  image: '/images/project_four_points_sheraton.jpg',
+},
+{
+  id: 'ema-office-building',
+  title: 'EMA Office Building (25 Story)',
+  category: 'Commercial',
+  description:
+    'Lead Consultant: Geretta Consult\nStructural: Kenmos Engineering',
+  image: '/images/project_ema_office.jpg',
+},
+{
+  id: 'marriott-hotel-addis',
+  title: 'Marriott Hotel, Addis Ababa',
+  category: 'Hospitality',
+  description:
+    'Structural: Kenmos Engineering',
+  image: '/images/project_marriott_addis.jpg',
+},
+{
+  id: 'emaysru-hotel',
+  title: 'Emaysru Hotel, Mekele (25 Story)',
+  category: 'Hospitality',
+  description:
+    'Structural: Kenmos Engineering',
+  image: '/images/project_emaysru_hotel.jpg',
+},
+{
+  id: 'ethiopian-national-theatre',
+  title: 'Ethiopian National Theatre',
+  category: 'Institutional',
+  description:
+    'Design Completed\nLead Consultant: Addis Mebratu',
+  image: '/images/project_national_theatre.jpg',
+},
+{
+  id: 'jimma-university-stadium',
+  title: 'Jimma University Stadium (40,000 Seats)',
+  category: 'Institutional',
+  description:
+    'Under Construction\nStructural: Kenmos Engineering',
+  image: '/images/project_jimma_stadium.jpg',
+},
+{
+  id: 'adama-university-stadium',
+  title: 'Adama University Stadium (20,000 Seats)',
+  category: 'Institutional',
+  description:
+    'Construction Completed\nStructural: Kenmos Engineering',
+  image: '/images/project_adama_stadium.jpg',
+},
+{
+  id: 'harar-stadium',
+  title: 'Harar Stadium (55,000 Seats)',
+  category: 'Institutional',
+  description:
+    'Lead Consultant: Shigez Consult\nStructural: Kenmos Engineering',
+  image: '/images/project_harar_stadium.jpg',
+},
+{
+  id: 'nib-bank',
+  title: 'NIB Bank',
+  category: 'Commercial',
+  description:
+    'Under Construction\nStructural: Kenmos Engineering',
+  image: '/images/project_nib_bank.jpg',
+},
+{
+  id: 'zemen-bank',
+  title: 'Zemen Bank',
+  category: 'Commercial',
+  description:
+    'Under Construction\nLead Consultant: Jdaw Consult\nStructural: Kenmos Engineering',
+  image: '/images/project_zemen_bank.jpg',
+}, 
+{
+  id: 'dire-dawa-stadium',
+  title: 'Dire Dawa Stadium',
+  category: 'Institutional',
+  description:
+    'Lead Consultant: ETG\nStructural: Kenmos Engineering',
+  image: '/images/project_dire_dawa_stadium.jpg',
+},
+{
+  id: 'zefmesh',
+  title: 'Zefmesh',
+  category: 'Commercial',
+  description:
+    'Lead Consultant: Addis Mebratu\nStructural: Kenmos Engineering',
+  image: '/images/project_zefmesh.jpg',
+},
+{
+  id: 'eepco',
+  title: 'EEPCO',
+  category: 'Infrastructure',
+  description:
+    'Lead Consultant: MU Engineering PLC\nStructural: Kenmos Engineering',
+  image: '/images/project_eepco.jpg',
+},
+{
+  id: 'orda',
+  title: 'ORDA Office Building (25 Story)',
+  category: 'Commercial',
+  description:
+    'Lead Consultant: Geretta Consult\nStructural: Kenmos Engineering',
+  image: '/images/project_orda.jpg',
+},
+{
+  id: 'hilton-under-design',
+  title: 'Hilton Hotel',
+  category: 'Hospitality',
+  description:
+    'Status: Under Design\nStructural: Kenmos Engineering',
+  image: '/images/project_hilton_under_design.jpg',
+},
+{
+  id: 'mekele-hotel',
+  title: 'Mekele Hotel (28 Story)',
+  category: 'Hospitality',
+  description:
+    'Lead Consultant: Jdaw Consult\nStructural: Kenmos Engineering',
+  image: '/images/project_mekele_hotel.jpg',
+},
+{
+  id: 'mixed-use-35',
+  title: 'Mixed Use Building (5B + G + 35)',
+  category: 'Commercial',
+  description:
+    'Owner: NHO Real Estate\nArchitect: Italian Company',
+  image: '/images/project_mixed_use_35.jpg',
+},
+{
+  id: 'oic-headquarters',
+  title: 'OIC Headquarters (4B + G + 40)',
+  category: 'Commercial',
+  description:
+    'Lead Consultant: Zeleke Belay',
+  image: '/images/project_oic_headquarters.jpg',
+},
+{
+  id: 'hosea-luxury-apartment',
+  title: 'HOSEA Luxury Apartment (5B + G + 25)',
+  category: 'Residential',
+  description:
+    'Client: Hosea Trading House PLC\nContractor: Bamacon Engineering PLC\nStatus: Under Construction',
+  image: '/images/project_hosea_apartment.jpg',
+},
+{
+  id: 'manson-arada-luxury-mall',
+  title: 'MANSON Arada Luxury Mall',
+  category: 'Commercial',
+  description:
+    'Client: MWS Trading PLC\nContractor: China Jiangsu International Economic & Technical Corporation Group Ltd',
+  image: '/images/project_manson_arada.jpg',
 },
 ] 
 export const processSteps = [
