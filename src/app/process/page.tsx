@@ -27,7 +27,7 @@ export default function ProcessPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 md:pb-24 px-4 sm:px-6 lg:px-8 bg-[#111112] text-white">
+      <section className="relative pt-24 pb-10 md:pb-16 px-4 sm:px-6 lg:px-8 bg-[#111112] text-white">
         <div className="relative max-w-7xl mx-auto text-center flex flex-col items-center gap-4">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 text-[#D71920] text-xs font-bold uppercase tracking-wider">
             <Workflow className="w-4 h-4" />
@@ -43,13 +43,13 @@ export default function ProcessPage() {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-white">
+      <section className="py-14 md:py-18 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-white">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20 md:mb-28">
+        <div className="text-center w-full max-w-6xl mx-auto px-2 mb-10 md:mb-14">
           <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] text-[#D71920]">
             Step-by-Step Delivery
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black font-heading text-black mt-2 leading-tight">
+          <h2 className="mt-2 whitespace-nowrap text-[0.82rem] md:text-[1.1rem] font-black font-heading leading-none tracking-[-0.03em] text-black sm:text-[1.5rem] sm:tracking-[-0.025em] md:text-[1.85rem] lg:text-[2.25rem] xl:text-[2.65rem] 2xl:text-[2.95rem]">
             How We Deliver Structural Excellence
           </h2>
         </div>
@@ -60,7 +60,7 @@ export default function ProcessPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 relative"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 relative"
         >
           {/* Connecting Line (Desktop) */}
           <div className="hidden lg:block absolute top-12 left-[10%] right-[10%] h-[1px] bg-gray-200 z-0"></div>
@@ -69,21 +69,19 @@ export default function ProcessPage() {
             <motion.div
               key={step.step}
               variants={stepVariants}
-              className="relative z-10 flex flex-col items-center lg:items-start text-center lg:text-left group"
+              className="group relative z-10 flex h-full flex-col overflow-hidden rounded-[1.25rem] border border-[#E9E4DC] bg-white p-8 shadow-[0_16px_44px_rgba(17,17,17,0.06)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#D71920]/25 hover:shadow-[0_24px_60px_rgba(17,17,17,0.12)] items-center lg:items-start text-center lg:text-left"
             >
+              <div className="absolute left-0 top-0 h-[3px] w-0 bg-[#D71920] transition-all duration-300 group-hover:w-full" />
               {/* Step Circle Counter */}
-              <div className="w-24 h-24 rounded-none bg-white border border-gray-100 shadow-sm flex items-center justify-center relative mb-6 group-hover:border-[#D71920] group-hover:shadow-md transition-all duration-300">
+              <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-[1.25rem] border border-[#E9E4DC] bg-white shadow-[0_8px_24px_rgba(17,17,17,0.06)] transition-all duration-300 group-hover:border-[#D71920]/40 group-hover:shadow-[0_12px_32px_rgba(215,25,32,0.18)]">
                 <span className="text-3xl font-black font-heading text-gray-300 group-hover:text-[#D71920] transition-colors">
                   {step.step}
                 </span>
-                
-                {/* Micro-dot Indicator */}
-                <div className="absolute -bottom-1.5 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-white border-2 border-gray-300 rounded-full group-hover:border-[#D71920] group-hover:bg-[#D71920] transition-colors duration-300"></div>
               </div>
 
               {/* Title & Description */}
-              <div className="max-w-[280px]">
-                <h3 className="text-lg font-bold text-black mb-3">
+              <div className="flex flex-col flex-grow max-w-[280px]">
+                <h3 className="text-lg font-bold leading-tight tracking-tight text-black mb-3 transition-colors duration-300 group-hover:text-[#D71920]">
                   {step.title}
                 </h3>
                 <p className="text-sm text-gray-500 leading-relaxed font-light">

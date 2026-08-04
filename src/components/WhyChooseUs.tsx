@@ -6,101 +6,40 @@ import { Landmark, Compass, ShieldAlert, Award, FileSpreadsheet, Eye } from 'luc
 
 const WhyChooseUs = () => {
   const points = [
-    {
-      title: 'Cost & Value Optimization',
-      description: 'Our primary design pillar. We optimize structural steel and concrete grades, reducing material cost while maintaining high safety factors.',
-      icon: Landmark,
-    },
-    {
-      title: '20+ Years Leadership',
-      description: 'Our founder Kenmos Tesfaye and engineering leads bring over two decades of expert structural analysis and design coordination.',
-      icon: Compass,
-    },
-    {
-      title: 'Steel Structure Specialists',
-      description: 'We are recognized leaders in Ethiopia for design and connection detailing of complex steel truss warehouses, stadiums, and factories.',
-      icon: ShieldAlert,
-    },
-    {
-      title: 'Rigorous Site Supervision',
-      description: 'We perform strict inspections of steel fabrication, concrete pours, and reinforcement layouts to guarantee structure safety.',
-      icon: Award,
-    },
-    {
-      title: 'Advanced Engineering Analysis',
-      description: 'We utilize state-of-the-art structural design and finite element modeling software to test wind, seismic, and static load performance.',
-      icon: FileSpreadsheet,
-    },
-    {
-      title: 'Proven Track Record',
-      description: 'With over 800 projects designed and supervised since 2009, we have served clients ranging from commercial banks to stadiums.',
-      icon: Eye,
-    },
+    { title: 'Cost & Value Optimization', description: 'Optimize steel and concrete designs to reduce costs while maintaining safety and performance.', icon: Landmark },
+    { title: '20+ Years Leadership', description: 'Experienced structural engineers delivering reliable analysis and design solutions.', icon: Compass },
+    { title: 'Steel Structure Specialists', description: 'Experts in steel truss, warehouse, stadium, and factory structural design.', icon: ShieldAlert },
+    { title: 'Rigorous Site Supervision', description: 'Strict inspections ensure quality fabrication, concrete work, and structural safety.', icon: Award },
+    { title: 'Advanced Engineering Analysis', description: 'Using advanced modeling tools to evaluate wind, seismic, and load performance.', icon: FileSpreadsheet },
+    { title: 'Proven Track Record', description: '800+ projects delivered across commercial, industrial, and public sectors.', icon: Eye },
   ]
 
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.08,
-      },
-    },
-  }
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
-  }
+  const containerVariants = { hidden: {}, visible: { transition: { staggerChildren: 0.07 } } }
+  const cardVariants = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.48, ease: 'easeOut' } } }
 
   return (
-    <section className="py-20 md:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
-          <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] text-[#D71920]">
-            Why Choose Us
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black font-heading text-black mt-2 leading-tight">
-            Structural Integrity Meets Cost Optimization
-          </h2>
+    <section className="py-12 md:py-14 lg:py-16 bg-white/80">
+      <div className="content-container">
+        <div className="mx-auto mb-6 md:mb-8 w-full max-w-6xl px-2 text-center">
+          <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#D71920] md:text-xs">Why Choose Us</span>
+          <h2 className="mt-2.5 whitespace-nowrap text-[0.76rem] font-black leading-none tracking-[-0.03em] text-black sm:text-[1.3rem] sm:tracking-[-0.025em] md:text-[1.65rem] lg:text-[2rem] xl:text-[2.35rem] 2xl:text-[2.65rem]">Structural Integrity Meets Cost Optimization</h2>
         </div>
 
-        {/* Points Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
-        >
+        <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="grid gap-3 sm:gap-4 lg:gap-5 md:grid-cols-2 lg:grid-cols-3">
           {points.map((point) => (
-            <motion.div
-              key={point.title}
-              variants={cardVariants}
-              className="group bg-white p-8 border border-gray-100 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-[#D71920]/20 flex flex-col gap-4 relative overflow-hidden"
-            >
-              {/* Icon */}
-              <div className="w-10 h-10 flex items-center justify-center bg-red-50 text-[#D71920]">
-                <point.icon className="w-5 h-5" strokeWidth={1.5} />
+            <motion.div key={point.title} variants={cardVariants} className="group relative flex h-full flex-col gap-3.5 md:gap-4 overflow-hidden rounded-[1rem] md:rounded-[1.1rem] border border-[#E9E4DC] bg-white p-4 md:p-5 shadow-[0_8px_24px_-8px_rgba(17,17,17,0.08)] transition-all duration-300 hover:-translate-y-1 hover:border-[#D71920]/25 hover:shadow-[0_18px_44px_-12px_rgba(17,17,17,0.14)]">
+              <div className="absolute left-0 top-0 h-[2.5px] w-0 bg-[#D71920] transition-all duration-300 group-hover:w-full" />
+              <div className="absolute -right-8 -top-8 h-20 w-20 rounded-full bg-[#D71920]/5 transition-all duration-500 group-hover:scale-[2]" />
+              <div className="relative flex h-10 w-10 md:h-11 md:w-11 items-center justify-center rounded-[0.9rem] bg-[#D71920]/10 text-[#D71920] shadow-[0_6px_16px_rgba(215,25,32,0.10)] transition-all duration-300 group-hover:bg-[#D71920] group-hover:text-white group-hover:shadow-[0_10px_22px_rgba(215,25,32,0.22)]">
+                <point.icon className="h-5 w-5 md:h-[22px] md:w-[22px]" strokeWidth={1.6} />
               </div>
-
-              {/* Title & Description */}
-              <div>
-                <h3 className="text-lg font-bold text-black mb-2">
-                  {point.title}
-                </h3>
-                <p className="text-sm text-gray-500 leading-relaxed font-light">
-                  {point.description}
-                </p>
+              <div className="relative">
+                <h3 className="mb-1.5 text-[15px] md:text-base font-bold leading-tight tracking-tight text-black transition-colors duration-300 group-hover:text-[#D71920]">{point.title}</h3>
+                <p className="text-[12.5px] md:text-[13px] font-light leading-relaxed text-gray-500">{point.description}</p>
               </div>
-
-              {/* Left border highlight on hover */}
-              <div className="absolute left-0 top-0 h-full w-0 bg-[#D71920] transition-all duration-300 group-hover:w-1"></div>
             </motion.div>
           ))}
         </motion.div>
-
       </div>
     </section>
   )

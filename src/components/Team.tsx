@@ -2,95 +2,56 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { HardHat, Compass, Briefcase, Mail } from 'lucide-react'
+import { HardHat, MapPin } from 'lucide-react'
 import { teamMembers } from '@/lib/brand'
 
 const Team = () => {
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  }
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-  }
+  const containerVariants = { hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }
+  const cardVariants = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } } }
 
   return (
-    <section id="careers" className="py-20 md:py-32 bg-[#F9FAFB] border-t border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
-          <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] text-[#D71920]">
-            Our Experts
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black font-heading text-black mt-2 leading-tight">
-            Meet the Structural Engineering Team
-          </h2>
-          <p className="text-sm text-gray-500 max-w-xl mx-auto mt-4 leading-relaxed font-light">
-            Dedicated professionals applying advanced analysis, code compliance, and structural optimization to shape secure foundations.
-          </p>
+    <section id="careers" className="section-padding border-y border-gray-200/70 bg-[linear-gradient(180deg,#f7f3eb_0%,#f5efe8_100%)]">
+      <div className="content-container">
+        <div className="mx-auto mb-10 w-full max-w-6xl px-2 text-center md:mb-14">
+          <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#D71920] md:text-xs">Our Experts</span>
+          <h2 className="mt-3 whitespace-nowrap text-[0.78rem] font-black leading-none tracking-[-0.03em] text-black sm:text-[1.4rem] sm:tracking-[-0.025em] md:text-[1.8rem] lg:text-[2.2rem] xl:text-[2.6rem] 2xl:text-[2.9rem]">Meet the Structural Engineering Team</h2>
+          <p className="mx-auto mt-4 max-w-xl text-sm font-light leading-relaxed text-gray-500">Dedicated professionals applying advanced analysis, code compliance, and structural optimization to shape secure foundations.</p>
         </div>
 
-        {/* Team Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
-        >
+        <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="grid gap-5 md:grid-cols-3 md:gap-6">
           {teamMembers.map((member) => (
-            <motion.div
-              key={member.name}
-              variants={cardVariants}
-              className="group bg-white border border-gray-100 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-[#D71920]/20 flex flex-col h-full"
-            >
-              {/* Member Photo Container */}
-              <div className="relative aspect-[4/5] bg-gray-50 overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                
-                {/* Visual Hardhat icon overlay */}
-                <div className="absolute top-4 right-4 bg-[#D71920] text-white p-2.5 shadow-md">
-                  <HardHat className="w-4 h-4" />
+            <motion.div key={member.name} variants={cardVariants} className="group relative flex h-full flex-col overflow-hidden rounded-[1.25rem] border border-[#E9E4DC] bg-white shadow-[0_16px_44px_rgba(17,17,17,0.06)] transition-all duration-300 hover:-translate-y-2 hover:border-[#D71920]/25 hover:shadow-[0_26px_65px_rgba(17,17,17,0.13)]">
+              <div className="absolute left-0 top-0 z-20 h-[3px] w-0 bg-[#D71920] transition-all duration-300 group-hover:w-full" />
+
+              <div className="flex flex-grow flex-col justify-between gap-6 p-7 md:p-8">
+                <div className="flex flex-col gap-5">
+                  <div className="flex items-start justify-between">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-[1rem] bg-[#D71920]/10 transition-all duration-300 group-hover:bg-[#D71920]/15 group-hover:scale-105">
+                      <HardHat className="h-7 w-7 text-[#D71920]" strokeWidth={1.8} />
+                    </div>
+                    <div className="h-14 w-[1px] bg-gradient-to-b from-transparent via-[#E9E4DC] to-transparent" />
+                  </div>
+
+                  <div className="flex flex-col gap-1.5">
+                    <h3 className="text-lg font-bold leading-tight tracking-tight text-black transition-colors duration-300 group-hover:text-[#D71920] md:text-xl">{member.name}</h3>
+                    <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#D71920]">{member.role}</p>
+                  </div>
+
+                  <div className="h-[1px] w-12 bg-gradient-to-r from-[#D71920]/40 to-transparent" />
+
+                  <p className="text-sm font-light leading-relaxed text-gray-600">{member.bio}</p>
+                </div>
+
+                <div className="flex items-center gap-3 border-t border-gray-100/80 pt-5 text-gray-400">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-[0.7rem] bg-gray-50 transition-all duration-300 group-hover:bg-[#D71920]/10">
+                    <MapPin className="h-4 w-4 transition-colors duration-300 group-hover:text-[#D71920]" strokeWidth={1.8} />
+                  </div>
+                  <span className="text-xs font-semibold tracking-wide text-gray-500 transition-colors duration-300 group-hover:text-gray-700">{member.location}</span>
                 </div>
               </div>
-
-              {/* Member Info */}
-              <div className="p-6 md:p-8 flex flex-col flex-grow justify-between gap-4">
-                <div>
-                  <h3 className="text-lg md:text-xl font-bold text-black group-hover:text-[#D71920] transition-colors leading-tight">
-                    {member.name}
-                  </h3>
-                  <p className="text-xs font-bold uppercase tracking-wider text-[#D71920] mt-1.5">
-                    {member.role}
-                  </p>
-                  <p className="text-sm text-gray-500 mt-4 leading-relaxed font-light">
-                    {member.bio}
-                  </p>
-                </div>
-
-                {/* Footer contact placeholder */}
-                <div className="pt-4 border-t border-gray-100 flex items-center gap-3 text-gray-400">
-                  <Mail className="w-4 h-4 hover:text-[#D71920] cursor-pointer transition-colors" />
-                  <span className="text-xs">Addis Ababa Office</span>
-                </div>
-              </div>
-
             </motion.div>
           ))}
         </motion.div>
-
       </div>
     </section>
   )

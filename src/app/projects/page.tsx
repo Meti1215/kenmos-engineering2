@@ -13,8 +13,8 @@ export default function ProjectsPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 md:pb-24 px-4 sm:px-6 lg:px-8 bg-[#111112] text-white">
-        <div className="relative max-w-7xl mx-auto text-center flex flex-col items-center gap-4">
+      <section className="relative pt-24 pb-10 md:pb-16 bg-[#111112] text-white">
+        <div className="relative content-container text-center flex flex-col items-center gap-4">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 text-[#D71920] text-xs font-bold uppercase tracking-wider">
             <Building2 className="w-4 h-4" />
             Our Works
@@ -53,9 +53,11 @@ export default function ProjectsPage() {
                 <span className="inline-flex w-fit items-center bg-[#D71920]/10 px-2 py-0.5 text-[8px] font-bold uppercase tracking-[0.22em] text-[#D71920]">
                   {p.category}
                 </span>
+
                 <h2 className="text-[11px] font-black font-heading uppercase tracking-tight leading-tight text-[#111112] line-clamp-2 min-h-[1.4rem]">
                   {p.title}
                 </h2>
+
                 <p className="text-[10px] text-gray-500 font-light leading-snug line-clamp-2 whitespace-pre-line min-h-[1.4rem]">
                   {p.description}
                 </p>
