@@ -7,7 +7,7 @@ import { aboutContent } from '@/lib/brand'
 
 const About = () => {
   return (
-    <section id="about" className="section-padding bg-transparent">
+    <section id="about" className="section-padding bg-transparent pt-8 sm:pt-12 md:pt-16 lg:pt-24">
       <div className="w-full max-w-none px-3 sm:px-4 lg:px-6">
         <div className="grid w-full items-center gap-10 lg:grid-cols-[1fr_0.82fr_1fr] lg:gap-14 xl:gap-16">
           <div className="relative flex justify-center">

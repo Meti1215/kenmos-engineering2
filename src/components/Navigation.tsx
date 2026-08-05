@@ -179,7 +179,7 @@ const Navigation = () => {
 
   return (
     <>
-      <header className={cn('fixed top-0 left-0 right-0 z-50 w-full transition-all duration-350', isHeroVisible ? 'bg-transparent border-b border-white/40 backdrop-blur-none shadow-none' : 'bg-white border-b border-gray-100 shadow-sm backdrop-blur-md')}>
+      <header className={cn('fixed top-0 left-0 right-0 z-50 w-full transition-colors duration-300 ease-in-out', scrolled ? 'bg-white border-b border-gray-100 shadow-sm backdrop-blur-md' : 'bg-transparent border-b-0 shadow-none backdrop-blur-none')}>
         <div className="mx-auto grid h-[84px] w-full max-w-[1440px] grid-cols-2 items-center px-5 sm:px-6 lg:grid-cols-3 lg:px-8 nav-desktop">
           <div className="flex items-center justify-start logo-left">
             <Link href="/" prefetch={true} className="flex flex-shrink-0 items-center">
