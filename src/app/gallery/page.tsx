@@ -1,27 +1,26 @@
 'use client'
 
 import React from 'react'
-import { motion } from 'framer-motion'
 import { Image as ImageIcon, Camera } from 'lucide-react'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
-import { projects } from '@/lib/brand'
 
 export default function GalleryPage() {
   const images = [
-    { src: '/images/hero_building.png', title: 'Curved Facade Steel Design' },
-    { src: '/images/about_collage_1.png', title: 'High-Rise Steel Framing' },
-    { src: '/images/about_collage_2.png', title: 'Truss Structural Connection' },
-    { src: '/images/project_zemen.png', title: 'Zemen Bank HQ Structure' },
-    { src: '/images/project_stadium.png', title: 'Sports Stadium Roof Detailing' },
-    { src: '/images/project_memorial.png', title: 'Commemorative Monument Concrete Design' },
+    { src: '/images/hero_building.png', title: 'Engineering facade and structure', category: 'Project highlight' },
+    { src: '/images/project_airforce.jpg', title: 'Air Force project structure', category: 'Engineering project' },
+    { src: '/images/project_capital_hotel.jpg', title: 'Capital hotel construction work', category: 'Site activity' },
+    { src: '/images/project_stadium.png', title: 'Stadium structural design', category: 'Large-scale work' },
+    { src: '/images/project_hilton_under_design.jpg', title: 'Design development stage', category: 'Structural design' },
+    { src: '/images/team_kenmos.png', title: 'Kenmos engineering team', category: 'Company moment' },
+    { src: '/images/project_manson_arada.jpg', title: 'Manson Arada project', category: 'Construction activity' },
+    { src: '/images/project_parliament.jpg', title: 'Parliament structure project', category: 'Major engineering project' },
   ]
 
   return (
     <main className="relative min-h-screen bg-white">
       <Navigation />
 
-      {/* Hero Section */}
       <section className="relative pt-32 pb-16 md:pb-24 px-4 sm:px-6 lg:px-8 bg-[#111112] text-white">
         <div className="relative max-w-7xl mx-auto text-center flex flex-col items-center gap-4">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 text-[#D71920] text-xs font-bold uppercase tracking-wider">
@@ -32,30 +31,28 @@ export default function GalleryPage() {
             Engineering Gallery
           </h1>
           <p className="text-sm md:text-lg text-gray-300 max-w-3xl leading-relaxed mt-2 font-light">
-            Blueprints, structural analysis screenshots, and construction site inspection photography.
+            A curated collection of structural design, construction work, and company moments from our ongoing portfolio.
           </p>
         </div>
       </section>
 
-      {/* Grid of Images */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {images.map((img, idx) => (
-            <div key={idx} className="group flex flex-col overflow-hidden bg-white border border-gray-200 shadow-sm rounded-lg hover:shadow-lg transition-all duration-300">
-              <div className="relative h-36 w-full overflow-hidden bg-gray-50 flex items-center justify-center border-b border-gray-100 p-3">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
+            <div key={idx} className="group overflow-hidden border border-gray-200 bg-white shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="relative h-72 overflow-hidden bg-gray-50">
                 <img
                   src={img.src}
                   alt={img.title}
-                  className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-              <div className="flex flex-1 flex-col p-4 bg-white">
-                <div className="flex items-center gap-1.5 text-[#D71920]/80 text-[9px] font-bold uppercase tracking-wider">
+              <div className="p-4">
+                <div className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[#D71920]">
                   <Camera className="w-3.5 h-3.5" />
-                  <span>Structural Detailing</span>
+                  <span>{img.category}</span>
                 </div>
-                <h3 className="text-xs font-black font-heading tracking-tight leading-tight text-[#111112] mt-2 uppercase line-clamp-1">
+                <h3 className="mt-2 text-sm font-black font-heading text-black uppercase tracking-tight leading-tight">
                   {img.title}
                 </h3>
               </div>

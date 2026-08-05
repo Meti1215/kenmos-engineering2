@@ -306,7 +306,7 @@ const WelcomeScreen: React.FC<{ onSelect: (id: MainCategory['id']) => void }> = 
         <Chip>Guided Assistant</Chip>
       </div>
       <h3 className="font-heading text-[15px] md:text-[16px] font-black tracking-tight text-gray-950 leading-tight">
-        Hi, we're <span className="text-[#D71920]">Kenmos</span> Engineering
+        Hi, we&apos;re <span className="text-[#D71920]">Kenmos</span> Engineering
       </h3>
       <p className="text-[10.5px] md:text-[11.5px] leading-relaxed text-gray-600 max-w-[250px]">
         Explore our expertise, services and project portfolio — or skip straight to requesting a quote. Tap any topic below.
@@ -616,7 +616,6 @@ const Chatbot = () => {
     }),
   }
 
-<<<<<<< Updated upstream
   const sendMessage = () => {
     const trimmed = draft.trim()
     if (!trimmed) return
@@ -639,35 +638,6 @@ const Chatbot = () => {
       setMessages((prev) => [...prev, replyMsg])
     }, 280)
   }
-=======
-  return (
-    <div className="fixed bottom-4 md:bottom-6 right-4 md:right-6 lg:right-6 z-50 flex flex-col items-end">
-      <div className="relative">
-        <motion.div
-          className="absolute z-20 flex items-end"
-          style={{
-            gap: `${dotGap}px`,
-            top: -((dotDiameter * 2) + 2),
-            left: -6,
-          }}
-          initial={false}
-          animate={isOpen ? 'idle' : 'typing'}
-        >
-          {[0, 1, 2].map((i) => (
-            <motion.span
-              key={i}
-              custom={i}
-              variants={typingDotVariants}
-              className="block rounded-full bg-[#D71920]"
-              style={{
-                width: dotDiameter,
-                height: dotDiameter,
-                boxShadow: '0 1px 3px rgba(215,25,32,0.3)',
-              }}
-            />
-          ))}
-        </motion.div>
->>>>>>> Stashed changes
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -791,35 +761,11 @@ const Chatbot = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-<<<<<<< Updated upstream
-            initial={{ opacity: 0, y: 22, scale: 0.78 }}
-            animate={{ opacity: 1, y: 0, scale: [0.78, 1.06, 1.0] }}
-            exit={{ opacity: 0, y: 16, scale: 0.82 }}
-            transition={{
-              type: 'spring',
-              stiffness: 360,
-              damping: 18,
-              mass: 0.62,
-              duration: 0.42,
-              opacity: { duration: 0.22, ease: 'easeOut' },
-              scale: {
-                type: 'spring',
-                stiffness: 420,
-                damping: 14,
-                mass: 0.55,
-                duration: 0.45,
-              },
-              y: { duration: 0.32, ease: [0.22, 1, 0.36, 1] },
-            }}
-            style={{ transformOrigin: 'bottom right' }}
-            className="chatbot-window absolute bottom-[82px] right-[2px] sm:right-0 w-[calc(100vw-2rem)] sm:w-[320px] md:w-[360px] max-h-[76vh] sm:h-[540px] md:h-[580px] bg-[#FAFAF7] border border-[#E9E4DC] shadow-[0_22px_60px_-12px_rgba(17,17,17,0.22),0_8px_24px_-12px_rgba(17,17,17,0.12)] flex flex-col z-[60] rounded-[22px] overflow-hidden relative will-change-transform"
-=======
             initial={{ opacity: 0, y: 15, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 15, scale: 0.96 }}
             transition={{ type: 'spring', stiffness: 260, damping: 22, mass: 0.75 }}
             className="chatbot-window absolute bottom-[60px] right-0 w-[calc(100vw-2rem)] max-w-[350px] sm:w-[320px] md:w-[350px] max-h-[78vh] sm:h-[540px] md:h-[580px] bg-[#FAFAF7] border border-[#E9E4DC] shadow-[0_16px_50px_-10px_rgba(17,17,17,0.18),0_6px_18px_-10px_rgba(17,17,17,0.08)] flex flex-col z-50 rounded-[20px] overflow-hidden"
->>>>>>> Stashed changes
           >
             {/* Minimal floating close button — top-right of the card (pops in after window) */}
             <motion.button

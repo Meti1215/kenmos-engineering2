@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, ArrowRight, FileText, CheckCircle2 } from 'lucide-react'
+import { Menu, X, ArrowRight, FileText, CheckCircle2, ChevronDown } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
@@ -38,6 +38,8 @@ const Navigation = () => {
   const [scrolled, setScrolled] = useState(false)
   const [isHeroVisible, setIsHeroVisible] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [moreOpen, setMoreOpen] = useState(false)
+  const [mobileMoreOpen, setMobileMoreOpen] = useState(false)
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false)
   const [form, setForm] = useState<QuoteFormValues>(emptyForm)
   const [errors, setErrors] = useState<Partial<Record<keyof QuoteFormValues, string>>>({})
@@ -51,8 +53,15 @@ const Navigation = () => {
     { name: 'Projects', href: '/projects', id: 'projects' },
     { name: 'Industries', href: '/industries', id: 'industries' },
     { name: 'Our Process', href: '/process', id: 'process' },
-    { name: 'Careers', href: '/careers', id: 'careers' },
+    { name: 'More', href: '/more', id: 'more' },
     { name: 'Contact Us', href: '/contact', id: 'contact' },
+  ]
+
+  const MORE_ITEMS = [
+    { name: 'News & Articles', href: '/articles' },
+    { name: 'Gallery', href: '/gallery' },
+    { name: 'Careers', href: '/careers' },
+    { name: 'Events', href: '/events' },
   ]
 
   const isActive = (href: string) => {
@@ -74,8 +83,23 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [pathname])
 
+  useEffect(() => {
+    setMoreOpen(false)
+    setMobileMoreOpen(false)
+  }, [pathname])
+
+  const toggleMoreMenu = () => {
+    setMoreOpen((prev) => !prev)
+  }
+
+  const closeMoreMenu = () => {
+    setMoreOpen(false)
+  }
+
   const openQuoteModal = () => {
     setMobileMenuOpen(false)
+    setMoreOpen(false)
+    setMobileMoreOpen(false)
     setIsQuoteModalOpen(true)
     setSubmitState('idle')
   }
@@ -170,32 +194,100 @@ const Navigation = () => {
 
           <nav className="hidden lg:flex items-center justify-center">
             <div className="flex items-center gap-[18px] xl:gap-[32px]">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  prefetch={true}
-                  className={cn(
-                    'relative inline-flex items-center whitespace-nowrap pb-1 text-[11px] lg:text-[12px] xl:text-[13px] font-semibold uppercase tracking-[0.14em] lg:tracking-[0.16em] xl:tracking-[0.16em] transition-all duration-350 leading-none hover:scale-[1.03]',
-                    isHeroVisible ? 'text-white hover:text-[#D71920]' : 'text-gray-900 hover:text-[#D71920]',
-                  )}
-                >
-                  {item.name}
-                  {isActive(item.href) && (
-                    <span className="absolute -bottom-1.5 left-1/2 h-[3px] w-[60%] -translate-x-1/2 bg-[#D71920] rounded-full" />
-                  )}
-                </Link>
-              ))}
+              {navItems.slice(0, -1).map((item) => {
+                if (item.id === 'more') {
+                  return (
+                    <div key={item.name} className="relative flex items-center">
+                      <Link
+                        href={item.href}
+                        prefetch={true}
+                        onClick={(e) => {
+                          e.preventDefault()
+                          toggleMoreMenu()
+                        }}
+                        onMouseEnter={() => setMoreOpen(true)}
+                        onMouseLeave={() => closeMoreMenu()}
+                        className={cn(
+                          'relative inline-flex items-center gap-1 whitespace-nowrap pb-1 text-[11px] lg:text-[12px] xl:text-[13px] font-semibold uppercase tracking-[0.14em] lg:tracking-[0.16em] xl:tracking-[0.16em] transition-all duration-350 leading-none hover:scale-[1.03]',
+                          isHeroVisible ? 'text-white hover:text-[#D71920]' : 'text-gray-900 hover:text-[#D71920]',
+                        )}
+                      >
+                        {item.name}
+                        <ChevronDown className={cn('h-3 w-3 transition-transform duration-200', moreOpen ? 'rotate-180' : '')} />
+                        {isActive(item.href) && (
+                          <span className="absolute -bottom-1.5 left-1/2 h-[3px] w-[60%] -translate-x-1/2 bg-[#D71920] rounded-full" />
+                        )}
+                      </Link>
+
+                      <AnimatePresence>
+                        {moreOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, y: -8 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -8 }}
+                            transition={{ duration: 0.18, ease: 'easeOut' }}
+                            className="absolute left-0 top-full z-50 mt-3 min-w-[220px] rounded-[18px] border border-gray-200 bg-white py-2 shadow-[0_24px_60px_rgba(17,17,17,0.12)]"
+                            onMouseEnter={() => setMoreOpen(true)}
+                            onMouseLeave={() => setMoreOpen(false)}
+                          >
+                            {MORE_ITEMS.map((moreItem) => (
+                              <Link
+                                key={moreItem.name}
+                                href={moreItem.href}
+                                prefetch={true}
+                                onClick={closeMoreMenu}
+                                className={cn(
+                                  'block rounded-[14px] px-4 py-3 text-sm uppercase tracking-[0.16em] transition-colors duration-200',
+                                  isActive(moreItem.href) ? 'bg-[#FCE8E8] text-[#D71920]' : 'text-gray-700 hover:bg-[#F9F5F3] hover:text-[#D71920]',
+                                )}
+                              >
+                                {moreItem.name}
+                              </Link>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  )
+                }
+
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    prefetch={true}
+                    className={cn(
+                      'relative inline-flex items-center whitespace-nowrap pb-1 text-[11px] lg:text-[12px] xl:text-[13px] font-semibold uppercase tracking-[0.14em] lg:tracking-[0.16em] xl:tracking-[0.16em] transition-all duration-350 leading-none hover:scale-[1.03]',
+                      isHeroVisible ? 'text-white hover:text-[#D71920]' : 'text-gray-900 hover:text-[#D71920]',
+                    )}
+                  >
+                    {item.name}
+                    {isActive(item.href) && (
+                      <span className="absolute -bottom-1.5 left-1/2 h-[3px] w-[60%] -translate-x-1/2 bg-[#D71920] rounded-full" />
+                    )}
+                  </Link>
+                )
+              })}
+
+              <Link
+                key={navItems[navItems.length - 1].name}
+                href={navItems[navItems.length - 1].href}
+                prefetch={true}
+                className={cn(
+                  'relative inline-flex items-center whitespace-nowrap pb-1 text-[11px] lg:text-[12px] xl:text-[13px] font-semibold uppercase tracking-[0.14em] lg:tracking-[0.16em] xl:tracking-[0.16em] transition-all duration-350 leading-none hover:scale-[1.03]',
+                  isHeroVisible ? 'text-white hover:text-[#D71920]' : 'text-gray-900 hover:text-[#D71920]',
+                )}
+              >
+                {navItems[navItems.length - 1].name}
+                {isActive(navItems[navItems.length - 1].href) && (
+                  <span className="absolute -bottom-1.5 left-1/2 h-[3px] w-[60%] -translate-x-1/2 bg-[#D71920] rounded-full" />
+                )}
+              </Link>
             </div>
           </nav>
 
-<<<<<<< Updated upstream
-          <div className="flex items-center justify-end">
-            <button type="button" onClick={openQuoteModal} className="hidden lg:inline-flex h-[42px] min-w-[172px] w-auto flex-shrink-0 items-center justify-center gap-1.5 whitespace-nowrap text-center rounded-[7px] bg-[#D71920] px-4 text-[10px] lg:text-[12px] font-bold uppercase tracking-[0.16em] lg:tracking-[0.18em] text-white transition-all duration-300 hover:bg-[#be1218] hover:scale-[1.02] active:scale-[0.98]">
-=======
           <div className="flex items-center justify-end nav-right">
             <button type="button" onClick={openQuoteModal} className="hidden lg:inline-flex h-[42px] w-[150px] flex-shrink-0 items-center justify-center gap-1.5 rounded-[7px] bg-[#D71920] px-4 text-[10px] lg:text-[12px] font-bold uppercase tracking-[0.16em] lg:tracking-[0.18em] text-white transition-all duration-300 hover:bg-[#be1218] hover:scale-[1.02] active:scale-[0.98]">
->>>>>>> Stashed changes
               GET A QUOTE
               <ArrowRight className="h-3.5 w-3.5 lg:h-4 lg:w-4 shrink-0" />
             </button>
@@ -210,14 +302,61 @@ const Navigation = () => {
           {mobileMenuOpen && (
             <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} className="fixed inset-x-0 top-[84px] z-50 lg:hidden border-t border-gray-200 bg-white/97 px-4 pb-4 pt-2 shadow-[0_20px_45px_rgba(17,17,17,0.12)] backdrop-blur-xl max-h-[calc(100vh-84px)] overflow-y-auto">
               <div className="mx-auto flex w-full max-w-[1000px] flex-col gap-1 border border-gray-100 bg-white p-2 rounded-lg">
-                {navItems.map((item) => (
-                  <Link key={item.name} href={item.href} prefetch={true} onClick={() => setMobileMenuOpen(false)} className={cn('relative px-4 py-3 text-sm font-medium uppercase tracking-[0.18em] transition-colors rounded', isActive(item.href) ? 'text-[#D71920] bg-red-50/70' : 'text-gray-700 hover:bg-gray-50 hover:text-[#D71920]')}>
-                    {item.name}
-                    {isActive(item.href) && (
-                      <span className="absolute bottom-1 left-1/2 h-[3px] w-[50%] -translate-x-1/2 bg-[#D71920] rounded-full" />
-                    )}
-                  </Link>
-                ))}
+                {navItems.slice(0, -1).map((item) => {
+                  if (item.id === 'more') {
+                    return (
+                      <div key={item.name} className="rounded">
+                        <button
+                          type="button"
+                          onClick={() => setMobileMoreOpen((prev) => !prev)}
+                          className={cn('relative flex w-full items-center justify-between px-4 py-3 text-sm font-medium uppercase tracking-[0.18em] transition-colors rounded text-gray-700 hover:bg-gray-50 hover:text-[#D71920]', mobileMoreOpen ? 'bg-red-50/70 text-[#D71920]' : '')}
+                        >
+                          <span>More</span>
+                          <ChevronDown className={cn('h-4 w-4 transition-transform duration-200', mobileMoreOpen ? 'rotate-180' : '')} />
+                        </button>
+
+                        <AnimatePresence>
+                          {mobileMoreOpen && (
+                            <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.22, ease: 'easeOut' }} className="overflow-hidden">
+                              <div className="mt-1 flex flex-col gap-1 rounded-[14px] border border-gray-100 bg-gray-50 p-1">
+                                {MORE_ITEMS.map((moreItem) => (
+                                  <Link
+                                    key={moreItem.name}
+                                    href={moreItem.href}
+                                    prefetch={true}
+                                    onClick={() => {
+                                      setMobileMenuOpen(false)
+                                      setMobileMoreOpen(false)
+                                    }}
+                                    className={cn('rounded-[12px] px-4 py-3 text-sm uppercase tracking-[0.16em] transition-colors duration-200', isActive(moreItem.href) ? 'bg-[#FCE8E8] text-[#D71920]' : 'text-gray-700 hover:bg-white hover:text-[#D71920]')}
+                                  >
+                                    {moreItem.name}
+                                  </Link>
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    )
+                  }
+
+                  return (
+                    <Link key={item.name} href={item.href} prefetch={true} onClick={() => setMobileMenuOpen(false)} className={cn('relative px-4 py-3 text-sm font-medium uppercase tracking-[0.18em] transition-colors rounded', isActive(item.href) ? 'text-[#D71920] bg-red-50/70' : 'text-gray-700 hover:bg-gray-50 hover:text-[#D71920]')}>
+                      {item.name}
+                      {isActive(item.href) && (
+                        <span className="absolute bottom-1 left-1/2 h-[3px] w-[50%] -translate-x-1/2 bg-[#D71920] rounded-full" />
+                      )}
+                    </Link>
+                  )
+                })}
+
+                <Link key={navItems[navItems.length - 1].name} href={navItems[navItems.length - 1].href} prefetch={true} onClick={() => setMobileMenuOpen(false)} className={cn('relative px-4 py-3 text-sm font-medium uppercase tracking-[0.18em] transition-colors rounded', isActive(navItems[navItems.length - 1].href) ? 'text-[#D71920] bg-red-50/70' : 'text-gray-700 hover:bg-gray-50 hover:text-[#D71920]')}>
+                  {navItems[navItems.length - 1].name}
+                  {isActive(navItems[navItems.length - 1].href) && (
+                    <span className="absolute bottom-1 left-1/2 h-[3px] w-[50%] -translate-x-1/2 bg-[#D71920] rounded-full" />
+                  )}
+                </Link>
                 <button type="button" onClick={openQuoteModal} className="mt-2 inline-flex items-center justify-center gap-2 rounded-[7px] bg-[#D71920] px-5 py-3 text-sm font-bold uppercase tracking-[0.2em] text-white">
                   GET A QUOTE
                   <ArrowRight className="h-4 w-4" />

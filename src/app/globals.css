@@ -555,15 +555,8 @@ body.mobile-no-motion .carousel-slide[style] {
 /* Global Container and Grid Alignment Overrides */
 .content-container,
 section > div[class*="mx-auto"] {
-  width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding-left: clamp(1rem, 2.2vw, 2rem);
-  padding-right: clamp(1rem, 2.2vw, 2rem);
-}
-
-.content-container {
-  max-width: 1440px;
 }
 
 .max-w-7xl {
