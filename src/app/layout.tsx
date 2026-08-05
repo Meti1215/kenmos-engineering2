@@ -5,7 +5,8 @@ import './globals.css'
 import Chatbot from '@/components/Chatbot'
 import MobileMotionProvider from '@/components/MobileMotionProvider'
 import ScrollProgress from '@/components/ScrollProgress'
-import { brand } from '@/lib/brand'
+import { brand } from '@/lib/brand' 
+
 
 const inter = Inter({ 
   subsets: ['latin'],

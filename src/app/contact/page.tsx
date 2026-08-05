@@ -7,7 +7,6 @@ import {
   Mail, 
   MapPin, 
   Clock, 
-  FileText,
   Send,
   CheckCircle,
   AlertCircle,
@@ -16,8 +15,6 @@ import {
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { brand } from '@/lib/brand'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -86,60 +83,101 @@ export default function ContactPage() {
   }
 
   return (
-    <main className="relative min-h-screen bg-white">
+    <main className="relative min-h-screen bg-[#FAFAF7]">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative pt-24 pb-10 md:pb-16 bg-[#111112] text-white">
-        <div className="relative content-container text-center flex flex-col items-center gap-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 text-[#D71920] text-xs font-bold uppercase tracking-wider">
-            <MessageSquare className="w-4 h-4" />
-            Get In Touch
+      <section className="pt-[84px] pb-14 md:pb-20 content-container">
+        {/* Hero — centered dark panel with big red serif CONTACT US */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="relative w-full bg-[#111112] text-white overflow-hidden rounded-[10px] px-6 py-7 md:px-10 md:py-9 lg:px-12 lg:py-10 mb-6 md:mb-7"
+        >
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(215,25,32,0.22),transparent_40%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(215,25,32,0.06),transparent_60%)]" />
+          <div className="relative flex flex-col items-center text-center gap-3 md:gap-4">
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, ease: 'easeOut', delay: 0.05 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 md:px-5 md:py-2 bg-white/8 border border-white/12 text-[#D71920] rounded-[4px] text-[11px] md:text-[12px] font-bold uppercase tracking-[0.26em]"
+            >
+              <MessageSquare className="w-3.5 h-3.5 md:w-4 md:h-4 shrink-0" />
+              GET IN TOUCH
+            </motion.div>
+            <motion.h1
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: 'easeOut', delay: 0.12 }}
+              className="font-serif font-black text-[#D71920] uppercase leading-[0.95] tracking-[-0.01em] text-4xl md:text-5xl lg:text-[68px] xl:text-[76px]"
+            >
+              CONTACT US
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
+              className="text-sm md:text-[15px] lg:text-base text-white/75 max-w-3xl leading-relaxed font-normal"
+            >
+              Contact our Addis Ababa headquarters for structural analysis, steel detailing, value engineering, or site supervision inquiries.
+            </motion.p>
           </div>
-          <h1 className="text-4xl md:text-6xl font-black text-[#D71920] font-heading uppercase leading-none mt-2">
-            Contact Us
-          </h1>
-          <p className="text-sm md:text-lg text-gray-300 max-w-3xl leading-relaxed mt-2 font-light">
-            Contact our Addis Ababa headquarters for structural analysis, steel detailing, value engineering, or site supervision inquiries.
-          </p>
-        </div>
-      </section>
+        </motion.div>
 
-      {/* Main Contact Section */}
-      <section className="py-14 content-container">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-10 items-start">
+        {/* Main 2-column section: left = contact info + button at top, map below; right = Discuss + form */}
+        <div className="grid lg:grid-cols-2 gap-5 md:gap-7 items-start">
           
-          {/* Column 1: Contact Details & Map */}
+          {/* LEFT COLUMN */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            className="space-y-8"
+            initial={{ opacity: 0, x: -18 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.55, ease: 'easeOut', delay: 0.08 }}
+            className="flex flex-col gap-4"
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {contactInfo.map((info, index) => (
-                <div
-                  key={info.title}
-                  onClick={info.action || undefined}
-                  className={`p-6 border border-gray-100 bg-gray-50/50 flex items-start gap-4 transition-all duration-300 ${
-                    info.action ? 'cursor-pointer hover:border-red-500/20 hover:shadow-md' : ''
-                  }`}
-                >
-                  <div className="w-10 h-10 bg-red-50 text-[#D71920] flex items-center justify-center flex-shrink-0">
-                    <info.icon className="w-5 h-5" strokeWidth={1.5} />
+            {/* Contact info compact grid + CONTACT US oval button (TOP) */}
+            <div className="relative flex flex-col sm:flex-row items-stretch sm:items-start gap-3 p-4 md:p-4.5 bg-white border border-gray-100/80 rounded-[8px] shadow-[0_2px_14px_rgba(17,17,17,0.04)]">
+              <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-3">
+                {contactInfo.slice(0, 4).map((info, index) => (
+                  <div
+                    key={info.title}
+                    onClick={info.action || undefined}
+                    className={`flex items-start gap-2.5 ${info.action ? 'cursor-pointer' : ''}`}
+                  >
+                    <div className="w-7 h-7 shrink-0 text-[#D71920] flex items-center justify-center">
+                      <info.icon className="w-4 h-4" strokeWidth={1.7} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h5 className="text-[10px] font-bold uppercase tracking-[0.16em] text-gray-400 mb-0.5">
+                        {info.title.replace('Phone Number', 'Phone').replace('Email Address', 'Email').replace('Physical Office', 'Office').replace('Business Hours', 'Hours')}
+                      </h5>
+                      {info.details.map((detail, idx) => (
+                        <p key={idx} className="text-[12px] md:text-[13px] text-gray-700 font-normal leading-snug break-words">
+                          {detail}
+                        </p>
+                      ))}
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-1">{info.title}</h4>
-                    {info.details.map((detail, idx) => (
-                      <p key={idx} className="text-sm text-gray-800 font-light leading-relaxed break-words">{detail}</p>
-                    ))}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
+              <button
+                type="button"
+                onClick={() => window.open(brand.phoneHref)}
+                className="shrink-0 self-start sm:self-center inline-flex items-center justify-center gap-2 bg-[#D71920] hover:bg-[#be1218] text-white rounded-full px-5 py-3 text-[11px] md:text-[12px] font-bold uppercase tracking-[0.2em] shadow-[0_8px_20px_rgba(215,25,32,0.28)] hover:shadow-[0_12px_28px_rgba(215,25,32,0.38)] transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
+              >
+                <Phone className="w-3.5 h-3.5" />
+                CONTACT US
+              </button>
             </div>
 
-            {/* Map wrapper */}
-            <div className="h-[360px] md:h-[420px] bg-gray-50 border border-gray-100 overflow-hidden shadow-inner relative">
+            {/* Map (BELOW) */}
+            <div className="relative w-full h-[240px] md:h-[280px] rounded-[8px] overflow-hidden border border-gray-100/80 shadow-[0_4px_18px_rgba(17,17,17,0.06)] bg-gray-50">
+              <div className="absolute top-3 left-3 z-10 inline-flex items-center gap-2 px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-[4px] shadow-sm border border-gray-100">
+                <MapPin className="w-3.5 h-3.5 text-[#D71920] shrink-0" strokeWidth={1.8} />
+                <span className="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.18em] text-gray-700">
+                  Kenmos HQ — Piazza
+                </span>
+              </div>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.505677568588!2d38.7516805!3d9.034789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85f63118cf97%3A0xc3cfec56bb24bfa!2sPiazza%2C%20Addis%20Ababa!5e0!3m2!1sen!2set!4v1700000000000!5m2!1sen!2set"
                 width="100%"
@@ -153,29 +191,30 @@ export default function ContactPage() {
             </div>
           </motion.div>
 
-          {/* Column 2: Quote/Contact Form */}
+          {/* RIGHT COLUMN */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
+            initial={{ opacity: 0, x: 18 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.55, ease: 'easeOut', delay: 0.12 }}
+            className="flex flex-col gap-4 h-full"
           >
-            <Card className="border border-gray-100 shadow-xl bg-white p-6 md:p-10 rounded-none">
-              <CardHeader className="p-0 pb-6">
-                <CardTitle className="text-xl md:text-2xl font-black font-heading text-black flex items-center gap-3">
-                  <FileText className="w-6 h-6 text-[#D71920]" strokeWidth={1.5} />
-                  Request a Quote
-                </CardTitle>
-                <p className="text-xs text-gray-500 mt-2 font-light leading-relaxed">
-                  Provide details about your project. Our structural engineering consultants will review your blueprints and contact you.
-                </p>
-              </CardHeader>
-              <CardContent className="p-0">
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  
-                  {/* Name */}
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">
-                      Full Name *
+            <div className="flex flex-col gap-2.5">
+              <h2 className="font-heading font-black text-gray-900 leading-[1.05] tracking-tight text-2xl md:text-3xl lg:text-[40px] xl:text-[46px]">
+                Get In Touch
+              </h2>
+              <p className="text-[13px] md:text-[14px] lg:text-[15px] text-gray-500 font-light leading-relaxed max-w-xl">
+                Partner with our structural engineering team to design, review, or supervise your next project with confidence.
+              </p>
+            </div>
+
+            <div className="relative bg-white border border-gray-100/80 rounded-[10px] shadow-[0_10px_32px_-14px_rgba(17,17,17,0.18)] p-4 md:p-5 overflow-hidden flex-1">
+              <div className="absolute top-0 right-0 w-[140px] h-[140px] bg-[radial-gradient(circle_at_top_right,rgba(215,25,32,0.08),transparent_65%)] pointer-events-none" />
+              <form onSubmit={handleSubmit} className="relative flex flex-col gap-3.5">
+                
+                <div className="grid sm:grid-cols-2 gap-3.5">
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] text-gray-700">
+                      Full Name <span className="text-[#D71920]">*</span>
                     </label>
                     <input
                       type="text"
@@ -183,15 +222,13 @@ export default function ContactPage() {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="luxury-input px-4 py-3"
+                      className="w-full px-3.5 py-2.5 md:py-3 text-[13px] md:text-[14px] text-gray-900 bg-[#FAFAF7] border border-gray-200/90 rounded-[6px] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#D71920]/25 focus:border-[#D71920]/50 transition-all duration-200"
                       placeholder="e.g. Yonas Abebe"
                     />
                   </div>
-
-                  {/* Email */}
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">
-                      Email Address *
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] text-gray-700">
+                      Email <span className="text-[#D71920]">*</span>
                     </label>
                     <input
                       type="email"
@@ -199,86 +236,90 @@ export default function ContactPage() {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="luxury-input px-4 py-3"
+                      className="w-full px-3.5 py-2.5 md:py-3 text-[13px] md:text-[14px] text-gray-900 bg-[#FAFAF7] border border-gray-200/90 rounded-[6px] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#D71920]/25 focus:border-[#D71920]/50 transition-all duration-200"
                       placeholder="e.g. name@company.com"
                     />
                   </div>
+                </div>
 
-                  {/* Subject Dropdown */}
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">
-                      Project Area *
-                    </label>
-                    <select
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleInputChange}
-                      required
-                      className="luxury-input px-4 py-3 bg-white text-sm"
-                    >
-                      <option value="General Structural Design">General Structural Design</option>
-                      <option value="Steel Structure connection Detailing">Steel Structure connection Detailing</option>
-                      <option value="Value Engineering / Material Optimization">Value Engineering & Design Optimization</option>
-                      <option value="Structural Safety Assessment">Structural Safety Assessment</option>
-                      <option value="Construction Supervision & BOQ">Construction Supervision & BOQ</option>
-                    </select>
-                  </div>
-
-                  {/* Message */}
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">
-                      Project Details / Message *
-                    </label>
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      required
-                      rows={5}
-                      className="luxury-input px-4 py-3 resize-none"
-                      placeholder="Describe the number of stories, structure material (concrete/steel), project location..."
-                    />
-                  </div>
-
-                  {/* Submit Button */}
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-[#D71920] hover:bg-[#be1218] text-white py-4 font-bold text-xs uppercase tracking-widest rounded-none shadow-md transition-colors"
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] text-gray-700">
+                    Project Area <span className="text-[#D71920]">*</span>
+                  </label>
+                  <select
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-3.5 py-2.5 md:py-3 text-[13px] md:text-[14px] text-gray-900 bg-[#FAFAF7] border border-gray-200/90 rounded-[6px] focus:outline-none focus:ring-2 focus:ring-[#D71920]/25 focus:border-[#D71920]/50 transition-all duration-200 appearance-none cursor-pointer"
                   >
-                    {isSubmitting ? (
-                      <span className="flex items-center justify-center gap-2">
-                        <span className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent"></span>
-                        PROCESSING...
-                      </span>
-                    ) : (
-                      <span className="flex items-center justify-center gap-2">
-                        <Send className="w-4 h-4" />
-                        SEND REQUEST
-                      </span>
-                    )}
-                  </Button>
+                    <option value="General Structural Design">General Structural Design</option>
+                    <option value="Steel Structure connection Detailing">Steel Structure Detailing</option>
+                    <option value="Value Engineering / Material Optimization">Value Engineering</option>
+                    <option value="Structural Safety Assessment">Safety Assessment</option>
+                    <option value="Construction Supervision & BOQ">Construction Supervision</option>
+                  </select>
+                </div>
 
-                  {/* Status Alerts */}
-                  {submitStatus === 'success' && (
-                    <div className="flex items-start gap-3 p-4 bg-green-50 border border-green-200 text-green-800 text-sm">
-                      <CheckCircle className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
-                      <span>Thank you! Your quote request was sent. Our lead structural engineer will review and contact you.</span>
-                    </div>
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] text-gray-700">
+                    Project Details <span className="text-[#D71920]">*</span>
+                  </label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    rows={3}
+                    className="w-full px-3.5 py-2.5 text-[13px] md:text-[14px] text-gray-900 bg-[#FAFAF7] border border-gray-200/90 rounded-[6px] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#D71920]/25 focus:border-[#D71920]/50 transition-all duration-200 resize-none leading-relaxed"
+                    placeholder="Stories, material (concrete/steel), location, timeline..."
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="group relative w-full inline-flex items-center justify-center gap-2 bg-[#D71920] hover:bg-[#be1218] disabled:opacity-70 disabled:cursor-not-allowed text-white rounded-[6px] px-5 py-2.5 md:py-3 text-[11px] md:text-[12px] font-bold uppercase tracking-[0.22em] shadow-[0_10px_22px_rgba(215,25,32,0.26)] hover:shadow-[0_14px_32px_rgba(215,25,32,0.34)] transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
+                >
+                  {isSubmitting ? (
+                    <span className="flex items-center justify-center gap-2">
+                      <span className="animate-spin rounded-full h-[15px] w-[15px] md:h-[17px] md:w-[17px] border-2 border-white border-t-transparent"></span>
+                      PROCESSING...
+                    </span>
+                  ) : (
+                    <span className="flex items-center justify-center gap-2">
+                      <Send className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+                      SEND REQUEST
+                    </span>
                   )}
+                </button>
 
-                  {submitStatus === 'error' && (
-                    <div className="flex items-start gap-3 p-4 bg-red-50 border border-red-200 text-red-800 text-sm">
-                      <AlertCircle className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
-                      <span>There was a problem sending your message. Please verify input and try again.</span>
-                    </div>
-                  )}
+                {submitStatus === 'success' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.28, ease: 'easeOut' }}
+                    className="flex items-start gap-2.5 p-3 bg-green-50/80 border border-green-200 rounded-[6px] text-green-800 text-[12px] md:text-[13px] leading-relaxed"
+                  >
+                    <CheckCircle className="w-4 h-4 text-green-600 shrink-0 mt-0.5" strokeWidth={2} />
+                    <span>Thank you! Your request was sent. Our lead engineer will contact you.</span>
+                  </motion.div>
+                )}
 
-                </form>
-              </CardContent>
-            </Card>
+                {submitStatus === 'error' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.28, ease: 'easeOut' }}
+                    className="flex items-start gap-2.5 p-3 bg-red-50/80 border border-red-200 rounded-[6px] text-red-800 text-[12px] md:text-[13px] leading-relaxed"
+                  >
+                    <AlertCircle className="w-4 h-4 text-red-600 shrink-0 mt-0.5" strokeWidth={2} />
+                    <span>There was a problem sending. Please try again.</span>
+                  </motion.div>
+                )}
+              </form>
+            </div>
           </motion.div>
-
         </div>
       </section>
 

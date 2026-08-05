@@ -45,20 +45,20 @@ const StatsBar = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="bg-white border border-gray-100 shadow-[0_12px_40px_rgba(0,0,0,0.12)] rounded-[18px] py-2.5 md:py-3.5 px-4 md:px-6"
+        className="bg-white border border-gray-100 shadow-[0_12px_40px_rgba(0,0,0,0.12)] rounded-[14px] py-1 md:py-1.5 px-2.5 md:px-3.5 lg:px-4"
       >
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-1.5 md:gap-1 lg:gap-1.5 divide-y md:divide-y-0 md:divide-x divide-gray-200/50">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-0.5 md:gap-0 lg:gap-0.5 divide-y md:divide-y-0 md:divide-x divide-gray-200/50">
           {stats.map((stat, i) => (
             <div 
               key={stat.title} 
-              className={`flex flex-col items-center text-center px-2 py-1.5 md:p-1 lg:p-2 ${
-                i >= 2 ? 'pt-3 md:pt-1 lg:pt-2' : ''
+              className={`flex flex-col items-center text-center px-1.5 py-1 md:px-1 md:py-0.5 lg:px-1.5 lg:py-1 ${
+                i >= 2 ? 'pt-2 md:pt-0.5 lg:pt-1' : ''
               }`}
             >
-              <div className="w-7 h-7 md:w-8 md:h-8 flex items-center justify-center bg-red-50 text-[#D71920] mb-1 rounded-[6px]">
-                <stat.icon className="w-3.5 h-3.5 md:w-4 md:h-4" strokeWidth={1.5} />
+              <div className="w-5 h-5 md:w-6 md:h-6 flex items-center justify-center bg-red-50 text-[#D71920] mb-0.5 rounded-[5px]">
+                <stat.icon className="w-2.5 h-2.5 md:w-3 md:h-3" strokeWidth={1.5} />
               </div>
-              <div className="text-xl md:text-2xl lg:text-[1.85rem] font-black font-heading text-black leading-none flex items-center justify-center">
+              <div className="text-base md:text-lg lg:text-[1.15rem] font-black font-heading text-black leading-none flex items-center justify-center">
                 {inView ? (
                   <CountUp start={0} end={stat.value} duration={2.5} />
                 ) : (
@@ -66,7 +66,7 @@ const StatsBar = () => {
                 )}
                 <span className="text-[#D71920]">{stat.suffix}</span>
               </div>
-              <div className="text-[7px] md:text-[8px] lg:text-[9px] font-bold uppercase tracking-wider text-gray-500 mt-1 leading-tight">
+              <div className="text-[6px] md:text-[7px] lg:text-[8px] font-bold uppercase tracking-wider text-gray-500 mt-0.5 leading-tight">
                 {stat.title}
               </div>
             </div>
