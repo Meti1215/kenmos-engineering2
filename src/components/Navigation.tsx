@@ -59,7 +59,6 @@ const Navigation = () => {
 
   const MORE_ITEMS = [
     { name: 'News & Articles', href: '/articles' },
-    { name: 'Gallery', href: '/gallery' },
     { name: 'Careers', href: '/careers' },
     { name: 'Events', href: '/events' },
   ]

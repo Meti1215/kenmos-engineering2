@@ -7,7 +7,6 @@ import { ArrowRight } from 'lucide-react'
 
 const moreLinks = [
   { name: 'News & Articles', href: '/articles', description: 'Insights, industry updates, and structural engineering stories.' },
-  { name: 'Gallery', href: '/gallery', description: 'A visual look at completed projects, teams, and site progress.' },
   { name: 'Careers', href: '/careers', description: 'Explore current openings and join the Kenmos engineering team.' },
   { name: 'Events', href: '/events', description: 'See upcoming industry events, seminars, and company milestones.' },
 ]
