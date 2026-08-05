@@ -50,9 +50,9 @@ export default function ProjectsPage() {
                 key={category}
                 onClick={() => setSelected(category)}
                 className={
-                  `rounded-md px-3 py-1.5 text-sm font-semibold transition-all duration-200 focus:outline-none ` +
+                  `rounded-full px-5 py-2.5 text-sm md:text-base font-semibold transition-all duration-200 focus:outline-none ` +
                   (isActive
-                    ? 'bg-[#b88739] text-white shadow-sm ring-2 ring-[#b88739]/40'
+                    ? 'bg-[#D71920] text-white shadow-sm ring-2 ring-[#D71920]/40'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200')
                 }
                 aria-pressed={isActive}
