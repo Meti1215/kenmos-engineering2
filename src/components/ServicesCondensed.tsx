@@ -20,7 +20,7 @@ const Services = () => {
 
   return (
     <section id="services" className="section-padding border-y border-[#ECECEC] bg-[#FAFAFA]">
-      <div className="content-container">
+      <div className="w-full max-w-none px-3 sm:px-4 lg:px-6">
         <div className="mx-auto mb-12 w-full max-w-6xl px-2 text-center md:mb-16">
           <span className="text-[12px] font-semibold uppercase tracking-[0.34em] text-[#D71920]">Our Services</span>
           <h2 className="mt-3 text-[0.78rem] font-semibold leading-tight tracking-[-0.03em] text-black sm:text-[1.45rem] sm:tracking-[-0.025em] md:text-[1.85rem] lg:text-[2.25rem] xl:text-[2.65rem] 2xl:text-[2.95rem]">
@@ -33,7 +33,7 @@ const Services = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="grid gap-4 grid-cols-1 min-[360px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 auto-rows-fr items-stretch"
+          className="mx-0 grid gap-4 grid-cols-1 min-[360px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 auto-rows-fr items-stretch"
         >
           {services.map((service) => {
             const IconComponent = iconMap[service.icon as keyof typeof iconMap] || Building2

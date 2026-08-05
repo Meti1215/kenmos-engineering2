@@ -10,7 +10,7 @@ const Process = () => {
 
   return (
     <section id="process" className="section-padding border-y border-gray-200/70 bg-[linear-gradient(180deg,#f7f3eb_0%,#f5efe8_100%)]">
-      <div className="content-container">
+      <div className="w-full max-w-none px-3 sm:px-4 lg:px-6">
         <div className="mx-auto mb-10 w-full max-w-6xl px-2 text-center md:mb-14">
           <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#D71920] md:text-xs">Our Work Process</span>
           <h2 className="mt-3 whitespace-nowrap text-[0.78rem] font-black leading-none tracking-[-0.03em] text-black sm:text-[1.4rem] sm:tracking-[-0.025em] md:text-[1.75rem] lg:text-[2.15rem] xl:text-[2.5rem] 2xl:text-[2.85rem]">How We Deliver Structural Excellence</h2>
@@ -21,7 +21,7 @@ const Process = () => {
           initial="hidden" 
           whileInView="visible" 
           viewport={{ once: true, amount: 0.1 }} 
-          className="relative grid grid-cols-1 gap-3 auto-rows-fr items-stretch min-[320px]:grid-cols-2 sm:gap-4 md:grid-cols-2 lg:grid-cols-4 lg:gap-6"
+          className="relative mx-0 grid grid-cols-1 gap-3 auto-rows-fr items-stretch min-[320px]:grid-cols-2 sm:gap-4 md:grid-cols-2 lg:grid-cols-4 lg:gap-6"
         >
           <div className="absolute hidden left-[10%] right-[10%] top-[72px] h-[1px] bg-gradient-to-r from-transparent via-[#D71920]/30 to-transparent lg:block" />
 

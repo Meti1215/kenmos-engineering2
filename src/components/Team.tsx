@@ -11,7 +11,7 @@ const Team = () => {
 
   return (
     <section id="careers" className="section-padding border-y border-gray-200/70 bg-[linear-gradient(180deg,#f7f3eb_0%,#f5efe8_100%)]">
-      <div className="content-container">
+      <div className="w-full max-w-none px-3 sm:px-4 lg:px-6">
         <div className="mx-auto mb-10 w-full max-w-6xl px-2 text-center md:mb-14">
           <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#D71920] md:text-xs">Our Experts</span>
           <h2 className="mt-3 whitespace-nowrap text-[0.78rem] font-black leading-none tracking-[-0.03em] text-black sm:text-[1.4rem] sm:tracking-[-0.025em] md:text-[1.8rem] lg:text-[2.2rem] xl:text-[2.6rem] 2xl:text-[2.9rem]">Meet the Structural Engineering Team</h2>
@@ -23,16 +23,16 @@ const Team = () => {
           initial="hidden" 
           whileInView="visible" 
           viewport={{ once: true, amount: 0.1 }} 
-          className="grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-10 xl:gap-12 justify-items-center items-stretch w-full max-w-5xl mx-auto lg:pb-28"
+          className="mx-0 grid w-full grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-10 xl:gap-12 justify-items-center items-stretch lg:pb-28"
         >
           {teamMembers.map((member, index) => {
             const offsetClass = index === 0 ? 'lg:top-0' : index === 1 ? 'lg:top-[40px]' : 'lg:top-[80px]'
             const spanClass = index === 0
-              ? 'col-span-full justify-self-center md:col-start-auto md:row-start-auto md:col-span-1 md:justify-self-auto md:max-w-[380px] lg:col-span-1 lg:max-w-[340px] xl:max-w-[360px]'
+              ? 'col-span-full justify-self-center md:col-start-auto md:row-start-auto md:col-span-1 md:justify-self-auto lg:col-span-1'
               : index === 1
-                ? 'col-span-full justify-self-center md:col-start-auto md:row-start-auto md:col-span-1 md:justify-self-auto md:max-w-[380px] lg:col-span-1 lg:max-w-[340px] xl:max-w-[360px]'
-                : 'col-span-full justify-self-center md:col-start-auto md:row-start-auto md:col-span-1 md:justify-self-auto md:max-w-[380px] lg:col-span-1 lg:max-w-[340px] xl:max-w-[360px]'
-            const mobileWidthClass = 'w-full max-w-[430px] md:w-auto md:max-w-none'
+                ? 'col-span-full justify-self-center md:col-start-auto md:row-start-auto md:col-span-1 md:justify-self-auto lg:col-span-1'
+                : 'col-span-full justify-self-center md:col-start-auto md:row-start-auto md:col-span-1 md:justify-self-auto lg:col-span-1'
+            const mobileWidthClass = 'w-full max-w-[430px] md:w-auto md:max-w-none lg:w-full'
             return (
               <motion.div 
                 key={member.name} 
