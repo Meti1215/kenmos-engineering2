@@ -8,8 +8,8 @@ import { aboutContent } from '@/lib/brand'
 const About = () => {
   return (
     <section id="about" className="section-padding bg-transparent">
-      <div className="content-container">
-        <div className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr_1fr] lg:gap-10 xl:gap-14">
+      <div className="w-full max-w-none px-3 sm:px-4 lg:px-6">
+        <div className="grid w-full items-center gap-10 lg:grid-cols-[0.95fr_1.05fr_1fr] lg:gap-10 xl:gap-14">
           <div className="relative flex justify-center lg:justify-start">
             <div className="relative w-full max-w-[520px] overflow-hidden rounded-[2.2rem] p-3 sm:p-4">
               <div className="absolute inset-0 translate-y-6 rounded-[2.2rem] border border-[#D71920]/70" />
