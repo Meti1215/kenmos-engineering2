@@ -286,7 +286,7 @@ const Navigation = () => {
           </nav>
 
           <div className="flex items-center justify-end nav-right">
-            <button type="button" onClick={openQuoteModal} className="hidden lg:inline-flex h-[42px] min-w-[172px] w-auto whitespace-nowrap text-center flex-shrink-0 items-center justify-center gap-1.5 rounded-[7px] bg-[#D71920] px-4 mr-2 text-[10px] lg:text-[12px] font-bold uppercase tracking-[0.16em] lg:tracking-[0.18em] text-white transition-all duration-300 hover:bg-[#be1218] hover:scale-[1.02] active:scale-[0.98]">
+            <button type="button" onClick={openQuoteModal} className="hidden lg:inline-flex h-[42px] min-w-[172px] w-auto whitespace-nowrap text-center flex-shrink-0 items-center justify-center gap-1.5 rounded-[7px] bg-[#D71920] px-4 mr-4 xl:mr-5 text-[10px] lg:text-[12px] font-bold uppercase tracking-[0.16em] lg:tracking-[0.18em] text-white transition-all duration-300 hover:bg-[#be1218] hover:scale-[1.02] active:scale-[0.98]">
               GET A QUOTE
               <ArrowRight className="h-3.5 w-3.5 lg:h-4 lg:w-4 shrink-0" />
             </button>
