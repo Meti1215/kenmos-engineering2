@@ -9,8 +9,8 @@ const About = () => {
   return (
     <section id="about" className="section-padding bg-transparent">
       <div className="w-full max-w-none px-3 sm:px-4 lg:px-6">
-        <div className="grid w-full items-center gap-10 lg:grid-cols-[0.95fr_1.05fr_1fr] lg:gap-10 xl:gap-14">
-          <div className="relative flex justify-center lg:justify-start">
+        <div className="grid w-full items-center gap-10 lg:grid-cols-[1fr_0.82fr_1fr] lg:gap-14 xl:gap-16">
+          <div className="relative flex justify-center">
             <div className="relative w-full max-w-[520px] overflow-hidden rounded-[2.2rem] p-3 sm:p-4">
               <div className="absolute inset-0 translate-y-6 rounded-[2.2rem] border border-[#D71920]/70" />
               <div className="absolute -bottom-4 -left-4 z-20 h-16 w-20 rounded-[1rem] bg-[#D71920] shadow-[0_18px_36px_rgba(215,25,32,0.2)]" />
@@ -25,7 +25,7 @@ const About = () => {
             </div>
           </div>
 
-          <div className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
+          <div className="flex flex-col justify-center items-center text-center lg:items-center lg:text-center">
             <span className="text-[12px] font-semibold uppercase tracking-[0.34em] text-[#D71920]">{aboutContent.subtitle}</span>
             <h2 className="mt-4 text-[2.1rem] font-semibold leading-[1.08] tracking-[-0.02em] text-black sm:text-[2.45rem] lg:text-[2.8rem] xl:text-[3.15rem]">
               Building the Future
@@ -34,7 +34,7 @@ const About = () => {
             </h2>
           </div>
 
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center lg:pl-4">
             <div className="flex flex-col gap-5 lg:max-w-[480px]">
               <div className="flex flex-col gap-4 text-[15px] font-normal leading-8 text-gray-600 md:text-[16px]">
                 {aboutContent.paragraphs.map((p, i) => (
