@@ -8,7 +8,7 @@ import StatsBar from '@/components/StatsBar'
 
 const Hero = () => {
   return (
-    <section id="home" className="relative flex h-[91vh] min-h-[520px] md:min-h-[580px] lg:min-h-[620px] items-center justify-start bg-black">
+    <section id="home" className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-black">
       <div className="absolute inset-0 z-0 overflow-hidden">
         <motion.div initial={{ scale: 1.08 }} animate={{ scale: 1.02 }} transition={{ duration: 10, ease: 'easeOut' }} className="h-full w-full">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -19,7 +19,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-[1] bg-[linear-gradient(90deg,rgba(0,0,0,0.9)_0%,rgba(0,0,0,0.62)_45%,rgba(0,0,0,0.35)_100%)]"></div>
       <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_top_right,rgba(215,25,32,0.24),transparent_32%)]"></div>
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col items-start justify-center px-5 pt-[clamp(2.5rem,6.5vh,4.5rem)] pb-[clamp(5rem,9vh,7.5rem)] sm:px-6 lg:px-8 -translate-y-[1vh] md:-translate-y-[2vh] lg:-translate-y-[2.5vh]">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col items-start justify-center px-5 py-[clamp(2.5rem,4.5vh,4.5rem)] sm:px-6 lg:px-8">
         <div className="w-full max-w-[40rem] lg:max-w-[44rem] lg:ml-[clamp(1rem,2.5vw,2.5rem)] md:ml-[1.5rem] sm:ml-[0.75rem] ml-0">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25, ease: 'easeOut' }} className="flex flex-col gap-[clamp(0.4rem,1.15vh,0.95rem)]">
             <div className="flex items-center gap-3">
