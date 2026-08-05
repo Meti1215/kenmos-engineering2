@@ -43,13 +43,14 @@ export default function ProcessPage() {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-14 md:py-18 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-white">
-        {/* Section Header */}
-        <div className="text-center w-full max-w-6xl mx-auto px-2 mb-10 md:mb-14">
-          <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] text-[#D71920]">
-            Step-by-Step Delivery
-          </span>
-          <h2 className="mt-2 whitespace-nowrap text-[0.82rem] md:text-[1.1rem] font-black font-heading leading-none tracking-[-0.03em] text-black sm:text-[1.5rem] sm:tracking-[-0.025em] md:text-[1.85rem] lg:text-[2.25rem] xl:text-[2.65rem] 2xl:text-[2.95rem]">
+      <section className="py-14 md:py-18 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="w-full max-w-none mx-auto">
+          {/* Section Header */}
+          <div className="text-center w-full max-w-6xl mx-auto px-2 mb-10 md:mb-14">
+            <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] text-[#D71920]">
+              Step-by-Step Delivery
+            </span>
+          <h2 className="mt-2 whitespace-normal sm:whitespace-nowrap text-[0.82rem] md:text-[1.1rem] font-black font-heading leading-none tracking-[-0.03em] text-black sm:text-[1.5rem] sm:tracking-[-0.025em] md:text-[1.85rem] lg:text-[2.25rem] xl:text-[2.65rem] 2xl:text-[2.95rem]">
             How We Deliver Structural Excellence
           </h2>
         </div>
@@ -60,7 +61,7 @@ export default function ProcessPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 relative"
+          className="w-full max-w-none mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 relative"
         >
           {/* Connecting Line (Desktop) */}
           <div className="hidden lg:block absolute top-12 left-[10%] right-[10%] h-[1px] bg-gray-200 z-0"></div>
@@ -91,6 +92,7 @@ export default function ProcessPage() {
             </motion.div>
           ))}
         </motion.div>
+      </div>
       </section>
 
       {/* CTA Banner */}

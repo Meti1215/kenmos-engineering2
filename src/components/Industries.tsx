@@ -9,11 +9,11 @@ const Industries = () => {
   const cardVariants = { hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } } }
 
   return (
-    <section id="industries" className="py-12 md:py-14 lg:py-16 bg-white/70">
-      <div className="w-full max-w-none px-3 sm:px-4 lg:px-6">
-        <div className="mx-auto mb-6 md:mb-8 w-full max-w-6xl px-0 text-center">
+    <section id="industries" className="w-full bg-white/70 py-8 md:py-9 lg:py-10">
+      <div className="w-full px-3 sm:px-4 lg:px-5 xl:px-6">
+        <div className="mb-4 md:mb-5 w-full text-center">
           <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#D71920] md:text-xs">Sectors We Serve</span>
-          <h2 className="mt-2.5 whitespace-nowrap text-[0.78rem] font-black leading-none tracking-[-0.03em] text-black sm:text-[1.35rem] sm:tracking-[-0.025em] md:text-[1.7rem] lg:text-[2.05rem] xl:text-[2.4rem] 2xl:text-[2.7rem]">Engineering Expertise Across Diverse Industries</h2>
+          <h2 className="mt-2 whitespace-normal text-[0.78rem] font-black leading-tight tracking-[-0.03em] text-black sm:text-[1.35rem] sm:tracking-[-0.025em] md:text-[1.7rem] lg:text-[2.05rem] xl:text-[2.4rem] 2xl:text-[2.7rem]">Engineering Expertise Across Diverse Industries</h2>
         </div>
 
         <motion.div
@@ -21,19 +21,19 @@ const Industries = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="mx-0 grid w-full grid-cols-2 gap-3 md:gap-4 lg:grid-cols-3"
+          className="grid w-full grid-cols-1 gap-2 md:grid-cols-2 md:gap-3 lg:grid-cols-3 lg:gap-4"
         >
           {industries.map((ind) => (
             <motion.div
               key={ind.id}
               variants={cardVariants}
-              className="group relative flex h-full min-h-[240px] cursor-pointer overflow-hidden rounded-[1rem] border border-[#E9E4DC] shadow-[0_10px_28px_-8px_rgba(17,17,17,0.12)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#D71920]/35 hover:shadow-[0_20px_50px_-12px_rgba(17,17,17,0.2)] sm:min-h-[250px] md:min-h-[270px]"
+              className="group relative flex h-full min-h-[145px] cursor-pointer overflow-hidden rounded-[1rem] border border-[#E9E4DC] shadow-[0_10px_28px_-8px_rgba(17,17,17,0.12)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#D71920]/35 hover:shadow-[0_20px_50px_-12px_rgba(17,17,17,0.2)] sm:min-h-[155px] md:min-h-[165px]"
             >
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-100">
+              <div className="relative aspect-[4/2.35] w-full overflow-hidden bg-gray-100">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={ind.image} alt={ind.title} className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/55 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 z-20 flex items-end p-3 sm:p-4 md:p-5 lg:p-6">
+                <div className="absolute inset-x-0 bottom-0 z-20 flex items-end p-3 sm:p-3 md:p-4 lg:p-4">
                   <div className="max-w-[95%]">
                     <h3 className="text-[11px] font-black leading-tight tracking-tight text-white md:text-base">{ind.title}</h3>
                     <p className="mt-1 text-[10px] font-light leading-[1.35] text-white md:text-[13px]">{ind.description}</p>

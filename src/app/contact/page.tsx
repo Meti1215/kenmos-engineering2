@@ -170,6 +170,7 @@ export default function ContactPage() {
               </button>
             </div>
 
+<<<<<<< Updated upstream
             {/* Map (BELOW) */}
             <div className="relative w-full h-[240px] md:h-[280px] rounded-[8px] overflow-hidden border border-gray-100/80 shadow-[0_4px_18px_rgba(17,17,17,0.06)] bg-gray-50">
               <div className="absolute top-3 left-3 z-10 inline-flex items-center gap-2 px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-[4px] shadow-sm border border-gray-100">
@@ -178,6 +179,10 @@ export default function ContactPage() {
                   Kenmos HQ — Piazza
                 </span>
               </div>
+=======
+            {/* Map wrapper */}
+            <div className="h-[240px] sm:h-[300px] md:h-[360px] bg-gray-50 border border-gray-100 overflow-hidden shadow-inner relative">
+>>>>>>> Stashed changes
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.505677568588!2d38.7516805!3d9.034789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85f63118cf97%3A0xc3cfec56bb24bfa!2sPiazza%2C%20Addis%20Ababa!5e0!3m2!1sen!2set!4v1700000000000!5m2!1sen!2set"
                 width="100%"

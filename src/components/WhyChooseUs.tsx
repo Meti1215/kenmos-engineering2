@@ -22,7 +22,7 @@ const WhyChooseUs = () => {
       <div className="w-full max-w-none px-3 sm:px-4 lg:px-6">
         <div className="mx-auto mb-6 md:mb-8 w-full max-w-6xl px-2 text-center">
           <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#D71920] md:text-xs">Why Choose Us</span>
-          <h2 className="mt-2.5 whitespace-nowrap text-[0.76rem] font-black leading-none tracking-[-0.03em] text-black sm:text-[1.3rem] sm:tracking-[-0.025em] md:text-[1.65rem] lg:text-[2rem] xl:text-[2.35rem] 2xl:text-[2.65rem]">Structural Integrity Meets Cost Optimization</h2>
+          <h2 className="mt-2.5 whitespace-normal sm:whitespace-nowrap text-[0.76rem] font-black leading-none tracking-[-0.03em] text-black sm:text-[1.3rem] sm:tracking-[-0.025em] md:text-[1.65rem] lg:text-[2rem] xl:text-[2.35rem] 2xl:text-[2.65rem]">Structural Integrity Meets Cost Optimization</h2>
         </div>
 
         <motion.div

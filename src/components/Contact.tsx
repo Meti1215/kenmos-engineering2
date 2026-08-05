@@ -22,7 +22,7 @@ const Contact = () => {
               <p className="mx-auto mt-4 max-w-2xl text-sm font-light leading-relaxed text-gray-500 lg:mx-0">Partner with our structural engineering team to design, review, or supervise your next project with confidence.</p>
 
               <div className="mt-6 overflow-hidden rounded-[1.75rem] border border-[#E9E4DC] bg-gray-50 shadow-[0_18px_44px_rgba(17,17,17,0.06)]">
-                <div className="relative h-[300px] w-full">
+                <div className="relative h-[220px] sm:h-[280px] md:h-[300px] w-full">
                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.505677568588!2d38.7516805!3d9.034789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85f63118cf97%3A0xc3cfec56bb24bfa!2sPiazza%2C%20Addis%20Ababa!5e0!3m2!1sen!2set!4v1700000000000!5m2!1sen!2set" width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Kenmos Engineering Location Map" />
                 </div>
               </div>

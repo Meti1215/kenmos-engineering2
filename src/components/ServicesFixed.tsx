@@ -16,10 +16,10 @@ const ServicesFixed = () => {
 
   return (
     <section className="py-20 bg-white">
-      <div className="content-container">
+      <div className="w-full max-w-none px-5 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center mx-auto mb-16 max-w-none lg:max-w-7xl">
           <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] text-[#D71920]">
             Our Engineering Solutions
           </span>

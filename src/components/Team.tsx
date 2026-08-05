@@ -14,7 +14,7 @@ const Team = () => {
       <div className="w-full max-w-none px-3 sm:px-4 lg:px-6">
         <div className="mx-auto mb-10 w-full max-w-6xl px-2 text-center md:mb-14">
           <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#D71920] md:text-xs">Our Experts</span>
-          <h2 className="mt-3 whitespace-nowrap text-[0.78rem] font-black leading-none tracking-[-0.03em] text-black sm:text-[1.4rem] sm:tracking-[-0.025em] md:text-[1.8rem] lg:text-[2.2rem] xl:text-[2.6rem] 2xl:text-[2.9rem]">Meet the Structural Engineering Team</h2>
+          <h2 className="mt-3 whitespace-normal sm:whitespace-nowrap text-[0.78rem] font-black leading-none tracking-[-0.03em] text-black sm:text-[1.4rem] sm:tracking-[-0.025em] md:text-[1.8rem] lg:text-[2.2rem] xl:text-[2.6rem] 2xl:text-[2.9rem]">Meet the Structural Engineering Team</h2>
           <p className="mx-auto mt-4 max-w-xl text-sm font-light leading-relaxed text-gray-500">Dedicated professionals applying advanced analysis, code compliance, and structural optimization to shape secure foundations.</p>
         </div>
 

@@ -22,7 +22,7 @@ export default function AboutPage() {
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="relative content-container text-center">
+        <div className="relative w-full max-w-none px-5 text-center sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -45,7 +45,7 @@ export default function AboutPage() {
 
       {/* Company Details */}
       <section className="py-14">
-        <div className="content-container grid md:grid-cols-2 gap-12 items-start max-w-5xl">
+        <div className="mx-auto grid w-full max-w-none px-5 sm:px-6 lg:px-8 md:grid-cols-2 gap-12 items-start">
           <div className="flex flex-col gap-6 text-gray-600 leading-relaxed font-light text-sm md:text-base">
             <h2 className="text-2xl font-black font-heading text-black uppercase tracking-tight border-b-2 border-[#D71920] pb-2 w-fit">
               Our Story
@@ -96,7 +96,7 @@ export default function AboutPage() {
 
       {/* Leadership Section */}
       <section className="py-12 bg-gray-50 border-t border-gray-100">
-        <div className="content-container text-center max-w-5xl">
+        <div className="mx-auto w-full max-w-none px-5 text-center sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-3xl font-black font-heading text-black uppercase tracking-tight mb-8">
             Leadership & Experts
           </h2>

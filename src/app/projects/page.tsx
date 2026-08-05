@@ -8,13 +8,14 @@ import Footer from '@/components/Footer'
 import { projects } from '@/lib/brand'
 
 export default function ProjectsPage() {
+
   return (
     <main className="relative min-h-screen bg-white">
       <Navigation />
 
       {/* Hero Section */}
       <section className="relative pt-24 pb-10 md:pb-16 bg-[#111112] text-white">
-        <div className="relative content-container text-center flex flex-col items-center gap-4">
+        <div className="relative w-full max-w-none px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center gap-4 mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 text-[#D71920] text-xs font-bold uppercase tracking-wider">
             <Building2 className="w-4 h-4" />
             Our Works
@@ -30,7 +31,7 @@ export default function ProjectsPage() {
 
       {/* Projects Grid */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="content-container">
+        <div className="w-full max-w-none mx-auto px-0 sm:px-0 lg:px-0">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
             {projects.map((p, idx) => (
               <motion.div
@@ -41,7 +42,7 @@ export default function ProjectsPage() {
                 transition={{ delay: idx * 0.08, duration: 0.5 }}
                 className="group flex h-full flex-col overflow-hidden rounded-lg border border-gray-200/80 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] transition-all duration-400 ease-out hover:-translate-y-1 hover:shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1),0_8px_10px_-6px_rgba(0,0,0,0.08)] hover:border-gray-300"
               >
-                <div className="relative h-80 w-full overflow-hidden bg-gray-100 flex-shrink-0">
+                <div className="relative h-56 sm:h-64 md:h-72 w-full overflow-hidden bg-gray-100 flex-shrink-0">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={p.image}
