@@ -11,8 +11,8 @@ const About = () => {
       <div className="content-container">
         <div className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr_1fr] lg:gap-10 xl:gap-14">
           <div className="relative flex justify-center lg:justify-start">
-            <div className="relative w-full max-w-[520px] p-3 sm:p-4">
-              <div className="absolute inset-0 -translate-x-6 translate-y-6 rounded-[2.2rem] border border-[#D71920]/70" />
+            <div className="relative w-full max-w-[520px] overflow-hidden rounded-[2.2rem] p-3 sm:p-4">
+              <div className="absolute inset-0 translate-y-6 rounded-[2.2rem] border border-[#D71920]/70" />
               <div className="absolute -bottom-4 -left-4 z-20 h-16 w-20 rounded-[1rem] bg-[#D71920] shadow-[0_18px_36px_rgba(215,25,32,0.2)]" />
               <div className="absolute -right-6 -top-6 z-20 hidden h-36 w-36 rounded-[1.25rem] border border-gray-200 bg-white/85 p-2 shadow-[0_16px_40px_rgba(17,17,17,0.08)] sm:block">
                 {/* eslint-disable-next-line @next/next/no-img-element */}

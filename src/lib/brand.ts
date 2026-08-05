@@ -14,12 +14,12 @@ export const brandMedia = {
     hilton: '/images/project_hilton.png',
   },
   industries: {
-    commercial: '/images/ind_commercial.png',
-    industrial: '/images/ind_industrial.png',
-    residential: '/images/ind_residential.png',
-    institutional: '/images/ind_institutional.png',
-    hospitality: '/images/ind_hospitality.png',
-    infrastructure: '/images/ind_infrastructure.png',
+    commercial: '/images/ind_commercial.jpg',
+    industrial: '/images/ind_industrial.jpg',
+    residential: '/images/ind_residential.jpg',
+    institutional: '/images/ind_institutional.jpg',
+    hospitality: '/images/ind_hospitality.jpg',
+    infrastructure: '/images/ind_infrastructure.jpg',
   }
 } as const
 

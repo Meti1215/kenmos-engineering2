@@ -19,7 +19,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-[1] bg-[linear-gradient(90deg,rgba(0,0,0,0.9)_0%,rgba(0,0,0,0.62)_45%,rgba(0,0,0,0.35)_100%)]"></div>
       <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_top_right,rgba(215,25,32,0.24),transparent_32%)]"></div>
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[1680px] flex-col items-start justify-center px-5 pt-[clamp(4.5rem,8vh,6rem)] pb-[clamp(5.5rem,10vh,8rem)] sm:px-6 lg:px-8 -translate-y-[2vh] md:-translate-y-[3vh] lg:-translate-y-[4vh]">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col items-start justify-center px-5 pt-[clamp(4.5rem,8vh,6rem)] pb-[clamp(5.5rem,10vh,8rem)] sm:px-6 lg:px-8 -translate-y-[2vh] md:-translate-y-[3vh] lg:-translate-y-[4vh]">
         <div className="w-full max-w-[40rem] lg:max-w-[44rem] lg:ml-[clamp(3rem,6vw,5.5rem)] md:ml-[2.5rem] sm:ml-[1.5rem]">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25, ease: 'easeOut' }} className="flex flex-col gap-[clamp(0.5rem,1.5vh,1.25rem)]">
             <div className="flex items-center gap-3">
@@ -61,7 +61,7 @@ const Hero = () => {
       </div>
 
       <div className="absolute inset-x-0 bottom-[clamp(0.75rem,2.2vh,2.5rem)] z-20 flex justify-center px-4">
-        <div className="w-[90%] md:w-[88%] lg:w-[88%] max-w-[1680px]">
+        <div className="w-[90%] md:w-[88%] lg:w-[88%] max-w-[1200px]">
           <StatsBar />
         </div>
       </div>

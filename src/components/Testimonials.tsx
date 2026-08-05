@@ -34,8 +34,8 @@ const Testimonials = () => {
           <AnimatePresence mode="wait">
             <motion.div key={active} initial={{ opacity: 0, y: 24, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -20, scale: 0.98 }} transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }} className="group relative mx-auto max-w-3xl overflow-hidden rounded-[1.25rem] border border-[#E9E4DC] bg-white p-8 text-center shadow-[0_20px_55px_rgba(17,17,17,0.08)] md:p-14">
               <div className="absolute left-0 top-0 h-[3px] w-full bg-[#D71920]" />
-              <div className="absolute -right-16 -top-16 h-44 w-44 rounded-full bg-[#D71920]/5" />
-              <div className="absolute -bottom-12 -left-12 h-36 w-36 rounded-full bg-[#D71920]/5" />
+              <div className="hidden sm:block absolute -right-16 -top-16 h-44 w-44 rounded-full bg-[#D71920]/5" />
+              <div className="hidden sm:block absolute -bottom-12 -left-12 h-36 w-36 rounded-full bg-[#D71920]/5" />
               <div className="relative">
                 <div className="mx-auto mb-6 flex h-12 w-12 items-center justify-center rounded-[1rem] bg-[#D71920]/10 shadow-[0_8px_20px_rgba(215,25,32,0.12)]">
                   <Quote className="h-6 w-6 text-[#D71920]" />

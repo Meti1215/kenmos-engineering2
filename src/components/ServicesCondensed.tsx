@@ -23,22 +23,32 @@ const Services = () => {
       <div className="content-container">
         <div className="mx-auto mb-12 w-full max-w-6xl px-2 text-center md:mb-16">
           <span className="text-[12px] font-semibold uppercase tracking-[0.34em] text-[#D71920]">Our Services</span>
-          <h2 className="mt-3 whitespace-nowrap text-[0.78rem] font-semibold leading-none tracking-[-0.03em] text-black sm:text-[1.45rem] sm:tracking-[-0.025em] md:text-[1.85rem] lg:text-[2.25rem] xl:text-[2.65rem] 2xl:text-[2.95rem]">
+          <h2 className="mt-3 text-[0.78rem] font-semibold leading-tight tracking-[-0.03em] text-black sm:text-[1.45rem] sm:tracking-[-0.025em] md:text-[1.85rem] lg:text-[2.25rem] xl:text-[2.65rem] 2xl:text-[2.95rem]">
             Comprehensive Structural Engineering Solutions
           </h2>
         </div>
 
-        <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          className="grid gap-4 grid-cols-1 min-[360px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 auto-rows-fr items-stretch"
+        >
           {services.map((service) => {
             const IconComponent = iconMap[service.icon as keyof typeof iconMap] || Building2
             return (
-              <motion.div key={service.id} variants={cardVariants} className="group relative flex h-full flex-col overflow-hidden rounded-[1rem] border border-[#ECECEC] bg-white p-7 shadow-[0_12px_30px_rgba(17,17,17,0.04)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_45px_rgba(17,17,17,0.08)]">
-                <div className="absolute left-0 top-0 h-[3px] w-0 bg-[#D71920] transition-all duration-300 group-hover:w-full" />
-                <div className="mb-6 flex h-13 w-13 items-center justify-center rounded-[0.9rem] bg-[#D71920]/10 text-[#D71920] transition-all duration-300 group-hover:scale-110 group-hover:bg-[#D71920] group-hover:text-white">
-                  <IconComponent className="h-6 w-6" strokeWidth={1.6} />
-                </div>
-                <h3 className="mb-3 text-[1.05rem] font-semibold leading-tight tracking-[-0.01em] text-black transition-colors duration-300 group-hover:text-[#D71920]">{service.title}</h3>
-                <p className="text-[15px] font-normal leading-7 text-gray-600">{service.description}</p>
+              <motion.div key={service.id} variants={cardVariants} className="group relative flex h-full min-h-0 flex-col justify-between overflow-hidden rounded-[1rem] border border-[#ECECEC] bg-white p-3 sm:p-4 md:p-6 shadow-[0_12px_30px_rgba(17,17,17,0.04)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_45px_rgba(17,17,17,0.08)]">
+                  <div className="absolute left-0 top-0 h-[3px] w-0 bg-[#D71920] transition-all duration-300 group-hover:w-full" />
+                  <div className="mb-4 flex h-9 w-9 md:h-13 md:w-13 items-center justify-center rounded-[0.9rem] bg-[#D71920]/10 text-[#D71920] transition-all duration-300 group-hover:scale-110 group-hover:bg-[#D71920] group-hover:text-white">
+                    <IconComponent className="h-5 w-5 md:h-6 md:w-6" strokeWidth={1.6} />
+                  </div>
+                  <div className="flex flex-1 flex-col justify-between gap-3">
+                    <div>
+                      <h3 className="mb-2 text-[0.95rem] md:text-[1.05rem] font-semibold leading-tight tracking-[-0.01em] text-black transition-colors duration-300 group-hover:text-[#D71920]">{service.title}</h3>
+                      <p className="text-[13px] md:text-[15px] font-normal leading-6 md:leading-7 text-gray-600">{service.description}</p>
+                    </div>
+                  </div>
               </motion.div>
             )
           })}

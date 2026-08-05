@@ -71,11 +71,16 @@
   * {
     @apply border-border;
     box-sizing: border-box;
+    min-width: 0;
   }
 
   html, body {
+    width: 100%;
+    min-height: 100%;
     max-width: 100%;
     overflow-x: hidden;
+    scroll-behavior: smooth;
+    text-size-adjust: 100%;
   }
 
   button,
@@ -124,6 +129,16 @@
   .mt-navbar { margin-top: var(--navbar-offset); }
   .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
   .scrollbar-none::-webkit-scrollbar { display: none; }
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 @layer components {
@@ -213,7 +228,8 @@
   .container-padding { @apply px-5 sm:px-6 lg:px-8; }
   .content-container {
     @apply w-full mx-auto px-5 sm:px-6 lg:px-8;
-    max-width: 1720px;
+    width: min(100%, 1440px);
+    max-width: 1440px;
   }
 }
 
@@ -508,6 +524,23 @@ body.mobile-no-motion .carousel-slide[style] {
   textarea {
     font-size: 16px !important;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    word-break: break-word;
+  }
+
+  .whitespace-nowrap {
+    white-space: normal !important;
+  }
+
+  html,
+  body,
+  section,
+  main,
+  header,
+  footer {
+    overflow-x: hidden;
+  }
 }
 
 /* Mobile grid improvements */
@@ -521,8 +554,6 @@ body.mobile-no-motion .carousel-slide[style] {
 
 /* Global Container and Grid Alignment Overrides */
 .content-container,
-div[class*="max-w-7xl"],
-div[class*="max-w-6xl"],
 section > div[class*="mx-auto"] {
   width: 100%;
   margin-left: auto;
@@ -531,8 +562,43 @@ section > div[class*="mx-auto"] {
   padding-right: clamp(1rem, 2.2vw, 2rem);
 }
 
-.content-container,
-div[class*="max-w-7xl"],
-div[class*="max-w-6xl"] {
-  max-width: 1720px;
+.content-container {
+  max-width: 1440px;
+}
+
+.max-w-7xl {
+  max-width: 1440px !important;
+}
+
+.max-w-6xl {
+  max-width: 1200px !important;
+}
+
+.max-w-5xl {
+  max-width: 1040px !important;
+}
+
+.max-w-4xl {
+  max-width: 880px !important;
+}
+
+.max-w-3xl {
+  max-width: 720px !important;
+}
+
+/* Ensure the desktop navigation layout is fixed and unaffected by mobile styles */
+@media (min-width: 1024px) {
+  .nav-desktop {
+    display: grid !important;
+    grid-template-columns: auto 1fr auto !important;
+    align-items: center !important;
+    height: 84px !important;
+    gap: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .nav-desktop .logo-left { justify-self: start; }
+  .nav-desktop nav { justify-self: center; }
+  .nav-desktop .nav-right { justify-self: end; }
 }

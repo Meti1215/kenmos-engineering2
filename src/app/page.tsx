@@ -33,7 +33,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-[size:32px_32px]"></div>
         </div>
 
-        <div className="relative z-10 mx-auto flex max-w-[1720px] flex-col items-center gap-6 px-5 text-center sm:px-6 md:gap-8 lg:px-8">
+        <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col items-center gap-6 px-5 text-center sm:px-6 md:gap-8 lg:px-8">
           <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/90 md:text-xs">Let's Collaborate</span>
           <h2 className="max-w-4xl text-3xl font-black uppercase leading-tight tracking-tight md:text-5xl lg:text-6xl">Ready to Build Your Vision with Precision?</h2>
           <p className="max-w-2xl text-sm font-light leading-relaxed text-white/80 sm:text-lg">Discuss your building blueprints, steel truss connections, or value engineering parameters with our lead structural engineer.</p>

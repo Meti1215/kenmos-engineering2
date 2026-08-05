@@ -59,7 +59,7 @@ const ProjectsShowcase = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4 }}
-                className="group flex flex-col overflow-hidden bg-white border border-gray-200 shadow-sm rounded-lg hover:shadow-lg transition-all duration-300"
+                className="group h-full flex flex-col overflow-hidden bg-white border border-gray-200 shadow-sm rounded-lg hover:shadow-lg transition-all duration-300"
               >
                 {/* Project Image - Fixed container with object-contain */}
                 <div className="relative h-36 w-full overflow-hidden bg-gray-50 flex items-center justify-center border-b border-gray-100 p-3">

@@ -152,34 +152,19 @@ const Navigation = () => {
     if (errors[key]) setErrors((prev) => ({ ...prev, [key]: undefined }))
   }
 
-  const Logo = ({ light = false }: { light?: boolean }) => (
-    <div className="flex items-center gap-3 flex-shrink-0">
-      <svg className="w-9 h-9 md:w-10 md:h-10 flex-shrink-0" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="15" y="10" width="16" height="80" fill="#D71920" />
-        <path d="M78 15H55L31 46V62L62 25H78V15Z" fill="#D71920" />
-        <path d="M31 52V68L68 90H88L48 52H31Z" fill="#D71920" />
-        <line x1="31" y1="52" x2="48" y2="52" stroke="#FFFFFF" strokeWidth="4" />
-      </svg>
-      <div className="flex flex-col select-none">
-        <span className={cn('text-xl md:text-2xl font-black font-heading tracking-tight leading-[0.95] transition-colors duration-300', light ? 'text-white' : 'text-black')}>
-          KEN<span className="text-[#D71920]">MOS</span>
-        </span>
-        <span className={cn('text-[9px] md:text-[10px] font-semibold tracking-[0.35em] uppercase leading-none mt-1 transition-colors duration-300', light ? 'text-white/80' : 'text-gray-500')}>
-          Engineering
-        </span>
-      </div>
-    </div>
-  )
-
   const field = 'w-full rounded-[1rem] border border-gray-200 bg-white px-4 py-3 text-[14px] text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#D71920]/30 focus:border-[#D71920] transition-colors'
 
   return (
     <>
       <header className={cn('fixed top-0 left-0 right-0 z-50 w-full transition-all duration-350', isHeroVisible ? 'bg-transparent border-b border-white/40 backdrop-blur-none shadow-none' : 'bg-white border-b border-gray-100 shadow-sm backdrop-blur-md')}>
-        <div className="mx-auto grid h-[84px] w-full max-w-[1720px] grid-cols-2 items-center px-5 sm:px-6 lg:grid-cols-3 lg:px-8">
-          <div className="flex items-center justify-start">
+        <div className="mx-auto grid h-[84px] w-full max-w-[1440px] grid-cols-2 items-center px-5 sm:px-6 lg:grid-cols-3 lg:px-8 nav-desktop">
+          <div className="flex items-center justify-start logo-left">
             <Link href="/" prefetch={true} className="flex flex-shrink-0 items-center">
-              <Logo light={isHeroVisible} />
+              <img
+                src={isHeroVisible ? "/images/hero2-logo.png" : "/images/hero-logo.png"}
+                alt="Kenmos Engineering"
+                className="w-[168px] md:w-[175px] h-auto transition-opacity duration-350"
+              />
             </Link>
           </div>
 
@@ -192,7 +177,7 @@ const Navigation = () => {
                   prefetch={true}
                   className={cn(
                     'relative inline-flex items-center whitespace-nowrap pb-1 text-[11px] lg:text-[12px] xl:text-[13px] font-semibold uppercase tracking-[0.14em] lg:tracking-[0.16em] xl:tracking-[0.16em] transition-all duration-350 leading-none hover:scale-[1.03]',
-                    isHeroVisible ? 'text-white hover:text-[#D71920]' : 'text-gray-800 hover:text-[#D71920]',
+                    isHeroVisible ? 'text-white hover:text-[#D71920]' : 'text-gray-900 hover:text-[#D71920]',
                   )}
                 >
                   {item.name}
@@ -204,12 +189,17 @@ const Navigation = () => {
             </div>
           </nav>
 
+<<<<<<< Updated upstream
           <div className="flex items-center justify-end">
             <button type="button" onClick={openQuoteModal} className="hidden lg:inline-flex h-[42px] min-w-[172px] w-auto flex-shrink-0 items-center justify-center gap-1.5 whitespace-nowrap text-center rounded-[7px] bg-[#D71920] px-4 text-[10px] lg:text-[12px] font-bold uppercase tracking-[0.16em] lg:tracking-[0.18em] text-white transition-all duration-300 hover:bg-[#be1218] hover:scale-[1.02] active:scale-[0.98]">
+=======
+          <div className="flex items-center justify-end nav-right">
+            <button type="button" onClick={openQuoteModal} className="hidden lg:inline-flex h-[42px] w-[150px] flex-shrink-0 items-center justify-center gap-1.5 rounded-[7px] bg-[#D71920] px-4 text-[10px] lg:text-[12px] font-bold uppercase tracking-[0.16em] lg:tracking-[0.18em] text-white transition-all duration-300 hover:bg-[#be1218] hover:scale-[1.02] active:scale-[0.98]">
+>>>>>>> Stashed changes
               GET A QUOTE
               <ArrowRight className="h-3.5 w-3.5 lg:h-4 lg:w-4 shrink-0" />
             </button>
-            <button type="button" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className={cn('lg:hidden inline-flex items-center justify-center rounded-md p-2 focus:outline-none transition-colors duration-350', isHeroVisible ? 'text-white' : 'text-gray-800')} aria-label="Toggle Navigation Menu">
+            <button type="button" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className={cn('lg:hidden inline-flex items-center justify-center rounded-md p-2 focus:outline-none transition-colors duration-350', isHeroVisible ? 'text-white' : 'text-gray-900')} aria-label="Toggle Navigation Menu">
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
@@ -218,8 +208,8 @@ const Navigation = () => {
 
       <AnimatePresence>
           {mobileMenuOpen && (
-            <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} className="lg:hidden border-t border-gray-200 bg-white/97 px-4 pb-4 pt-2 shadow-[0_20px_45px_rgba(17,17,17,0.12)] backdrop-blur-xl">
-              <div className="mx-auto flex max-w-[1720px] flex-col gap-1 border border-gray-100 bg-white p-2 rounded-lg">
+            <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} className="fixed inset-x-0 top-[84px] z-50 lg:hidden border-t border-gray-200 bg-white/97 px-4 pb-4 pt-2 shadow-[0_20px_45px_rgba(17,17,17,0.12)] backdrop-blur-xl max-h-[calc(100vh-84px)] overflow-y-auto">
+              <div className="mx-auto flex w-full max-w-[1000px] flex-col gap-1 border border-gray-100 bg-white p-2 rounded-lg">
                 {navItems.map((item) => (
                   <Link key={item.name} href={item.href} prefetch={true} onClick={() => setMobileMenuOpen(false)} className={cn('relative px-4 py-3 text-sm font-medium uppercase tracking-[0.18em] transition-colors rounded', isActive(item.href) ? 'text-[#D71920] bg-red-50/70' : 'text-gray-700 hover:bg-gray-50 hover:text-[#D71920]')}>
                     {item.name}
@@ -240,7 +230,7 @@ const Navigation = () => {
         <AnimatePresence>
           {isQuoteModalOpen && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 px-4 py-8 backdrop-blur-sm">
-              <motion.div initial={{ opacity: 0, y: 18, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 14, scale: 0.98 }} transition={{ duration: 0.2 }} className="w-full max-w-2xl rounded-[2rem] border border-white/10 bg-white p-6 shadow-[0_25px_80px_rgba(0,0,0,0.25)] sm:p-8">
+              <motion.div initial={{ opacity: 0, y: 18, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 14, scale: 0.98 }} transition={{ duration: 0.2 }} className="w-full max-w-2xl max-h-[calc(100vh-3rem)] overflow-y-auto rounded-[2rem] border border-white/10 bg-white p-6 shadow-[0_25px_80px_rgba(0,0,0,0.25)] sm:p-8">
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#D71920]">Request a Consultation</p>
