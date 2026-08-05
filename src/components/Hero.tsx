@@ -10,7 +10,16 @@ const Hero = () => {
   return (
     <section id="home" className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-black">
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <motion.div initial={{ scale: 1.08 }} animate={{ scale: 1.02 }} transition={{ duration: 10, ease: 'easeOut' }} className="h-full w-full">
+        <motion.div
+          initial={{ scale: 1.02, x: '0%', y: '0%' }}
+          animate={{
+            scale: [1.02, 1.1, 1.05, 1.1, 1.02],
+            x: ['0%', '-2.5%', '1.5%', '-1.25%', '0%'],
+            y: ['0%', '-1.2%', '0.6%', '-0.7%', '0%']
+          }}
+          transition={{ duration: 28, ease: 'easeInOut', repeat: Infinity, repeatType: 'mirror' }}
+          className="h-full w-full"
+        >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/images/hero-new.jpg" alt="Kenmos Engineering structural design" className="h-full w-full object-cover" />
         </motion.div>
