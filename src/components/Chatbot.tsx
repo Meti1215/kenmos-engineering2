@@ -663,7 +663,7 @@ const Chatbot = () => {
   }
 
   return (
-    <div className="fixed bottom-[150px] md:bottom-6 right-5 md:right-6 lg:right-6 z-50 flex flex-col items-end">
+    <div className="fixed bottom-20 right-4 md:bottom-6 md:right-6 lg:right-6 z-40 flex flex-col items-end">
       <motion.div
         className="relative"
         animate={{ y: [0, -5, 0, 5, 0] }}
@@ -765,7 +765,7 @@ const Chatbot = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 15, scale: 0.96 }}
             transition={{ type: 'spring', stiffness: 260, damping: 22, mass: 0.75 }}
-            className="chatbot-window absolute bottom-[60px] right-0 w-[calc(100vw-2rem)] max-w-[350px] sm:w-[320px] md:w-[350px] max-h-[78vh] sm:h-[540px] md:h-[580px] bg-[#FAFAF7] border border-[#E9E4DC] shadow-[0_16px_50px_-10px_rgba(17,17,17,0.18),0_6px_18px_-10px_rgba(17,17,17,0.08)] flex flex-col z-50 rounded-[20px] overflow-hidden"
+            className="chatbot-window fixed bottom-[104px] left-4 right-4 w-auto max-w-none transform-none md:absolute md:bottom-[70px] md:right-0 md:left-auto md:w-[350px] md:max-w-[350px] md:translate-x-0 max-h-[78vh] sm:h-[540px] md:h-[580px] bg-[#FAFAF7] border border-[#E9E4DC] shadow-[0_16px_50px_-10px_rgba(17,17,17,0.18),0_6px_18px_-10px_rgba(17,17,17,0.08)] flex flex-col z-40 rounded-[20px] overflow-hidden"
           >
             {/* Minimal floating close button — top-right of the card (pops in after window) */}
             <motion.button
