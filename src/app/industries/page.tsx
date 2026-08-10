@@ -3,7 +3,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Building2, ArrowRight } from 'lucide-react'
-import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { industries } from '@/lib/brand'
 
@@ -24,7 +23,6 @@ export default function IndustriesPage() {
 
   return (
     <main className="relative min-h-screen bg-white">
-      <Navigation />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-16 md:pb-24 px-4 sm:px-6 lg:px-8 bg-[#111112] text-white">

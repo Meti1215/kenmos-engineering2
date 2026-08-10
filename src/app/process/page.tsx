@@ -3,7 +3,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, Workflow } from 'lucide-react'
-import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { processSteps } from '@/lib/brand'
 
@@ -24,7 +23,6 @@ export default function ProcessPage() {
 
   return (
     <main className="relative min-h-screen bg-white">
-      <Navigation />
 
       {/* Hero Section */}
       <section className="relative pt-24 pb-10 md:pb-16 px-4 sm:px-6 lg:px-8 bg-[#111112] text-white">

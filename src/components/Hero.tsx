@@ -9,7 +9,7 @@ import StatsBar from '@/components/StatsBar'
 const Hero = () => {
   return (
     <div className="relative overflow-x-hidden">
-      <section id="home" className="relative flex flex-col w-full items-center justify-center overflow-hidden bg-black sm:min-h-[64vh] md:min-h-[72vh] lg:h-screen">
+      <section id="home" className="relative flex flex-col w-full items-center justify-start overflow-hidden bg-black pb-0 lg:h-screen lg:justify-center">
       <div className="absolute inset-0 z-0 overflow-hidden">
         <motion.div
           initial={{ scale: 1.02, x: '0%', y: '0%' }}
@@ -29,7 +29,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-[1] bg-[linear-gradient(90deg,rgba(0,0,0,0.9)_0%,rgba(0,0,0,0.62)_45%,rgba(0,0,0,0.35)_100%)]"></div>
       <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_top_right,rgba(215,25,32,0.24),transparent_32%)]"></div>
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col items-start justify-center px-5 pt-[calc(64px+0.5rem)] pb-[clamp(1rem,3vh,2rem)] sm:pt-[calc(64px+0.75rem)] sm:pb-[clamp(2rem,4vh,4rem)] sm:px-6 lg:pt-0 lg:py-[clamp(2.5rem,4.5vh,4.5rem)] lg:px-8">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col items-start justify-center px-5 pt-[calc(64px+0.5rem)] pb-[clamp(0.9rem,2.5vh,1.5rem)] sm:pt-[calc(64px+0.75rem)] sm:pb-[clamp(1.5rem,3vh,2rem)] sm:px-6 lg:pt-0 lg:py-[clamp(2.5rem,4.5vh,4.5rem)] lg:px-8">
         <div className="w-full max-w-[40rem] lg:max-w-[44rem] lg:ml-[clamp(1rem,2.5vw,2.5rem)] md:ml-[1.5rem] sm:ml-[0.75rem] ml-0">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25, ease: 'easeOut' }} className="flex flex-col gap-[clamp(0.4rem,1.15vh,0.95rem)]">
             <div className="flex items-center gap-3">

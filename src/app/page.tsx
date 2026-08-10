@@ -3,7 +3,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
-import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
 import Services from '@/components/ServicesCondensed'
@@ -18,7 +17,6 @@ import Footer from '@/components/Footer'
 export default function Home() {
   return (
     <main className="relative min-h-screen bg-transparent">
-      <Navigation />
       <Hero />
       <About />
       <Services />

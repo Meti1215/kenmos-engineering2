@@ -12,7 +12,6 @@ import {
   AlertCircle,
   MessageSquare
 } from 'lucide-react'
-import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { brand } from '@/lib/brand'
 
@@ -84,7 +83,6 @@ export default function ContactPage() {
 
   return (
     <main className="relative min-h-screen bg-[#FAFAF7]">
-      <Navigation />
 
       <section className="pt-[72px] pb-11 md:pb-14 content-container">
         {/* Hero — centered dark panel with big red serif CONTACT US */}

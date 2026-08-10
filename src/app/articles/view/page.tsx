@@ -5,7 +5,6 @@ import { useSearchParams } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { Calendar, Clock, User, ArrowLeft, ArrowRight, Newspaper, Tag } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
-import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { Button } from '@/components/ui/button'
 
@@ -317,7 +316,6 @@ function ArticleViewContent() {
 export default function ArticleViewPage() {
   return (
     <main className="relative min-h-screen bg-white">
-      <Navigation />
       <Suspense fallback={
         <div className="min-h-[60vh] flex items-center justify-center">
           <div className="w-6 h-6 border-2 border-[#D71920] border-t-transparent rounded-full animate-spin" />

@@ -3,14 +3,12 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Building2, ArrowRight, ShieldCheck, HardHat, Compass } from 'lucide-react'
-import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { brand, aboutContent, teamMembers } from '@/lib/brand'
 
 export default function AboutPage() {
   return (
     <main className="relative min-h-screen bg-white">
-      <Navigation />
 
       {/* Hero Section */}
       <section className="relative pt-24 pb-10 md:pb-16 bg-[#111112] text-white overflow-hidden">

@@ -3,7 +3,6 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Building2 } from 'lucide-react'
-import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { projects } from '@/lib/brand'
 
@@ -18,7 +17,6 @@ export default function ProjectsPage() {
 
   return (
     <main className="relative min-h-screen bg-white">
-      <Navigation />
 
       {/* Hero Section */}
       <section className="relative bg-[#111112] pt-24 pb-10 text-white md:pb-16">

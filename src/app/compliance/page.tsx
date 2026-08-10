@@ -4,7 +4,6 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { ShieldCheck, FileSearch, AlertTriangle, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
-import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 
 export default function CompliancePage() {
@@ -31,7 +30,6 @@ export default function CompliancePage() {
 
   return (
     <main className="relative min-h-screen bg-gray-50">
-      <Navigation />
 
       <section className="pt-32 pb-8 md:pb-14 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">

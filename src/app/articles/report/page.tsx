@@ -5,7 +5,6 @@ import { useSearchParams } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { ArrowLeft, Download, BookOpen, Calendar, FileText, Maximize2, Minimize2 } from 'lucide-react'
 import { supabase, AnnualReport } from '@/lib/supabase'
-import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { Button } from '@/components/ui/button'
 import { brand } from '@/lib/brand'
@@ -245,7 +244,6 @@ function ReportViewContent() {
 export default function ReportViewPage() {
   return (
     <main className="relative min-h-screen bg-white">
-      <Navigation />
 
       <section className="pt-32 pb-10 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
         <Button

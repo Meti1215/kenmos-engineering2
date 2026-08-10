@@ -2,13 +2,11 @@
 
 import React from 'react'
 import { Calendar } from 'lucide-react'
-import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 
 export default function EventsPage() {
   return (
     <main className="relative min-h-screen bg-white">
-      <Navigation />
 
       <section className="relative pt-32 pb-16 md:pb-24 px-4 sm:px-6 lg:px-8 bg-[#111112] text-white">
         <div className="relative max-w-7xl mx-auto text-center flex flex-col items-center gap-4">

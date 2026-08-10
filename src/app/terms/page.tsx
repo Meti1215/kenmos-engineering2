@@ -3,7 +3,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { FileText } from 'lucide-react'
-import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 
 export default function TermsPage() {
@@ -16,7 +15,6 @@ export default function TermsPage() {
 
   return (
     <main className="relative min-h-screen bg-gray-50">
-      <Navigation />
 
       <section className="pt-32 pb-8 md:pb-14 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto">

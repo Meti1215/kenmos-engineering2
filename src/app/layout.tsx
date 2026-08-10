@@ -3,6 +3,7 @@ import { Inter, Manrope } from 'next/font/google'
 import './globals.css'
 
 import Chatbot from '@/components/Chatbot'
+import GlobalNavigation from '@/components/GlobalNavigation'
 import MobileMotionProvider from '@/components/MobileMotionProvider'
 import ScrollProgress from '@/components/ScrollProgress'
 import { brand } from '@/lib/brand' 
@@ -71,6 +72,7 @@ export default function RootLayout({
       <body className="font-sans antialiased bg-white text-[#111111]">
         <MobileMotionProvider>
           <ScrollProgress />
+          <GlobalNavigation />
           {children}
           <Chatbot />
         </MobileMotionProvider>

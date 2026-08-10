@@ -26,16 +26,11 @@ const Footer = () => {
 
   const Logo = () => (
     <div className="flex items-center gap-3">
-      <svg className="h-8 w-8 shrink-0" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="15" y="10" width="16" height="80" fill="#D71920" />
-        <path d="M78 15H55L31 46V62L62 25H78V15Z" fill="#D71920" />
-        <path d="M31 52V68L68 90H88L48 52H31Z" fill="#D71920" />
-        <line x1="31" y1="52" x2="48" y2="52" stroke="#FFFFFF" strokeWidth="4" />
-      </svg>
-      <div className="flex flex-col text-left">
-        <span className="text-lg font-black leading-none tracking-tight text-white">KEN<span className="text-[#D71920]">MOS</span></span>
-        <span className="mt-1 text-[8px] font-bold uppercase tracking-[0.3em] text-gray-400 leading-none">Engineering</span>
-      </div>
+      <img
+        src="/images/hero2-logo.png"
+        alt="Kenmos Engineering"
+        className="h-16 w-auto max-w-full object-contain"
+      />
     </div>
   )
 
@@ -94,7 +89,10 @@ const Footer = () => {
               <Link href="/disclaimer" prefetch={true} className="transition-colors hover:text-white">Disclaimer</Link>
             </div>
           </div>
-          <button onClick={scrollToTop} className="flex items-center gap-2 shrink-0 transition-colors hover:text-white"><span>Back to Top</span><ArrowUp className="h-3.5 w-3.5" /></button>
+          <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-6">
+            <a href="https://elevateadds.com/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-white">Developed by Elevate Marketing and Advertising</a>
+            <button onClick={scrollToTop} className="flex items-center gap-2 shrink-0 transition-colors hover:text-white"><span>Back to Top</span><ArrowUp className="h-3.5 w-3.5" /></button>
+          </div>
         </div>
       </div>
     </footer>

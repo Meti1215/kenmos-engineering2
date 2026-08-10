@@ -57,6 +57,17 @@ const Navigation = () => {
     { name: 'Contact Us', href: '/contact', id: 'contact' },
   ]
 
+  const heroWhiteNavItemIds = ['home', 'about', 'services', 'projects', 'industries', 'process', 'more', 'contact']
+  const forceScrolledRoutes = ['about', 'projects', 'industries', 'process', 'careers', 'events']
+  const isForceScrolledRoute = forceScrolledRoutes.some((route) => pathname === `/${route}` || pathname.startsWith(`/${route}/`)) || pathname.startsWith('/articles')
+
+  const getLinkTextClass = (itemId: string, isHeroVisibleState: boolean) => {
+    if (isHeroVisibleState && heroWhiteNavItemIds.includes(itemId)) {
+      return 'text-white hover:text-[#D71920]'
+    }
+    return 'text-gray-900 hover:text-[#D71920]'
+  }
+
   const MORE_ITEMS = [
     { name: 'News & Articles', href: '/articles' },
     { name: 'Careers', href: '/careers' },
@@ -73,14 +84,14 @@ const Navigation = () => {
       const isHomePage = pathname === '/'
       const isTop = window.scrollY <= 20
 
-      setScrolled(!isTop)
+      setScrolled(!isTop || isForceScrolledRoute)
       setIsHeroVisible(isHomePage && isTop)
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
     handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [pathname])
+  }, [pathname, isForceScrolledRoute])
 
   useEffect(() => {
     setMoreOpen(false)
@@ -208,7 +219,7 @@ const Navigation = () => {
                         onMouseLeave={() => closeMoreMenu()}
                         className={cn(
                           'relative inline-flex items-center gap-1 whitespace-nowrap pb-1 text-[11px] lg:text-[12px] xl:text-[13px] font-semibold uppercase tracking-[0.14em] lg:tracking-[0.16em] xl:tracking-[0.16em] transition-all duration-350 leading-none hover:scale-[1.03]',
-                          isHeroVisible ? 'text-white hover:text-[#D71920]' : 'text-gray-900 hover:text-[#D71920]',
+                          isHeroVisible ? getLinkTextClass(item.id, isHeroVisible) : 'text-gray-900 hover:text-[#D71920]',
                         )}
                       >
                         {item.name}
@@ -237,7 +248,9 @@ const Navigation = () => {
                                 onClick={closeMoreMenu}
                                 className={cn(
                                   'block rounded-[14px] px-4 py-3 text-sm uppercase tracking-[0.16em] transition-colors duration-200',
-                                  isActive(moreItem.href) ? 'bg-[#FCE8E8] text-[#D71920]' : 'text-gray-700 hover:bg-[#F9F5F3] hover:text-[#D71920]',
+                                  isActive(moreItem.href)
+                                    ? 'bg-[#FCE8E8] text-[#D71920]'
+                                    : 'text-gray-700 hover:bg-[#F9F5F3] hover:text-[#D71920]',
                                 )}
                               >
                                 {moreItem.name}
@@ -257,7 +270,7 @@ const Navigation = () => {
                     prefetch={true}
                     className={cn(
                       'relative inline-flex items-center whitespace-nowrap pb-1 text-[11px] lg:text-[12px] xl:text-[13px] font-semibold uppercase tracking-[0.14em] lg:tracking-[0.16em] xl:tracking-[0.16em] transition-all duration-350 leading-none hover:scale-[1.03]',
-                      isHeroVisible ? 'text-white hover:text-[#D71920]' : 'text-gray-900 hover:text-[#D71920]',
+                      isHeroVisible ? getLinkTextClass(item.id, isHeroVisible) : 'text-gray-900 hover:text-[#D71920]',
                     )}
                   >
                     {item.name}
@@ -274,7 +287,7 @@ const Navigation = () => {
                 prefetch={true}
                 className={cn(
                   'relative inline-flex items-center whitespace-nowrap pb-1 text-[11px] lg:text-[12px] xl:text-[13px] font-semibold uppercase tracking-[0.14em] lg:tracking-[0.16em] xl:tracking-[0.16em] transition-all duration-350 leading-none hover:scale-[1.03]',
-                  isHeroVisible ? 'text-white hover:text-[#D71920]' : 'text-gray-900 hover:text-[#D71920]',
+                  isHeroVisible ? getLinkTextClass(navItems[navItems.length - 1].id, isHeroVisible) : 'text-gray-900 hover:text-[#D71920]',
                 )}
               >
                 {navItems[navItems.length - 1].name}

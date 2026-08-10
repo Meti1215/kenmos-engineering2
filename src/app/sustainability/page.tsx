@@ -5,7 +5,6 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Leaf, Users, ShieldCheck, HeartHandshake, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
-import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 
 export default function SustainabilityPage() {
@@ -55,7 +54,6 @@ export default function SustainabilityPage() {
 
   return (
     <main className="relative min-h-screen bg-gray-50">
-      <Navigation />
 
       <section className="pt-32 pb-14 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">

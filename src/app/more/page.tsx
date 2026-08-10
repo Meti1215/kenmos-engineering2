@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { ArrowRight } from 'lucide-react'
 
@@ -14,7 +13,6 @@ const moreLinks = [
 export default function MorePage() {
   return (
     <div className="min-h-screen bg-white">
-      <Navigation />
 
       <main className="mx-auto max-w-[1200px] px-5 pb-20 pt-[120px] sm:px-6 lg:px-8">
         <div className="max-w-3xl">

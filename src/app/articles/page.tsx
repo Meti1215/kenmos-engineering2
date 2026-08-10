@@ -4,7 +4,6 @@ import React, { useEffect, useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Calendar, Clock, User, ArrowRight, HardHat, Compass, Building2, CheckCircle, Newspaper, BookOpen, Download } from 'lucide-react'
 import { supabase, AnnualReport } from '@/lib/supabase'
-import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { Button } from '@/components/ui/button'
 import { brand } from '@/lib/brand'
@@ -137,7 +136,6 @@ const Articles = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Navigation />
       
       {/* Hero Section */}
       <section className="relative pt-24 pb-10 md:pb-16 px-4 sm:px-6 lg:px-8 bg-[#111112] text-white">
