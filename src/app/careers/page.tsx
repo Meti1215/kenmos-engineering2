@@ -4,6 +4,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Briefcase, Users, GraduationCap, ArrowRight, Mail, FileText, BadgeCheck } from 'lucide-react'
 import Footer from '@/components/Footer'
+import PageHero from '@/components/PageHero'
 
 export default function CareersPage() {
   const values = [
@@ -26,21 +27,15 @@ export default function CareersPage() {
 
   return (
     <main className="relative min-h-screen bg-white">
-
-      <section className="relative pt-24 pb-10 md:pb-16 px-4 sm:px-6 lg:px-8 bg-[#111112] text-white">
-        <div className="relative max-w-7xl mx-auto text-center flex flex-col items-center gap-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 text-[#D71920] text-xs font-bold uppercase tracking-wider">
-            <Briefcase className="w-4 h-4" />
-            Careers at Kenmos
-          </div>
-          <h1 className="text-4xl md:text-6xl font-black text-[#D71920] font-heading uppercase leading-none mt-2">
-            Join Our Team
-          </h1>
-          <p className="text-sm md:text-lg text-gray-300 max-w-3xl leading-relaxed mt-2 font-light">
-            Grow with a team that delivers structural excellence, site coordination, and engineering confidence across high-impact projects.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        badge="Careers at Kenmos"
+        title="Join Our Team"
+        description="Grow with a team that delivers structural excellence, site coordination, and engineering confidence across high-impact projects."
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Careers' },
+        ]}
+      />
 
       <section className="py-14 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

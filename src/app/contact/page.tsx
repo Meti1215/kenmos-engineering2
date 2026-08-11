@@ -13,6 +13,7 @@ import {
   MessageSquare
 } from 'lucide-react'
 import Footer from '@/components/Footer'
+import PageHero from '@/components/PageHero'
 import { brand } from '@/lib/brand'
 
 export default function ContactPage() {
@@ -83,46 +84,17 @@ export default function ContactPage() {
 
   return (
     <main className="relative min-h-screen bg-[#FAFAF7]">
+      <PageHero
+        badge="Get in Touch"
+        title="Contact Us"
+        description="Contact our Addis Ababa headquarters for structural analysis, steel detailing, value engineering, or site supervision inquiries."
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Contact Us' },
+        ]}
+      />
 
-      <section className="pt-[72px] pb-11 md:pb-14 content-container">
-        {/* Hero — centered dark panel with big red serif CONTACT US */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="relative w-full bg-[#111112] text-white overflow-hidden rounded-[10px] px-5 py-6 md:px-8 md:py-7 lg:px-10 lg:py-8 mb-5 md:mb-6"
-        >
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(215,25,32,0.22),transparent_40%)]" />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(215,25,32,0.06),transparent_60%)]" />
-          <div className="relative flex flex-col items-center text-center gap-2.5 md:gap-3">
-            <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, ease: 'easeOut', delay: 0.05 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 md:px-5 md:py-2 bg-white/8 border border-white/12 text-[#D71920] rounded-[4px] text-[11px] md:text-[12px] font-bold uppercase tracking-[0.26em]"
-            >
-              <MessageSquare className="w-3.5 h-3.5 md:w-4 md:h-4 shrink-0" />
-              GET IN TOUCH
-            </motion.div>
-            <motion.h1
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: 'easeOut', delay: 0.12 }}
-              className="font-serif font-black text-[#D71920] uppercase leading-[0.95] tracking-[-0.01em] text-4xl md:text-5xl lg:text-[62px] xl:text-[68px]"
-            >
-              CONTACT US
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
-              className="text-sm md:text-[15px] lg:text-base text-white/75 max-w-2xl leading-relaxed font-normal"
-            >
-              Contact our Addis Ababa headquarters for structural analysis, steel detailing, value engineering, or site supervision inquiries.
-            </motion.p>
-          </div>
-        </motion.div>
-
+      <section className="pb-11 md:pb-14 content-container">
         {/* Main 2-column section: left = contact info + square map; right = contact form */}
         <div className="grid lg:grid-cols-2 gap-5 md:gap-6 items-start">
           {/* LEFT COLUMN */}

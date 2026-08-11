@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { Calendar, Clock, User, ArrowRight, HardHat, Compass, Building2, CheckCircle, Newspaper, BookOpen, Download } from 'lucide-react'
 import { supabase, AnnualReport } from '@/lib/supabase'
 import Footer from '@/components/Footer'
+import PageHero from '@/components/PageHero'
 import { Button } from '@/components/ui/button'
 import { brand } from '@/lib/brand'
 
@@ -136,22 +137,15 @@ const Articles = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      
-      {/* Hero Section */}
-      <section className="relative pt-24 pb-10 md:pb-16 px-4 sm:px-6 lg:px-8 bg-[#111112] text-white">
-        <div className="relative max-w-7xl mx-auto text-center flex flex-col items-center gap-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 text-[#D71920] text-xs font-bold uppercase tracking-wider">
-            <Newspaper className="w-4 h-4" />
-            Company News
-          </div>
-          <h1 className="text-4xl md:text-6xl font-black text-[#D71920] font-heading uppercase leading-none mt-2">
-            News & Insights
-          </h1>
-          <p className="text-sm md:text-lg text-gray-300 max-w-3xl leading-relaxed mt-2 font-light">
-            Insights on structural design trends, steel detailing standards, value engineering case studies, and corporate news from {brand.name}.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        badge="Company News"
+        title="News & Articles"
+        description={`Insights on structural design trends, steel detailing standards, value engineering case studies, and corporate news from ${brand.name}.`}
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'News & Articles' },
+        ]}
+      />
 
       {/* Featured Article */}
       {activeCategory === 'All News' && featuredArticle && (

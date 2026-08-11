@@ -62,12 +62,12 @@ const ProjectsShowcase = () => {
                 className="group h-full flex flex-col overflow-hidden bg-white border border-gray-200 shadow-sm rounded-lg hover:shadow-lg transition-all duration-300"
               >
                 {/* Project Image - Fixed container with object-contain */}
-                <div className="relative h-36 w-full overflow-hidden bg-gray-50 flex items-center justify-center border-b border-gray-100 p-3">
+                <div className="relative h-48 w-full overflow-hidden bg-gray-50 flex items-center justify-center border-b border-gray-100 p-3">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                    className="max-h-full max-w-full object-contain"
                   />
                 </div>
 

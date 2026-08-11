@@ -3,7 +3,9 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Building2 } from 'lucide-react'
+import Link from 'next/link'
 import Footer from '@/components/Footer'
+import PageHero from '@/components/PageHero'
 import { projects } from '@/lib/brand'
 
 export default function ProjectsPage() {
@@ -18,24 +20,15 @@ export default function ProjectsPage() {
   return (
     <main className="relative min-h-screen bg-white">
 
-      {/* Hero Section */}
-      <section className="relative bg-[#111112] pt-24 pb-10 text-white md:pb-16">
-        <div className="relative mx-auto flex w-full max-w-none flex-col items-center gap-4 px-4 text-center sm:px-6 lg:px-8">
-          <div className="inline-flex items-center gap-2 bg-white/10 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#D71920]">
-            <Building2 className="h-4 w-4" />
-            Our Works
-          </div>
-
-          <h1 className="mt-2 font-heading text-4xl font-black uppercase leading-none text-[#D71920] md:text-6xl">
-            Engineering Projects
-          </h1>
-
-          <p className="mt-2 max-w-3xl text-sm font-light leading-relaxed text-gray-300 md:text-lg">
-            A selective showcase of institutional grandstands, mixed-use headquarters, and specialized structures designed and supervised by Kenmos Engineering.
-          </p>
-        </div>
-
-      </section>
+      <PageHero
+        badge="Our Works"
+        title="Engineering Projects"
+        description="A selective showcase of institutional grandstands, mixed-use headquarters, and specialized structures designed and supervised by Kenmos Engineering."
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Projects' },
+        ]}
+      />
 
       {/* Filter Bar (moved below hero on white background) */}
       <div className="mt-8 w-full max-w-none px-4 sm:px-6 lg:px-8">
@@ -100,13 +93,13 @@ export default function ProjectsPage() {
                     </p>
 
                     <div className="mt-auto pt-0.5">
-                      <a
-                        href="/contact"
+                      <Link
+                        href={`/projects/${project.id}`}
                         className="inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider text-[#D71920] transition-colors duration-200 hover:text-red-700"
                       >
                         Discuss Project
                         <ArrowRight className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </motion.div>

@@ -90,7 +90,15 @@ const Footer = () => {
             </div>
           </div>
           <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-6">
-            <a href="https://elevateadds.com/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-white">Developed by Elevate Marketing and Advertising</a>
+            <a
+              href="https://elevateadds.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Developed by Elevate Marketing and Advertising (opens in new tab)"
+              className="inline-flex items-center rounded-md bg-[#D71920] hover:bg-[#be1218] text-white px-3 py-1.5 text-xs font-semibold shadow-sm transition-colors no-underline"
+            >
+              Developed by Elevate Marketing and Advertising
+            </a>
             <button onClick={scrollToTop} className="flex items-center gap-2 shrink-0 transition-colors hover:text-white"><span>Back to Top</span><ArrowUp className="h-3.5 w-3.5" /></button>
           </div>
         </div>

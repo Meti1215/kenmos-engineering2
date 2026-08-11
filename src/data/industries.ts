@@ -1,0 +1,88 @@
+export const industries = [
+  {
+    id: 'commercial',
+    title: 'Commercial Developments',
+    description: 'Structural design for high-rise offices, mixed-use buildings, banks, and retail centers.',
+    image: '/images/ind_commercial.jpg',
+    market: 'Urban commercial districts and mixed-use corridors',
+    projectTypes: ['Office towers', 'Retail complexes', 'Bank headquarters', 'Mixed-use campuses'],
+    services: ['Structural Design', 'Construction Supervision', 'Project Management', 'BIM Coordination'],
+    structuralSystems: ['RC frames', 'Composite steel decks', 'Transfer slabs'],
+    scale: 'Mid-rise to high-rise developments',
+    standards: 'ACI, Ethiopian Building Code, ASCE guidelines',
+    longDescription:
+      'Commercial developments demand a balance of efficiency, flexibility, and architectural appeal. Kenmos Engineering supports these projects by delivering structural systems that accommodate open floor plates, tenant fitout adaptability, and service integration.\n\nCommon challenges include large column-free spans, podium transfer structures, and vibration control in occupied office and retail environments. Our methodology relies on early-stage coordination with architects and MEP designers, advanced analysis for lateral stability, and constructability-focused detailing.\n\nMaterials typically include reinforced concrete frames, steel composite beams, and post-tensioned slabs where needed. We provide construction supervision to verify concrete quality, reinforcement placement, and structural connections while maintaining schedule milestones. Our commercial sector experience ensures long-term performance and client confidence in complex urban projects.',
+  },
+  {
+    id: 'industrial',
+    title: 'Industrial & Steel Structures',
+    description: 'Heavy steel warehouses, factories, arch-truss sheds, and large-span industrial roofing.',
+    image: '/images/ind_industrial.jpg',
+    market: 'Manufacturing parks, logistics terminals, and industrial estates',
+    projectTypes: ['Warehouses', 'Manufacturing plants', 'Steel sheds', 'Maintenance facilities'],
+    services: ['Structural Design', 'Assessment & Retrofitting', 'Foundation Engineering', 'Construction Supervision'],
+    structuralSystems: ['Steel portal frames', 'Long-span trusses', 'Pre-engineered buildings'],
+    scale: 'Large-span industrial halls and heavy structures',
+    standards: 'Ethiopian Code, AISC principles, industrial safety codes',
+    longDescription:
+      'Industrial projects often demand large-span structures, simplified construction, and durable load-bearing systems. Kenmos Engineering develops practical structural solutions for warehouses, manufacturing plants, and industrial sheds with a strong focus on economy and serviceability.\n\nThe main engineering challenges include long-span roofing, heavy crane loads, seismic resilience, and efficient material use. Our design approach emphasizes clear load paths, modular steel framing, and robust foundation solutions to support dynamic and concentrated loads.\n\nMaterials are typically structural steel, reinforced concrete foundations, and durable cladding systems. During construction supervision, we monitor steel erection, joint welding, and anchor bolt tolerances to ensure the structure meets performance and safety expectations. Our expertise in industrial engineering delivers high-quality, fit-for-purpose buildings with long-term reliability.',
+  },
+  {
+    id: 'residential',
+    title: 'Residential Complexes',
+    description: 'Multi-family apartments, luxury villas, and scaled residential developments.',
+    image: '/images/ind_residential.jpg',
+    market: 'Urban residential neighborhoods and gated communities',
+    projectTypes: ['Apartment towers', 'Luxury villas', 'Townhouse clusters', 'Condominiums'],
+    services: ['Structural Design', 'Project Management', 'BIM Coordination', 'Construction Supervision'],
+    structuralSystems: ['RC frames', 'Shear walls', 'Flat slabs', 'Pile foundations'],
+    scale: 'Low- to high-rise residential buildings',
+    standards: 'ACI, Ethiopian Code, local housing regulations',
+    longDescription:
+      'Residential projects require careful attention to livability, cost, and structural efficiency. Kenmos Engineering designs residential complexes with practical floor layouts, durable structural systems, and coordinated service provisions.\n\nKey engineering challenges include vibration control for occupied units, seismic resistance, and accommodating varying architectural forms. Our design methodology employs reinforced concrete frames, shear walls, and flat slabs to provide efficient structural systems that support both open living spaces and multiple vertical loads.\n\nMaterials are primarily reinforced concrete, with selected steel elements for balconies and transfer zones. We supervise concrete casting, reinforcement placement, and finishing quality to ensure long-term performance, resilience, and comfort for future residents.',
+  },
+  {
+    id: 'institutional',
+    title: 'Institutional Projects',
+    description: 'Government buildings, university campuses, schools, and public assembly structures.',
+    image: '/images/ind_institutional.jpg',
+    market: 'Educational, governmental, and public institution campuses',
+    projectTypes: ['Government offices', 'University buildings', 'Schools', 'Sports facilities'],
+    services: ['Structural Design', 'Construction Supervision', 'Assessment & Retrofitting', 'Foundation Engineering'],
+    structuralSystems: ['RC cores', 'Steel roof trusses', 'Concrete frames', 'Membrane roofs'],
+    scale: 'Large civic and campus-scale developments',
+    standards: 'ACI, Ethiopian Code, accessibility and public safety standards',
+    longDescription:
+      'Institutional projects serve the public realm and require structural solutions that are reliable, durable, and adaptable. Kenmos Engineering delivers structural design for government facilities, campuses, and assembly buildings while addressing safety, functionality, and long-term use.\n\nChallenges include large assembly spaces, complex service integration, long-span roof systems, and architecturally expressive forms. We use a balanced structural approach with reinforced concrete cores, steel roof trusses, and efficient lateral load resistance to ensure stability and user safety.\n\nMaterials typically include reinforced concrete, steel framing, and durable roofing systems. Construction supervision focuses on site coordination, material quality, and compliance with public building codes, delivering institutional structures that meet both performance and civic expectations.',
+  },
+  {
+    id: 'hospitality',
+    title: 'Hospitality Projects',
+    description: 'Hotels, resorts, and leisure complexes engineered for safety and long service life.',
+    image: '/images/ind_hospitality.jpg',
+    market: 'Urban and resort hospitality destinations',
+    projectTypes: ['Hotels', 'Resorts', 'Convention centers', 'Hospitality towers'],
+    services: ['Structural Design', 'Project Management', 'BIM Coordination', 'Construction Supervision'],
+    structuralSystems: ['RC frames', 'Transfer slabs', 'Composite decks', 'Podium structures'],
+    scale: 'Medium- to high-rise hospitality developments',
+    standards: 'ACI, Ethiopian Code, hospitality safety and accessibility requirements',
+    longDescription:
+      'Hospitality projects demand refined structural systems that support guest comfort, architectural quality, and operational flexibility. Kenmos Engineering engineers hotels and resorts with careful attention to floor vibration, service coordination, and facade support.\n\nThe primary challenges are minimizing vibration in guest rooms, accommodating heavy MEP loads, and integrating transfer structures for mixed-use podiums. Our design methodology combines reinforced concrete frames, transfer slabs, and efficient lateral systems to satisfy both aesthetics and structural performance.\n\nMaterials include reinforced concrete, steel for selective transfer elements, and high-performance slab systems. During construction supervision, we monitor slab quality, service coordination, and waterproofing details to ensure the project meets operational and longevity expectations.',
+  },
+  {
+    id: 'infrastructure',
+    title: 'Infrastructure Works',
+    description: 'Bridges, retaining structures, stadiums, and specialized concrete and steel structures.',
+    image: '/images/ind_infrastructure.jpg',
+    market: 'Transport, civic, and large-scale infrastructure networks',
+    projectTypes: ['Bridges', 'Stadiums', 'Retaining walls', 'Infrastructure facilities'],
+    services: ['Structural Design', 'Foundation Engineering', 'Seismic Design', 'Construction Supervision'],
+    structuralSystems: ['Prestressed concrete', 'RC box girders', 'Steel trusses', 'Segmental systems'],
+    scale: 'Large-scale civil and infrastructure developments',
+    standards: 'ACI, Eurocode principles, Ethiopian Code, seismic design codes',
+    longDescription:
+      'Infrastructure projects carry significant public impact and require robust engineering for safety, durability, and constructability. Kenmos Engineering provides structural design for bridges, stadiums, and specialized infrastructure works with a focus on load-carrying capacity and service life.\n\nEngineering challenges include seismic demands, large-span structures, heavy foundation loads, and long-term durability under variable conditions. Our approach blends prestressed concrete, reinforced concrete, and steel systems to optimize strength, maintainability, and construction sequence efficiency.\n\nMaterials are selected for durability and performance, including prestressed concrete, high-strength steel, and corrosion-resistant systems. Construction supervision is critical for foundation works, structural assembly, and quality control to ensure infrastructure projects serve communities safely for decades.',
+  },
+]
+
+export default industries

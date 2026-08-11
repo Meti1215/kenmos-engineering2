@@ -3,7 +3,9 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Building2, ArrowRight } from 'lucide-react'
+import Link from 'next/link'
 import Footer from '@/components/Footer'
+import PageHero from '@/components/PageHero'
 import { industries } from '@/lib/brand'
 
 export default function IndustriesPage() {
@@ -24,21 +26,15 @@ export default function IndustriesPage() {
   return (
     <main className="relative min-h-screen bg-white">
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-16 md:pb-24 px-4 sm:px-6 lg:px-8 bg-[#111112] text-white">
-        <div className="relative max-w-7xl mx-auto text-center flex flex-col items-center gap-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 text-[#D71920] text-xs font-bold uppercase tracking-wider">
-            <Building2 className="w-4 h-4" />
-            Sectors We Serve
-          </div>
-          <h1 className="text-4xl md:text-6xl font-black text-[#D71920] font-heading uppercase leading-none mt-2">
-            Industries
-          </h1>
-          <p className="text-sm md:text-lg text-gray-300 max-w-3xl leading-relaxed mt-2 font-light">
-            Structural engineering expertise across diverse sectors — from commercial high-rises to heavy industrial steel structures.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        badge="Sectors We Serve"
+        title="Industries"
+        description="Structural engineering expertise across diverse sectors — from commercial high-rises to heavy industrial steel structures."
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Industries' },
+        ]}
+      />
 
       {/* Industries Grid */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
@@ -56,7 +52,7 @@ export default function IndustriesPage() {
               variants={cardVariants}
               className="group relative overflow-hidden flex flex-col cursor-pointer rounded-[1.25rem] border border-[#E9E4DC] shadow-[0_18px_44px_rgba(17,17,17,0.08)] transition-all duration-300 hover:-translate-y-2 hover:border-[#D71920]/35 hover:shadow-[0_28px_70px_rgba(17,17,17,0.16)]"
             >
-              <div className="relative overflow-hidden bg-gray-950 h-[280px] sm:h-[320px] md:h-[360px]">
+              <Link href={`/industries/${ind.id}`} className="relative overflow-hidden bg-gray-950 h-[280px] sm:h-[320px] md:h-[360px]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={ind.image}
@@ -66,7 +62,7 @@ export default function IndustriesPage() {
                 <div className="absolute left-0 top-0 z-20 flex h-10 w-10 items-center justify-center rounded-[0.75rem] bg-[#D71920]/90 text-white shadow-[0_8px_20px_rgba(215,25,32,0.35)] opacity-0 transition-all duration-300 group-hover:opacity-100">
                   <ArrowRight className="h-5 w-5" />
                 </div>
-              </div>
+              </Link>
 
               <div className="relative z-10 bg-white p-6 md:p-8 flex flex-col gap-3">
                 <h3 className="text-xl md:text-2xl font-black font-heading tracking-tight text-[#111112] transition-colors leading-tight">
@@ -75,6 +71,12 @@ export default function IndustriesPage() {
                 <p className="text-xs md:text-sm text-gray-500 leading-relaxed font-light">
                   {ind.description}
                 </p>
+                <div className="mt-auto">
+                  <Link href={`/industries/${ind.id}`} className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.24em] text-[#D71920] transition-colors duration-200 hover:text-red-700">
+                    Explore Industry
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
               </div>
 
               <div className="absolute left-0 top-0 z-30 h-[3px] w-0 bg-[#D71920] transition-all duration-300 group-hover:w-full" />

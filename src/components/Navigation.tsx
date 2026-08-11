@@ -58,7 +58,7 @@ const Navigation = () => {
   ]
 
   const heroWhiteNavItemIds = ['home', 'about', 'services', 'projects', 'industries', 'process', 'more', 'contact']
-  const forceScrolledRoutes = ['about', 'projects', 'industries', 'process', 'careers', 'events']
+  const forceScrolledRoutes = ['about', 'services', 'projects', 'industries', 'process', 'careers', 'events', 'contact']
   const isForceScrolledRoute = forceScrolledRoutes.some((route) => pathname === `/${route}` || pathname.startsWith(`/${route}/`)) || pathname.startsWith('/articles')
 
   const getLinkTextClass = (itemId: string, isHeroVisibleState: boolean) => {
@@ -354,7 +354,16 @@ const Navigation = () => {
                   }
 
                   return (
-                    <Link key={item.name} href={item.href} prefetch={true} onClick={() => setMobileMenuOpen(false)} className={cn('relative px-4 py-3 text-sm font-medium uppercase tracking-[0.18em] transition-colors rounded', isActive(item.href) ? 'text-[#D71920] bg-red-50/70' : 'text-gray-700 hover:bg-gray-50 hover:text-[#D71920]')}>
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      prefetch={true}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={cn(
+                        'relative px-4 py-3 text-sm font-medium uppercase tracking-[0.18em] transition-colors rounded',
+                        isActive(item.href) ? 'text-[#D71920] bg-red-50/70' : 'text-gray-700 hover:bg-gray-50 hover:text-[#D71920]',
+                      )}
+                    >
                       {item.name}
                       {isActive(item.href) && (
                         <span className="absolute bottom-1 left-1/2 h-[3px] w-[50%] -translate-x-1/2 bg-[#D71920] rounded-full" />
@@ -363,7 +372,16 @@ const Navigation = () => {
                   )
                 })}
 
-                <Link key={navItems[navItems.length - 1].name} href={navItems[navItems.length - 1].href} prefetch={true} onClick={() => setMobileMenuOpen(false)} className={cn('relative px-4 py-3 text-sm font-medium uppercase tracking-[0.18em] transition-colors rounded', isActive(navItems[navItems.length - 1].href) ? 'text-[#D71920] bg-red-50/70' : 'text-gray-700 hover:bg-gray-50 hover:text-[#D71920]')}>
+                <Link
+                  key={navItems[navItems.length - 1].name}
+                  href={navItems[navItems.length - 1].href}
+                  prefetch={true}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={cn(
+                    'relative px-4 py-3 text-sm font-medium uppercase tracking-[0.18em] transition-colors rounded',
+                    isActive(navItems[navItems.length - 1].href) ? 'text-[#D71920] bg-red-50/70' : 'text-gray-700 hover:bg-gray-50 hover:text-[#D71920]',
+                  )}
+                >
                   {navItems[navItems.length - 1].name}
                   {isActive(navItems[navItems.length - 1].href) && (
                     <span className="absolute bottom-1 left-1/2 h-[3px] w-[50%] -translate-x-1/2 bg-[#D71920] rounded-full" />
