@@ -9,18 +9,22 @@ const About = () => {
   return (
     <section id="about" className="section-padding bg-transparent pt-8 sm:pt-12 md:pt-16 lg:pt-24">
       <div className="w-full max-w-none px-3 sm:px-4 lg:px-6">
-        <div className="grid w-full items-center gap-10 lg:grid-cols-[1fr_0.82fr_1fr] lg:gap-14 xl:gap-16">
+        <div className="grid w-full items-center gap-10 lg:grid-cols-[1.3fr_0.75fr_1fr] lg:gap-14 xl:gap-16">
           <div className="relative flex justify-center">
-            <div className="relative w-full max-w-[520px] overflow-hidden rounded-[2.2rem] p-3 sm:p-4">
+            <div className="relative w-full max-w-[760px] overflow-hidden rounded-[2.2rem]">
               <div className="absolute inset-0 translate-y-6 rounded-[2.2rem] border border-[#D71920]/70" />
-              <div className="absolute -bottom-4 -left-4 z-20 h-16 w-20 rounded-[1rem] bg-[#D71920] shadow-[0_18px_36px_rgba(215,25,32,0.2)]" />
-              <div className="absolute -right-6 -top-6 z-20 hidden h-36 w-36 rounded-[1.25rem] border border-gray-200 bg-white/85 p-2 shadow-[0_16px_40px_rgba(17,17,17,0.08)] sm:block">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/about_collage_2.png" alt="Structural engineering schematic wireframe" className="h-full w-full rounded-[0.9rem] border border-gray-100 object-cover" />
-              </div>
-              <div className="relative z-10 overflow-hidden rounded-[1.75rem] shadow-[0_24px_55px_rgba(17,17,17,0.12)]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/about_collage_1.png" alt="Kenmos Structural Engineering design collage" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
+              <div className="relative z-10 overflow-hidden rounded-[1.75rem] shadow-[0_24px_55px_rgba(17,17,17,0.12)] aspect-video">
+                <video
+                  src="/images/about_collage_1.mp4"
+                  poster="/images/about_collage_1.png"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  className="h-full w-full object-contain"
+                  aria-label="Kenmos Structural Engineering design collage"
+                />
               </div>
             </div>
           </div>

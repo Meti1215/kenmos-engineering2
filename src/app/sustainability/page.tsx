@@ -80,36 +80,25 @@ export default function SustainabilityPage() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="relative overflow-hidden shadow-xl bg-white border border-gray-100"
+            className="bg-white border border-gray-100 shadow-lg p-8 lg:col-span-2"
           >
-            <div className="relative aspect-[16/10]">
-              <Image
-                src="/images/about_collage_2.png"
-                alt="Community contributions"
-                fill
-                className="object-cover"
-                unoptimized
-              />
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#D71920]/10 text-[#D71920] text-sm font-semibold">
+              <HeartHandshake className="w-4 h-4" />
+              Contributions
             </div>
-            <div className="p-7">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#D71920]/10 text-[#D71920] text-sm font-semibold">
-                <HeartHandshake className="w-4 h-4" />
-                Contributions
-              </div>
-              <h2 className="text-2xl font-bold text-gray-900 mt-4">A responsible approach to growth</h2>
-              <p className="text-gray-600 mt-3 leading-relaxed">
-                We aim to strengthen stakeholder trust by integrating responsible practices into planning, operations, and
-                partnerships.
-              </p>
-              <div className="mt-6">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 border border-gray-300 hover:border-[#D71920] hover:text-[#D71920] text-gray-700 text-xs font-bold uppercase tracking-wider px-5 py-3 transition-colors"
-                >
-                  Discuss ESG & Partnerships
-                  <ArrowRight className="w-4 h-4 ml-1" />
-                </Link>
-              </div>
+            <h2 className="text-2xl font-bold text-gray-900 mt-4">A responsible approach to growth</h2>
+            <p className="text-gray-600 mt-3 leading-relaxed">
+              We aim to strengthen stakeholder trust by integrating responsible practices into planning, operations, and
+              partnerships.
+            </p>
+            <div className="mt-6">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 border border-gray-300 hover:border-[#D71920] hover:text-[#D71920] text-gray-700 text-xs font-bold uppercase tracking-wider px-5 py-3 transition-colors"
+              >
+                Discuss ESG & Partnerships
+                <ArrowRight className="w-4 h-4 ml-1" />
+              </Link>
             </div>
           </motion.div>
 
