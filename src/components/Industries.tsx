@@ -27,14 +27,21 @@ const Industries = () => {
             <motion.div
               key={ind.id}
               variants={cardVariants}
+<<<<<<< Updated upstream
               className="group h-full flex flex-col overflow-hidden bg-white border border-gray-200 shadow-sm rounded-lg hover:shadow-lg transition-all duration-300 cursor-pointer"
             >
               {/* Image: compact on mobile (h-40 for 2-per-row), scales up matching Projects at sm/md/lg */}
               <div className="relative h-40 w-full flex-shrink-0 overflow-hidden bg-gray-100 sm:h-56 md:h-64 lg:h-72">
+=======
+              className="group flex h-full flex-col overflow-hidden rounded-lg border border-gray-200/80 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-gray-300 hover:shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1),0_8px_10px_-6px_rgba(0,0,0,0.08)]"
+            >
+              <div className="relative block h-56 w-full flex-shrink-0 overflow-hidden bg-gray-100 transition-all duration-200 sm:h-64 md:h-72">
+>>>>>>> Stashed changes
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={ind.image}
                   alt={ind.title}
+<<<<<<< Updated upstream
                   className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
               </div>
@@ -65,6 +72,17 @@ const Industries = () => {
                 </div>
               </div>
 
+=======
+                  className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 group-hover:opacity-90"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 z-10 px-4 pb-4 pt-6 sm:px-5 md:px-6">
+                  <h3 className="text-[13px] font-black leading-tight tracking-tight text-white md:text-base">{ind.title}</h3>
+                  <p className="mt-1 text-[10px] font-light leading-[1.45] text-white md:text-[13px]">{ind.description}</p>
+                </div>
+              </div>
+>>>>>>> Stashed changes
             </motion.div>
           ))}
         </motion.div>

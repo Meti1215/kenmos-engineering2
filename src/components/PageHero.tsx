@@ -21,29 +21,22 @@ export default function PageHero({
   breadcrumbs,
   imageSrc = '/images/hero-new.jpg',
 }: PageHeroProps) {
-  const specialHeroTitles = new Set([
-    'Consultancy Services',
-    'Engineering Projects',
-    'Industries',
-    'Our Process',
-    'News & Articles',
-    'Join Our Team',
-    'Engineering Events',
-    'Contact Us',
-  ])
-  const isSpecialHeroTitle = specialHeroTitles.has(title)
   return (
-    <section className="relative overflow-hidden">
-      <div className="absolute inset-0">
-        <img
-          src={imageSrc}
-          alt="Kenmos Engineering hero background"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/65" />
-      </div>
+    <section className="relative h-[52vh] min-h-[45vh] overflow-hidden">
+      <video
+        className="absolute inset-0 h-full w-full object-cover"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        poster={imageSrc}
+      >
+        <source src="/images/hero-new.MP4" type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-black/80" />
 
-      <div className="relative mx-auto flex min-h-[40vh] items-center justify-center px-5 py-20 text-center sm:px-6 lg:px-8 md:min-h-[45vh]">
+      <div className="relative z-10 flex h-full items-center justify-center px-5 text-center sm:px-6 lg:px-8">
         <div className="max-w-5xl">
           {badge ? (
             <div className="mx-auto mb-4 inline-flex items-center justify-center rounded-full bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.35em] text-white">
@@ -51,7 +44,7 @@ export default function PageHero({
             </div>
           ) : null}
 
-          <h1 className={`text-4xl font-black uppercase leading-tight tracking-tight ${isSpecialHeroTitle ? 'text-[#D71920]' : 'text-white'} sm:text-5xl md:text-6xl lg:text-7xl`}>
+          <h1 className="text-4xl font-black uppercase leading-tight tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
             {title}
           </h1>
 

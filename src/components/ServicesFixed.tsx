@@ -52,7 +52,7 @@ const serviceCards = [
 
 export default function ServicesFixed() {
   return (
-    <section className="py-20 bg-white">
+    <section className="pt-1 pb-20 bg-white">
       <div className="w-full max-w-none px-5 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div className="space-y-6">
